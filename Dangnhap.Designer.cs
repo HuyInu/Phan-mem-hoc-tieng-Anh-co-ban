@@ -1,0 +1,242 @@
+﻿namespace Đồ_án
+{
+    partial class Dangnhap
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.gradian1 = new Gradian.gradian();
+            this.butdn = new Đồ_án.CustomButton();
+            this.labmatkhau = new System.Windows.Forms.Label();
+            this.labdangky = new System.Windows.Forms.Label();
+            this.txtmk = new Đồ_án.RoundTextbox();
+            this.txttk = new Đồ_án.RoundTextbox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.but = new Đồ_án.CustomButton();
+            this.gradian1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 0;
+            // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.BorderRadius = 0;
+            // 
+            // gradian1
+            // 
+            this.gradian1.ColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(157)))), ((int)(((byte)(255)))));
+            this.gradian1.ColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(214)))), ((int)(((byte)(255)))));
+            this.gradian1.Controls.Add(this.butdn);
+            this.gradian1.Controls.Add(this.labmatkhau);
+            this.gradian1.Controls.Add(this.labdangky);
+            this.gradian1.Controls.Add(this.txtmk);
+            this.gradian1.Controls.Add(this.txttk);
+            this.gradian1.Controls.Add(this.label2);
+            this.gradian1.Controls.Add(this.label1);
+            this.gradian1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradian1.Location = new System.Drawing.Point(0, 0);
+            this.gradian1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gradian1.Name = "gradian1";
+            this.gradian1.Size = new System.Drawing.Size(708, 362);
+            this.gradian1.TabIndex = 0;
+            // 
+            // butdn
+            // 
+            this.butdn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.butdn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.butdn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butdn.BorderRadius = 15;
+            this.butdn.BorderSize = 2;
+            this.butdn.FlatAppearance.BorderSize = 0;
+            this.butdn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butdn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.butdn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butdn.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butdn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butdn.Location = new System.Drawing.Point(278, 243);
+            this.butdn.Margin = new System.Windows.Forms.Padding(4);
+            this.butdn.Name = "butdn";
+            this.butdn.Size = new System.Drawing.Size(113, 41);
+            this.butdn.TabIndex = 6;
+            this.butdn.Text = "Đăng nhập";
+            this.butdn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butdn.UseVisualStyleBackColor = false;
+            this.butdn.Click += new System.EventHandler(this.butdn_Click);
+            // 
+            // labmatkhau
+            // 
+            this.labmatkhau.AutoSize = true;
+            this.labmatkhau.BackColor = System.Drawing.Color.Transparent;
+            this.labmatkhau.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labmatkhau.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.labmatkhau.Location = new System.Drawing.Point(244, 199);
+            this.labmatkhau.Name = "labmatkhau";
+            this.labmatkhau.Size = new System.Drawing.Size(124, 21);
+            this.labmatkhau.TabIndex = 9;
+            this.labmatkhau.Text = "Quên mật khẩu?";
+            this.labmatkhau.MouseEnter += new System.EventHandler(this.labmatkhau_MouseEnter);
+            this.labmatkhau.MouseLeave += new System.EventHandler(this.labmatkhau_MouseLeave);
+            // 
+            // labdangky
+            // 
+            this.labdangky.AutoSize = true;
+            this.labdangky.BackColor = System.Drawing.Color.Transparent;
+            this.labdangky.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labdangky.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.labdangky.Location = new System.Drawing.Point(493, 199);
+            this.labdangky.Name = "labdangky";
+            this.labdangky.Size = new System.Drawing.Size(66, 21);
+            this.labdangky.TabIndex = 8;
+            this.labdangky.Text = "Đăng ký";
+            this.labdangky.Click += new System.EventHandler(this.labdangky_Click);
+            this.labdangky.MouseEnter += new System.EventHandler(this.labdangky_MouseEnter);
+            this.labdangky.MouseLeave += new System.EventHandler(this.labdangky_MouseLeave);
+            // 
+            // txtmk
+            // 
+            this.txtmk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.txtmk.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.txtmk.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtmk.BorderRadius = 15;
+            this.txtmk.BorderSize = 2;
+            this.txtmk.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmk.Location = new System.Drawing.Point(247, 158);
+            this.txtmk.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtmk.Multiline = false;
+            this.txtmk.Name = "txtmk";
+            this.txtmk.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.txtmk.PasswordChar = true;
+            this.txtmk.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtmk.PlaceholderText = "";
+            this.txtmk.Size = new System.Drawing.Size(321, 42);
+            this.txtmk.TabIndex = 7;
+            this.txtmk.Texts = "";
+            this.txtmk.UnderlinedStyle = false;
+            // 
+            // txttk
+            // 
+            this.txttk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.txttk.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.txttk.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txttk.BorderRadius = 15;
+            this.txttk.BorderSize = 2;
+            this.txttk.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttk.Location = new System.Drawing.Point(247, 103);
+            this.txttk.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txttk.Multiline = false;
+            this.txttk.Name = "txttk";
+            this.txttk.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.txttk.PasswordChar = false;
+            this.txttk.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txttk.PlaceholderText = "";
+            this.txttk.Size = new System.Drawing.Size(321, 42);
+            this.txttk.TabIndex = 6;
+            this.txttk.Texts = "";
+            this.txttk.UnderlinedStyle = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.label2.Location = new System.Drawing.Point(121, 166);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 28);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Mật khẩu";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.label1.Location = new System.Drawing.Point(123, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 28);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Tài khoản";
+            // 
+            // but
+            // 
+            this.but.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.but.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.but.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.but.BorderRadius = 15;
+            this.but.BorderSize = 2;
+            this.but.FlatAppearance.BorderSize = 0;
+            this.but.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.but.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.but.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.but.Location = new System.Drawing.Point(283, 248);
+            this.but.Margin = new System.Windows.Forms.Padding(4);
+            this.but.Name = "but";
+            this.but.Size = new System.Drawing.Size(113, 41);
+            this.but.TabIndex = 10;
+            this.but.Text = "Đăng ký";
+            this.but.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.but.UseVisualStyleBackColor = false;
+            // 
+            // Dangnhap
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(708, 362);
+            this.Controls.Add(this.gradian1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "Dangnhap";
+            this.Text = "Dangnhap";
+            this.Load += new System.EventHandler(this.Dangnhap_Load);
+            this.gradian1.ResumeLayout(false);
+            this.gradian1.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private Gradian.gradian gradian1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
+        private RoundTextbox txttk;
+        private RoundTextbox txtmk;
+        private System.Windows.Forms.Label labmatkhau;
+        private System.Windows.Forms.Label labdangky;
+        private CustomButton but;
+        private CustomButton butdn;
+    }
+}

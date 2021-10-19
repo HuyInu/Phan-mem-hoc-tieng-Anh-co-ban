@@ -39,7 +39,8 @@ namespace Đồ_án
             int a;
             SqlCommand sqlcm = new SqlCommand(ss, cn);
             cn.Open();
-            a=sqlcm.ExecuteNonQuery();
+            a=int.Parse(sqlcm.ExecuteScalar().ToString());
+            cn.Close();
             return a;
         }
     }

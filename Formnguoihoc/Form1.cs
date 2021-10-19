@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Đồ_án
 {
@@ -22,23 +23,19 @@ namespace Đồ_án
         private void Form1_Load(object sender, EventArgs e)
         {
             pnelhoc.Hide();
-            GC.Collect();
+            textBox1.Text = NGUOIHOC.id;
+            
         }
 
-        private void picedit_MouseHover(object sender, EventArgs e)
+       
+        private void buthoc_Click_1(object sender, EventArgs e)
         {
-           picedit.Load("picture/edithover.png");
-            GC.Collect();
-           
-        }
-
-        private void picedit_MouseLeave(object sender, EventArgs e)
-        {
-            picedit.Load("picture/edit.png");
+            maincrn.Hide();
+            pnelhoc.Show();
             GC.Collect();
         }
 
-        private void picedit_Click(object sender, EventArgs e)
+        private void picedit_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             formcanhan fcn = new formcanhan();
@@ -47,16 +44,19 @@ namespace Đồ_án
             fcn.ShowDialog();
             this.Close();
             GC.Collect();
-
-
         }
 
-        private void buthoc_Click(object sender, EventArgs e)
+        private void picedit_MouseEnter(object sender, EventArgs e)
         {
-            maincrn.Hide();
-            pnelhoc.Show();
-            GC.Collect();
 
+            picedit.Load("picture/edithover.png");
+            GC.Collect();
+        }
+
+        private void picedit_MouseLeave(object sender, EventArgs e)
+        {
+            picedit.Load("picture/edit.png");
+            GC.Collect();
         }
     }
 }
