@@ -8,13 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Đồ_án.Admin
+namespace Đồ_án
 {
     public partial class Adminform : Form
     {
         public Adminform()
         {
             InitializeComponent();
+        }
+
+        private void customButton1_Click(object sender, EventArgs e)
+        {
+            Nguoihocinfo nh = new Nguoihocinfo();
+            nh.TopLevel = false;
+            maincrn.Controls.Add(nh);
+            nh.Dock = DockStyle.Fill;
+            nh.Show();
+        }
+
+        private void Adminform_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

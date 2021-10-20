@@ -24,7 +24,7 @@ namespace Đồ_án
         {
             try
             {
-                db = new Database("NGUYEN-GIA-HUY", "QLAV");
+                db = new Database("QLAV");
             }
             catch (Exception ex)
             {

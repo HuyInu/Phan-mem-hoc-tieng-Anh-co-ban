@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace Đồ_án
 {
     class Database
@@ -13,10 +14,11 @@ namespace Đồ_án
         SqlConnection cn;
         SqlDataAdapter da;
         DataSet ds;
-
-
-        public Database(string svname, string tendata)
+    
+        public sealed class SqlDataSourceEnumerator  { };
+        public Database(string tendata)
         {
+            string svname = Environment.MachineName;
             string con = @"Data Source=" + svname + ";Initial Catalog=" + tendata + ";Integrated Security=True";
             cn = new SqlConnection(con);
         }
