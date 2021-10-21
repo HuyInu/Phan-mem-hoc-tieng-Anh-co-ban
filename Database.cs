@@ -15,7 +15,6 @@ namespace Đồ_án
         SqlDataAdapter da;
         DataSet ds;
     
-        public sealed class SqlDataSourceEnumerator  { };
         public Database(string tendata)
         {
             string svname = Environment.MachineName;
