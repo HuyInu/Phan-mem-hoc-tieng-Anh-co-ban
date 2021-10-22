@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.maincrn = new System.Windows.Forms.Panel();
             this.gradian1 = new Gradian.gradian();
             this.pnelleft = new Guna.UI2.WinForms.Guna2Panel();
-            this.customButton1 = new Đồ_án.CustomButton();
             this.pnelava = new System.Windows.Forms.Panel();
-            this.maincrn = new System.Windows.Forms.Panel();
+            this.butnhapNH = new Đồ_án.CustomButton();
             this.gradian1.SuspendLayout();
             this.pnelleft.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +43,19 @@
             // 
             this.guna2Elipse1.BorderRadius = 25;
             this.guna2Elipse1.TargetControl = this.maincrn;
+            // 
+            // maincrn
+            // 
+            this.maincrn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maincrn.AutoScroll = true;
+            this.maincrn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.maincrn.Location = new System.Drawing.Point(259, 49);
+            this.maincrn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.maincrn.Name = "maincrn";
+            this.maincrn.Size = new System.Drawing.Size(972, 606);
+            this.maincrn.TabIndex = 4;
             // 
             // gradian1
             // 
@@ -60,7 +73,7 @@
             // pnelleft
             // 
             this.pnelleft.BackColor = System.Drawing.Color.Transparent;
-            this.pnelleft.Controls.Add(this.customButton1);
+            this.pnelleft.Controls.Add(this.butnhapNH);
             this.pnelleft.Controls.Add(this.pnelava);
             this.pnelleft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnelleft.Location = new System.Drawing.Point(0, 0);
@@ -69,26 +82,6 @@
             this.pnelleft.ShadowDecoration.Parent = this.pnelleft;
             this.pnelleft.Size = new System.Drawing.Size(252, 702);
             this.pnelleft.TabIndex = 5;
-            // 
-            // customButton1
-            // 
-            this.customButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.customButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.customButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.customButton1.BorderRadius = 20;
-            this.customButton1.BorderSize = 0;
-            this.customButton1.FlatAppearance.BorderSize = 0;
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(35, 231);
-            this.customButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(200, 49);
-            this.customButton1.TabIndex = 1;
-            this.customButton1.Text = "customButton1";
-            this.customButton1.TextColor = System.Drawing.Color.White;
-            this.customButton1.UseVisualStyleBackColor = false;
-            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
             // 
             // pnelava
             // 
@@ -99,18 +92,28 @@
             this.pnelava.Size = new System.Drawing.Size(235, 148);
             this.pnelava.TabIndex = 0;
             // 
-            // maincrn
+            // butnhapNH
             // 
-            this.maincrn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.maincrn.AutoScroll = true;
-            this.maincrn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.maincrn.Location = new System.Drawing.Point(259, 49);
-            this.maincrn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.maincrn.Name = "maincrn";
-            this.maincrn.Size = new System.Drawing.Size(972, 606);
-            this.maincrn.TabIndex = 4;
+            this.butnhapNH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butnhapNH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butnhapNH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butnhapNH.BorderRadius = 15;
+            this.butnhapNH.BorderSize = 2;
+            this.butnhapNH.FlatAppearance.BorderSize = 0;
+            this.butnhapNH.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butnhapNH.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.butnhapNH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butnhapNH.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butnhapNH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butnhapNH.Location = new System.Drawing.Point(73, 225);
+            this.butnhapNH.Margin = new System.Windows.Forms.Padding(4);
+            this.butnhapNH.Name = "butnhapNH";
+            this.butnhapNH.Size = new System.Drawing.Size(113, 35);
+            this.butnhapNH.TabIndex = 33;
+            this.butnhapNH.Text = "Thao tác";
+            this.butnhapNH.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butnhapNH.UseVisualStyleBackColor = false;
+            this.butnhapNH.Click += new System.EventHandler(this.butnhapNH_Click_1);
             // 
             // Adminform
             // 
@@ -134,7 +137,7 @@
         private Guna.UI2.WinForms.Guna2Panel pnelleft;
         private System.Windows.Forms.Panel pnelava;
         private System.Windows.Forms.Panel maincrn;
-        private CustomButton customButton1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private CustomButton butnhapNH;
     }
 }

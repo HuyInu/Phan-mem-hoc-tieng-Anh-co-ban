@@ -17,18 +17,19 @@ namespace Đồ_án
             InitializeComponent();
         }
 
-        private void customButton1_Click(object sender, EventArgs e)
+
+        private void Adminform_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void butnhapNH_Click_1(object sender, EventArgs e)
         {
             Nguoihocinfo nh = new Nguoihocinfo();
             nh.TopLevel = false;
             maincrn.Controls.Add(nh);
             nh.Dock = DockStyle.Fill;
             nh.Show();
-        }
-
-        private void Adminform_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }
