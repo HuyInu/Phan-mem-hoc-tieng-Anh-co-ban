@@ -122,11 +122,5 @@ namespace Đồ_án
             GC.Collect();
         }
     }
-    class program
-    {
-        public static void main(string[] args)
-        {
-
-        }
-    }
+   
 }

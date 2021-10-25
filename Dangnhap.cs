@@ -21,25 +21,32 @@ namespace Đồ_án
         {
             this.CenterToScreen();
         }
-
+        public void MouseEnterlabel(Label a)
+        {
+            a.ForeColor = System.Drawing.Color.FromArgb(0, 119, 171);
+        }
+        public void MouseLeavelabel(Label a)
+        {
+            a.ForeColor = System.Drawing.Color.FromArgb(7, 59, 122);
+        }
         private void labdangky_MouseEnter(object sender, EventArgs e)
         {
-            labdangky.ForeColor = System.Drawing.Color.FromArgb(0, 119, 171);
+            MouseEnterlabel(labdangky);
         }
 
         private void labdangky_MouseLeave(object sender, EventArgs e)
         {
-            labdangky.ForeColor = System.Drawing.Color.FromArgb(7, 59, 122);
+            MouseLeavelabel(labdangky);
         }
 
         private void labmatkhau_MouseEnter(object sender, EventArgs e)
         {
-            labmatkhau.ForeColor = System.Drawing.Color.FromArgb(0, 119, 171);
+            MouseEnterlabel(labmatkhau);
         }
 
         private void labmatkhau_MouseLeave(object sender, EventArgs e)
         {
-            labmatkhau.ForeColor = System.Drawing.Color.FromArgb(7, 59, 122);
+            MouseLeavelabel(labmatkhau);
         }
 
         private void labdangky_Click(object sender, EventArgs e)
