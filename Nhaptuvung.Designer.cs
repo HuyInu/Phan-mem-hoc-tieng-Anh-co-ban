@@ -28,94 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txthoten = new Đồ_án.RoundTextbox();
-            this.roundTextbox1 = new Đồ_án.RoundTextbox();
-            this.roundTextbox2 = new Đồ_án.RoundTextbox();
+            this.txtmatv = new Đồ_án.RoundTextbox();
+            this.txtmabh = new Đồ_án.RoundTextbox();
+            this.txtnoidung = new Đồ_án.RoundTextbox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.roundTextbox3 = new Đồ_án.RoundTextbox();
+            this.dtgTV = new System.Windows.Forms.DataGridView();
+            this.txtloai = new Đồ_án.RoundTextbox();
             this.label4 = new System.Windows.Forms.Label();
             this.butthaotac = new Đồ_án.CustomButton();
             this.butcapnhat = new Đồ_án.CustomButton();
             this.butthem = new Đồ_án.CustomButton();
             this.butxoa = new Đồ_án.CustomButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTV)).BeginInit();
             this.SuspendLayout();
             // 
-            // txthoten
+            // txtmatv
             // 
-            this.txthoten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.txthoten.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.txthoten.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txthoten.BorderRadius = 15;
-            this.txthoten.BorderSize = 2;
-            this.txthoten.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txthoten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txthoten.Location = new System.Drawing.Point(149, 64);
-            this.txthoten.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txthoten.Multiline = false;
-            this.txthoten.Name = "txthoten";
-            this.txthoten.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.txthoten.PasswordChar = false;
-            this.txthoten.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txthoten.PlaceholderText = "";
-            this.txthoten.Size = new System.Drawing.Size(175, 32);
-            this.txthoten.TabIndex = 19;
-            this.txthoten.Texts = "";
-            this.txthoten.UnderlinedStyle = false;
+            this.txtmatv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.txtmatv.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.txtmatv.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtmatv.BorderRadius = 15;
+            this.txtmatv.BorderSize = 2;
+            this.txtmatv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmatv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.txtmatv.Location = new System.Drawing.Point(149, 57);
+            this.txtmatv.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtmatv.Multiline = false;
+            this.txtmatv.Name = "txtmatv";
+            this.txtmatv.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.txtmatv.PasswordChar = false;
+            this.txtmatv.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtmatv.PlaceholderText = "";
+            this.txtmatv.Size = new System.Drawing.Size(175, 32);
+            this.txtmatv.TabIndex = 19;
+            this.txtmatv.Texts = "";
+            this.txtmatv.UnderlinedStyle = false;
             // 
-            // roundTextbox1
+            // txtmabh
             // 
-            this.roundTextbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.roundTextbox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.roundTextbox1.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.roundTextbox1.BorderRadius = 15;
-            this.roundTextbox1.BorderSize = 2;
-            this.roundTextbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.roundTextbox1.Location = new System.Drawing.Point(149, 106);
-            this.roundTextbox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.roundTextbox1.Multiline = false;
-            this.roundTextbox1.Name = "roundTextbox1";
-            this.roundTextbox1.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.roundTextbox1.PasswordChar = false;
-            this.roundTextbox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.roundTextbox1.PlaceholderText = "";
-            this.roundTextbox1.Size = new System.Drawing.Size(175, 32);
-            this.roundTextbox1.TabIndex = 20;
-            this.roundTextbox1.Texts = "";
-            this.roundTextbox1.UnderlinedStyle = false;
+            this.txtmabh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.txtmabh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.txtmabh.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtmabh.BorderRadius = 15;
+            this.txtmabh.BorderSize = 2;
+            this.txtmabh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmabh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.txtmabh.Location = new System.Drawing.Point(149, 106);
+            this.txtmabh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtmabh.Multiline = false;
+            this.txtmabh.Name = "txtmabh";
+            this.txtmabh.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.txtmabh.PasswordChar = false;
+            this.txtmabh.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtmabh.PlaceholderText = "";
+            this.txtmabh.Size = new System.Drawing.Size(175, 32);
+            this.txtmabh.TabIndex = 20;
+            this.txtmabh.Texts = "";
+            this.txtmabh.UnderlinedStyle = false;
             // 
-            // roundTextbox2
+            // txtnoidung
             // 
-            this.roundTextbox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.roundTextbox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.roundTextbox2.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.roundTextbox2.BorderRadius = 15;
-            this.roundTextbox2.BorderSize = 2;
-            this.roundTextbox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundTextbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.roundTextbox2.Location = new System.Drawing.Point(455, 57);
-            this.roundTextbox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.roundTextbox2.Multiline = false;
-            this.roundTextbox2.Name = "roundTextbox2";
-            this.roundTextbox2.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.roundTextbox2.PasswordChar = false;
-            this.roundTextbox2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.roundTextbox2.PlaceholderText = "";
-            this.roundTextbox2.Size = new System.Drawing.Size(175, 32);
-            this.roundTextbox2.TabIndex = 21;
-            this.roundTextbox2.Texts = "";
-            this.roundTextbox2.UnderlinedStyle = false;
+            this.txtnoidung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.txtnoidung.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.txtnoidung.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtnoidung.BorderRadius = 15;
+            this.txtnoidung.BorderSize = 2;
+            this.txtnoidung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnoidung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.txtnoidung.Location = new System.Drawing.Point(455, 57);
+            this.txtnoidung.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtnoidung.Multiline = false;
+            this.txtnoidung.Name = "txtnoidung";
+            this.txtnoidung.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.txtnoidung.PasswordChar = false;
+            this.txtnoidung.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtnoidung.PlaceholderText = "";
+            this.txtnoidung.Size = new System.Drawing.Size(175, 32);
+            this.txtnoidung.TabIndex = 21;
+            this.txtnoidung.Texts = "";
+            this.txtnoidung.UnderlinedStyle = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label1.Location = new System.Drawing.Point(63, 71);
+            this.label1.Location = new System.Drawing.Point(63, 64);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 18);
@@ -147,35 +147,35 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "Mã bài học";
             // 
-            // dataGridView1
+            // dtgTV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(65, 253);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(569, 176);
-            this.dataGridView1.TabIndex = 25;
+            this.dtgTV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgTV.Location = new System.Drawing.Point(65, 253);
+            this.dtgTV.Name = "dtgTV";
+            this.dtgTV.Size = new System.Drawing.Size(569, 176);
+            this.dtgTV.TabIndex = 25;
             // 
-            // roundTextbox3
+            // txtloai
             // 
-            this.roundTextbox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.roundTextbox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.roundTextbox3.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.roundTextbox3.BorderRadius = 15;
-            this.roundTextbox3.BorderSize = 2;
-            this.roundTextbox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundTextbox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.roundTextbox3.Location = new System.Drawing.Point(459, 106);
-            this.roundTextbox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.roundTextbox3.Multiline = false;
-            this.roundTextbox3.Name = "roundTextbox3";
-            this.roundTextbox3.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.roundTextbox3.PasswordChar = false;
-            this.roundTextbox3.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.roundTextbox3.PlaceholderText = "";
-            this.roundTextbox3.Size = new System.Drawing.Size(175, 32);
-            this.roundTextbox3.TabIndex = 26;
-            this.roundTextbox3.Texts = "";
-            this.roundTextbox3.UnderlinedStyle = false;
+            this.txtloai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.txtloai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.txtloai.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtloai.BorderRadius = 15;
+            this.txtloai.BorderSize = 2;
+            this.txtloai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtloai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.txtloai.Location = new System.Drawing.Point(459, 106);
+            this.txtloai.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtloai.Multiline = false;
+            this.txtloai.Name = "txtloai";
+            this.txtloai.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
+            this.txtloai.PasswordChar = false;
+            this.txtloai.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtloai.PlaceholderText = "";
+            this.txtloai.Size = new System.Drawing.Size(175, 32);
+            this.txtloai.TabIndex = 26;
+            this.txtloai.Texts = "";
+            this.txtloai.UnderlinedStyle = false;
             // 
             // label4
             // 
@@ -286,17 +286,17 @@
             this.Controls.Add(this.butcapnhat);
             this.Controls.Add(this.butthaotac);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.roundTextbox3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.txtloai);
+            this.Controls.Add(this.dtgTV);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.roundTextbox2);
-            this.Controls.Add(this.roundTextbox1);
-            this.Controls.Add(this.txthoten);
+            this.Controls.Add(this.txtnoidung);
+            this.Controls.Add(this.txtmabh);
+            this.Controls.Add(this.txtmatv);
             this.Name = "Nhaptuvung";
             this.Text = "Nhaptuvung";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,14 +304,14 @@
 
         #endregion
 
-        private RoundTextbox txthoten;
-        private RoundTextbox roundTextbox1;
-        private RoundTextbox roundTextbox2;
+        private RoundTextbox txtmatv;
+        private RoundTextbox txtmabh;
+        private RoundTextbox txtnoidung;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private RoundTextbox roundTextbox3;
+        private System.Windows.Forms.DataGridView dtgTV;
+        private RoundTextbox txtloai;
         private System.Windows.Forms.Label label4;
         private CustomButton butthaotac;
         private CustomButton butcapnhat;
