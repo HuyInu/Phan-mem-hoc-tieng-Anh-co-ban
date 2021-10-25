@@ -72,3 +72,4 @@ delete from TUVUNG
 insert into TUVUNG values('V1',2,'Hello','V')
 insert into BAIHOC values (2,'bai2')*/
 alter table TUVUNG add TiengViet char(20)
+//
