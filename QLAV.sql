@@ -2,82 +2,98 @@ create DATABASE QLAV
 go
 use QLAV
 go
-create table NGUOIHOC(
-	MaNH int not null,
-	Name varchar(20),
-	TK varchar(10),
-	MK varchar(10),
-	email varchar(20),
+create table NGUOIHOC
+(
+	MaNH int not null,	
+	Name nvarchar(20),
+	Email varchar(100),
+	TK varchar (50),
+	MK varchar(50),
 	LV smallint,
 	KN smallint,
 	constraint pk_MaNH primary key(MaNH)
 )
-create table BAIHOC(
+create table DIEM
+(
+	MaDIEM char(10) not null,
+	MaNH int not null,
+	Thoigian time,
+	constraint pk_MaDIEM primary key(MaDIEM)
+)
+create table BAIHOC
+(
 	MaBH int not null,
 	TenBH varchar(10),
 	constraint pk_MaBH primary key(MaBH)
 )
-create table HOC(
+create table HOC
+(
 	MaBH int not null,
 	MaNH int not null,
-	constraint pk_HOC primary key(MaNH,MaBH) 
+	Tiendo smallint,
+	constraint pk_HOC primary key(MaBH,MaNH)
 )
-create table TUVUNG(
+create table TUVUNG
+(
 	MaTV char(10) not null,
 	MaBH int not null,
-	Noidung varchar(20),
-	constraint pk_TUVUNG primary key(MaTV) 
-)
-create table LOAITUVUNG(
 	MaLOAI char(5) not null,
-	TenLoai varchar(10)
-	constraint pk_LOAITUVUNG primary key(MaLOAI)
+	Angu varchar(20),
+	Vngu varchar(20),
+	constraint pk_TUVUNG primary key(MaTV)
 )
-create table NGUPHAP(
-	MaNP int not null,
+create table LOAITV
+(
+	MaLOAI char(5) not null,
+	Tenloai varchar(30),
+	constraint pk_MaLOAI primary key(MaLOAI)
+)
+create table NGUPHAP
+(
+	MaNP char(10) not null,
 	MaBH int not null,
-	Noidung varchar(50),
-	constraint pk_NGUPHAP primary key(MaNP) 
+	Noidung varchar(100),
+	Chuthich varchar(100),
+	constraint pk_MaNP primary key(MaNP)
 )
-create table CAUHOI(
+create table CAUHOI
+(
 	MaCH char(5) not null,
-	Noidung varchar(100) not null,
-	Loai char(5),
-	A varchar(10),
-	B varchar(10),
-	C varchar(10),
-	Dapan char(1),
-	constraint pk_CAUHOI primary key(MaCH) 
+	MaLOAICH char(10) not null,
+	Noidung varchar(100),
+	A varchar(100),
+	B varchar(100),
+	C varchar(100),
+	Dapan varchar(100),
+	constraint pk_MaCH primary key(MaCH)
 )
-create table KIEMTRA(
-	MaCH char(5) not null,
+create table KIEMTRA
+(
 	MaNH int not null,
-	constraint pk_KIEMTRA primary key(MaCH,MaNH) 
+	MaCH int not null,
+	constraint pk_KIEMTRA primary key(MaNH,MaCH)
 )
+create table LOAICH
+(
+	MaLOAICH char(10) not null,
+	Tenloai varchar(50),
+	constraint pk_MaLOAICH primary key(MaLOAICH)
+)
+
+
+
+ALTER TABLE LOAICH
+ADD CONSTRAINT pk_MaLOAICH PRIMARY KEY (MaLOAICH);
+
+
+
+ALTER TABLE DIEM  ADD CONSTRAINT FK01_D FOREIGN KEY(MaNH) REFERENCES NGUOIHOC(MaNH) on delete cascade
+/*ALTER TABLE DIEM DROP CONSTRAINT FK01_D*/
 ALTER TABLE TUVUNG  ADD CONSTRAINT FK01_TV FOREIGN KEY(MaBH) REFERENCES BAIHOC(MaBH) on delete cascade
 /*ALTER TABLE TUVUNG DROP CONSTRAINT FK01_TV*/
-
-ALTER TABLE NGUPHAP ADD CONSTRAINT FK01_NP FOREIGN KEY(MaBH) REFERENCES BAIHOC(MaBH) on delete cascade
+ALTER TABLE TUVUNG  ADD CONSTRAINT FK02_TV FOREIGN KEY(MaLOAI) REFERENCES LOAITV(MaLOAI) on delete cascade
+/*ALTER TABLE TUVUNG DROP CONSTRAINT FK02_TV*/
+ALTER TABLE NGUPHAP  ADD CONSTRAINT FK01_NP FOREIGN KEY(MaBH) REFERENCES BAIHOC(MaBH) on delete cascade
 /*ALTER TABLE NGUPHAP DROP CONSTRAINT FK01_NP*/
-ALTER TABLE TUVUNG  ADD CONSTRAINT FK01_TV FOREIGN KEY(MaLOAI) REFERENCES LOAITUVUNG(MaLOAI) on delete cascade
-
-/*insert into NGUOIHOC values(4,'ia','ssd','aasdsd','aggaaa',165,4456)*/
-
-/*delete from NGUOIHOC*/
-
-select * from BAIHOC
-select * from CAUHOI
-select * from NGUOIHOC
-select * from TUVUNG
-select * from LOAITUVUNG
-
-/*delete from BAIHOC
-delete from TUVUNG
-
-insert into TUVUNG values('V1',2,'Hello','V')
-insert into BAIHOC values (2,'bai2')*/
-alter table TUVUNG add MaLOAI char(5) not null
-
-ALTER TABLE KIEMTRA ALTER COLUMN MaCH char(5)
-
-ALTER TABLE TUVUNG DROP COLUMN Loai
+ALTER TABLE CAUHOI  ADD CONSTRAINT FK01_CH FOREIGN KEY(MaLOAICH) REFERENCES LOAICH(MaLOAICH) on delete cascade
+/*ALTER TABLE CAUHOI DROP CONSTRAINT FK01_CH*/
