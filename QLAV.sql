@@ -1,10 +1,10 @@
-create DATABASE QLAV
+﻿create DATABASE QLAV
 go
 use QLAV
 go
 create table NGUOIHOC
 (
-	MaNH int not null,	
+	MaNH char(10) not null,	
 	Name nvarchar(20),
 	Email varchar(100),
 	TK varchar (50),
@@ -16,44 +16,44 @@ create table NGUOIHOC
 create table DIEM
 (
 	MaDIEM char(10) not null,
-	MaNH int not null,
+	MaNH char(10) not null,
 	Thoigian time,
 	constraint pk_MaDIEM primary key(MaDIEM)
 )
 create table BAIHOC
 (
-	MaBH int not null,
-	TenBH varchar(10),
+	MaBH char(10) not null,
+	TenBH nvarchar(10),
 	constraint pk_MaBH primary key(MaBH)
 )
 create table HOC
 (
-	MaBH int not null,
-	MaNH int not null,
+	MaBH char(10) not null,
+	MaNH char(10) not null,
 	Tiendo smallint,
 	constraint pk_HOC primary key(MaBH,MaNH)
 )
 create table TUVUNG
 (
 	MaTV char(10) not null,
-	MaBH int not null,
+	MaBH char(10) not null,
 	MaLOAI char(5) not null,
 	Angu varchar(20),
-	Vngu varchar(20),
+	Vngu nvarchar(20),
 	constraint pk_TUVUNG primary key(MaTV)
 )
 create table LOAITV
 (
 	MaLOAI char(5) not null,
-	Tenloai varchar(30),
+	Tenloai nvarchar(30),
 	constraint pk_MaLOAI primary key(MaLOAI)
 )
 create table NGUPHAP
 (
 	MaNP char(10) not null,
-	MaBH int not null,
-	Noidung varchar(100),
-	Chuthich varchar(100),
+	MaBH char(10) not null,
+	Noidung nvarchar(100),
+	Chuthich nvarchar(100),
 	constraint pk_MaNP primary key(MaNP)
 )
 create table CAUHOI
@@ -69,8 +69,8 @@ create table CAUHOI
 )
 create table KIEMTRA
 (
-	MaNH int not null,
-	MaCH int not null,
+	MaNH char(10) not null,
+	MaCH char(10) not null,
 	constraint pk_KIEMTRA primary key(MaNH,MaCH)
 )
 create table LOAICH
@@ -97,3 +97,25 @@ ALTER TABLE NGUPHAP  ADD CONSTRAINT FK01_NP FOREIGN KEY(MaBH) REFERENCES BAIHOC(
 /*ALTER TABLE NGUPHAP DROP CONSTRAINT FK01_NP*/
 ALTER TABLE CAUHOI  ADD CONSTRAINT FK01_CH FOREIGN KEY(MaLOAICH) REFERENCES LOAICH(MaLOAICH) on delete cascade
 /*ALTER TABLE CAUHOI DROP CONSTRAINT FK01_CH*/
+
+select * from BAIHOC where MaBH=cast(MaBH as varchar)
+
+select MaLOAI,Tenloai from LOAITV
+select *from BAIHOC
+select * from TUVUNG
+
+delete  from TUVUNG
+
+select count(MaTV) from TUVUNG
+
+insert into LOAITV values('V',N'Động từ')
+insert into LOAITV values('N',N'Danh từ')
+insert into LOAITV values('ADJ',N'Tính từ')
+insert into LOAITV values('ADV',N'Trạng từ')
+
+
+insert into TUVUNG values('1B1','1','V','run',N'chạy')
+
+
+ALTER TABLE LOAICH
+ALTER COLUMN Tenloai nvarchar(50)
