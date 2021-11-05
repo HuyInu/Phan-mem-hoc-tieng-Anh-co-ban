@@ -33,8 +33,12 @@
             this.maincrn = new System.Windows.Forms.Panel();
             this.gradian1 = new Gradian.gradian();
             this.pnelleft = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnelava = new System.Windows.Forms.Panel();
+            this.butdangxuat = new Đồ_án.CustomButton();
+            this.butnhapBAIHOC = new Đồ_án.CustomButton();
             this.butnhapNH = new Đồ_án.CustomButton();
+            this.pnelava = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.gradian1.SuspendLayout();
             this.pnelleft.SuspendLayout();
             this.SuspendLayout();
@@ -51,10 +55,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.maincrn.AutoScroll = true;
             this.maincrn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.maincrn.Location = new System.Drawing.Point(259, 49);
+            this.maincrn.Location = new System.Drawing.Point(269, 21);
             this.maincrn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maincrn.Name = "maincrn";
-            this.maincrn.Size = new System.Drawing.Size(972, 606);
+            this.maincrn.Size = new System.Drawing.Size(1010, 676);
             this.maincrn.TabIndex = 4;
             // 
             // gradian1
@@ -67,12 +71,14 @@
             this.gradian1.Location = new System.Drawing.Point(0, 0);
             this.gradian1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gradian1.Name = "gradian1";
-            this.gradian1.Size = new System.Drawing.Size(1284, 702);
+            this.gradian1.Size = new System.Drawing.Size(1299, 718);
             this.gradian1.TabIndex = 5;
             // 
             // pnelleft
             // 
             this.pnelleft.BackColor = System.Drawing.Color.Transparent;
+            this.pnelleft.Controls.Add(this.butdangxuat);
+            this.pnelleft.Controls.Add(this.butnhapBAIHOC);
             this.pnelleft.Controls.Add(this.butnhapNH);
             this.pnelleft.Controls.Add(this.pnelava);
             this.pnelleft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -80,17 +86,54 @@
             this.pnelleft.Margin = new System.Windows.Forms.Padding(4);
             this.pnelleft.Name = "pnelleft";
             this.pnelleft.ShadowDecoration.Parent = this.pnelleft;
-            this.pnelleft.Size = new System.Drawing.Size(252, 702);
+            this.pnelleft.Size = new System.Drawing.Size(252, 718);
             this.pnelleft.TabIndex = 5;
             // 
-            // pnelava
+            // butdangxuat
             // 
-            this.pnelava.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            this.pnelava.Location = new System.Drawing.Point(15, 49);
-            this.pnelava.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnelava.Name = "pnelava";
-            this.pnelava.Size = new System.Drawing.Size(235, 148);
-            this.pnelava.TabIndex = 0;
+            this.butdangxuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butdangxuat.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butdangxuat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butdangxuat.BorderRadius = 15;
+            this.butdangxuat.BorderSize = 2;
+            this.butdangxuat.FlatAppearance.BorderSize = 0;
+            this.butdangxuat.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butdangxuat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.butdangxuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butdangxuat.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butdangxuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butdangxuat.Location = new System.Drawing.Point(64, 649);
+            this.butdangxuat.Margin = new System.Windows.Forms.Padding(4);
+            this.butdangxuat.Name = "butdangxuat";
+            this.butdangxuat.Size = new System.Drawing.Size(134, 48);
+            this.butdangxuat.TabIndex = 35;
+            this.butdangxuat.Text = "Đăng xuất";
+            this.butdangxuat.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butdangxuat.UseVisualStyleBackColor = false;
+            this.butdangxuat.Click += new System.EventHandler(this.butdangxuat_Click);
+            // 
+            // butnhapBAIHOC
+            // 
+            this.butnhapBAIHOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butnhapBAIHOC.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butnhapBAIHOC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butnhapBAIHOC.BorderRadius = 15;
+            this.butnhapBAIHOC.BorderSize = 2;
+            this.butnhapBAIHOC.FlatAppearance.BorderSize = 0;
+            this.butnhapBAIHOC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butnhapBAIHOC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.butnhapBAIHOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butnhapBAIHOC.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butnhapBAIHOC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butnhapBAIHOC.Location = new System.Drawing.Point(12, 263);
+            this.butnhapBAIHOC.Margin = new System.Windows.Forms.Padding(4);
+            this.butnhapBAIHOC.Name = "butnhapBAIHOC";
+            this.butnhapBAIHOC.Size = new System.Drawing.Size(239, 80);
+            this.butnhapBAIHOC.TabIndex = 34;
+            this.butnhapBAIHOC.Text = "Nhập bài học";
+            this.butnhapBAIHOC.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butnhapBAIHOC.UseVisualStyleBackColor = false;
+            this.butnhapBAIHOC.Click += new System.EventHandler(this.butnhapBAIHOC_Click);
             // 
             // butnhapNH
             // 
@@ -105,21 +148,35 @@
             this.butnhapNH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butnhapNH.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butnhapNH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butnhapNH.Location = new System.Drawing.Point(73, 225);
+            this.butnhapNH.Location = new System.Drawing.Point(10, 175);
             this.butnhapNH.Margin = new System.Windows.Forms.Padding(4);
             this.butnhapNH.Name = "butnhapNH";
-            this.butnhapNH.Size = new System.Drawing.Size(113, 35);
+            this.butnhapNH.Size = new System.Drawing.Size(239, 80);
             this.butnhapNH.TabIndex = 33;
-            this.butnhapNH.Text = "Thao tác";
+            this.butnhapNH.Text = "Thông tin người dùng";
             this.butnhapNH.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.butnhapNH.UseVisualStyleBackColor = false;
             this.butnhapNH.Click += new System.EventHandler(this.butnhapNH_Click_1);
+            // 
+            // pnelava
+            // 
+            this.pnelava.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.pnelava.Location = new System.Drawing.Point(14, 21);
+            this.pnelava.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnelava.Name = "pnelava";
+            this.pnelava.Size = new System.Drawing.Size(235, 148);
+            this.pnelava.TabIndex = 0;
+            // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.BorderRadius = 25;
+            this.guna2Elipse2.TargetControl = this.pnelava;
             // 
             // Adminform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 702);
+            this.ClientSize = new System.Drawing.Size(1299, 718);
             this.Controls.Add(this.gradian1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Adminform";
@@ -139,5 +196,9 @@
         private System.Windows.Forms.Panel maincrn;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private CustomButton butnhapNH;
+        private CustomButton butnhapBAIHOC;
+        private CustomButton butdangxuat;
+        private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
     }
 }

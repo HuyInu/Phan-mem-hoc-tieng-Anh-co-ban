@@ -19,23 +19,28 @@ namespace Đồ_án
             InitializeComponent();
         }
         Database db;
-        int a;
+        string MANH = "";
         private void Dangky_Load(object sender, EventArgs e)
         {
             try
             {
                 db = new Database("QLAV");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Lỗi kết nối");
             }
-            timer1.Start();
-
-            string demsql = "select count(MaNH) from NGUOIHOC";
-            a = db.dem(demsql);
-            //textBox1.Text = a.ToString();
-            a = a + 1;
+            timer1.Start();        
+            DataTable dt = db.Execute("select top 1 MaNH from NGUOIHOC order by MaNH desc");
+            if(dt.Rows.Count==0)
+            {
+                MANH = "0001";
+            }
+            else
+            {
+                MANH = dt.Rows[0][0].ToString();               
+                MANH = (int.Parse(MANH) + 1).ToString();
+            }
 
         }
 
@@ -94,32 +99,42 @@ namespace Đồ_án
                     labwanemail.Visible = false;
                     labwan6.Visible = false;
                 }
-           }
+            }
             else
             {
-                try
+                if (db.kiemtra("select * from NGUOIHOC where TK='" + txttk.Texts + "'"))
+                    MessageBox.Show("Tài khoản hoặc mật khẩu đã có người dùng.");
+                else if(db.kiemtra("select * from NGUOIHOC where MK='" + txtmk.Texts + "'"))
                 {
-                    string sql = "insert into NGUOIHOC values('"+a+"','" + txtname.Texts + "','" + txttk.Texts + "','" + txtmk.Texts + "','" + txtemail.Texts + "',0,0)";
-                    db.ExecuteNonQuery(sql);
-                    MessageBox.Show("Dk thành công");
+                    MessageBox.Show("Tài khoản hoặc mật khẩu đã có người dùng.");
                 }
-                catch (Exception ex)
+                else  
                 {
-                    MessageBox.Show("Đăng ký thất bại!");
+                    try
+                    {
+                        string sql = "insert into NGUOIHOC values('" + MANH + "','" + txtname.Texts + "','" + txtemail.Texts + "','" + txttk.Texts + "','" + txtmk.Texts + "',0,0)";
+                        db.ExecuteNonQuery(sql);
+                        MessageBox.Show("Dk thành công");
+                        this.Close();
+                        Dispose();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Đăng ký thất bại!");
+                    }               
                 }
-                
             }
-            
         }
 
-        private void Dangky_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            GC.Collect();
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             GC.Collect();
+        }
+
+        private void Dangky_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Dispose();
         }
     }
    

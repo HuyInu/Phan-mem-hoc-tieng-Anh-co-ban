@@ -23,7 +23,7 @@ create table DIEM
 create table BAIHOC
 (
 	MaBH char(10) not null,
-	TenBH nvarchar(10),
+	TenBH nvarchar(30),
 	constraint pk_MaBH primary key(MaBH)
 )
 create table HOC
@@ -104,9 +104,9 @@ select MaLOAI,Tenloai from LOAITV
 select *from BAIHOC
 select * from TUVUNG
 
-delete  from TUVUNG
+delete  from BAIHOC
 
-select count(MaTV) from TUVUNG
+ALTER TABLE TUVUNG ADD Phienam nvarchar(50)
 
 insert into LOAITV values('V',N'Động từ')
 insert into LOAITV values('N',N'Danh từ')
@@ -117,5 +117,8 @@ insert into LOAITV values('ADV',N'Trạng từ')
 insert into TUVUNG values('1B1','1','V','run',N'chạy')
 
 
-ALTER TABLE LOAICH
-ALTER COLUMN Tenloai nvarchar(50)
+ALTER TABLE BAIHOC ALTER COLUMN TenBH nvarchar(30)
+
+select * from NGUOIHOC
+
+select * from TUVUNG where Angu='Good' Except select * from TUVUNG where MaTV='1BV0001'

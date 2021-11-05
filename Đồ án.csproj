@@ -55,11 +55,11 @@
     <Compile Include="Admin\Adminform.Designer.cs">
       <DependentUpon>Adminform.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Nguoihocinfo\Nguoihocinfo.cs">
+    <Compile Include="Admin\Nguoihocinfo\Nhapnguoidung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Nguoihocinfo\Nguoihocinfo.Designer.cs">
-      <DependentUpon>Nguoihocinfo.cs</DependentUpon>
+    <Compile Include="Admin\Nguoihocinfo\Nhapnguoidung.Designer.cs">
+      <DependentUpon>Nhapnguoidung.cs</DependentUpon>
     </Compile>
     <Compile Include="Dangky\Dangky.cs">
       <SubType>Form</SubType>
@@ -83,11 +83,11 @@
     <Compile Include="Dangnhap.Designer.cs">
       <DependentUpon>Dangnhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formnguoihoc\Form1.cs">
+    <Compile Include="Formnguoihoc\Nguoidungform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formnguoihoc\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Formnguoihoc\Nguoidungform.Designer.cs">
+      <DependentUpon>Nguoidungform.cs</DependentUpon>
     </Compile>
     <Compile Include="Formnguoihoc\Thongtincanhan\formcanhan.cs">
       <SubType>Form</SubType>
@@ -98,12 +98,25 @@
     <Compile Include="Effect\gradian.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NGUOIHOC.cs" />
-    <Compile Include="Nhaptuvung.cs">
+    <Compile Include="Hieuung.cs" />
+    <Compile Include="Hoctuvung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nhaptuvung.Designer.cs">
-      <DependentUpon>Nhaptuvung.cs</DependentUpon>
+    <Compile Include="Hoctuvung.Designer.cs">
+      <DependentUpon>Hoctuvung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nguoidungselect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nguoidungselect.Designer.cs">
+      <DependentUpon>Nguoidungselect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NGUOIHOC.cs" />
+    <Compile Include="Nhapkiemtra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nhapkiemtra.Designer.cs">
+      <DependentUpon>Nhapkiemtra.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,11 +126,17 @@
     <Compile Include="Effect\RoundTextbox.Designer.cs">
       <DependentUpon>RoundTextbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Nhapbaihoc\Nhapbaihoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Nhapbaihoc\Nhapbaihoc.Designer.cs">
+      <DependentUpon>Nhapbaihoc.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\Adminform.resx">
       <DependentUpon>Adminform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Nguoihocinfo\Nguoihocinfo.resx">
-      <DependentUpon>Nguoihocinfo.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\Nguoihocinfo\Nhapnguoidung.resx">
+      <DependentUpon>Nhapnguoidung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dangky\Dangky.resx">
       <DependentUpon>Dangky.cs</DependentUpon>
@@ -128,14 +147,20 @@
     <EmbeddedResource Include="Dangnhap.resx">
       <DependentUpon>Dangnhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formnguoihoc\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Formnguoihoc\Nguoidungform.resx">
+      <DependentUpon>Nguoidungform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formnguoihoc\Thongtincanhan\formcanhan.resx">
       <DependentUpon>formcanhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nhaptuvung.resx">
-      <DependentUpon>Nhaptuvung.cs</DependentUpon>
+    <EmbeddedResource Include="Hoctuvung.resx">
+      <DependentUpon>Hoctuvung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nguoidungselect.resx">
+      <DependentUpon>Nguoidungselect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nhapkiemtra.resx">
+      <DependentUpon>Nhapkiemtra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,6 +174,9 @@
     </Compile>
     <EmbeddedResource Include="Effect\RoundTextbox.resx">
       <DependentUpon>RoundTextbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Nhapbaihoc\Nhapbaihoc.resx">
+      <DependentUpon>Nhapbaihoc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

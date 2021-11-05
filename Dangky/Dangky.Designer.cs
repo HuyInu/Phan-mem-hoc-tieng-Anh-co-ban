@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dangky));
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gradian1 = new Gradian.gradian();
             this.labwanten = new System.Windows.Forms.Label();
             this.labwantk = new System.Windows.Forms.Label();
@@ -45,7 +45,6 @@
             this.labwan = new System.Windows.Forms.Label();
             this.txtemail = new Đồ_án.RoundTextbox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtmk2 = new Đồ_án.RoundTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtmk = new Đồ_án.RoundTextbox();
@@ -53,10 +52,13 @@
             this.but = new Đồ_án.CustomButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gradian1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // gradian1
             // 
@@ -76,7 +78,6 @@
             this.gradian1.Controls.Add(this.labwan);
             this.gradian1.Controls.Add(this.txtemail);
             this.gradian1.Controls.Add(this.label4);
-            this.gradian1.Controls.Add(this.pictureBox1);
             this.gradian1.Controls.Add(this.txtmk2);
             this.gradian1.Controls.Add(this.label3);
             this.gradian1.Controls.Add(this.txtmk);
@@ -300,18 +301,6 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Email";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(205, -14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(232, 217);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtmk2
             // 
             this.txtmk2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
@@ -437,11 +426,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Tài khoản";
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 5000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // Dangky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -451,11 +435,10 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Dangky";
             this.Text = "Dangky";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dangky_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dangky_FormClosing);
             this.Load += new System.EventHandler(this.Dangky_Load);
             this.gradian1.ResumeLayout(false);
             this.gradian1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -470,7 +453,6 @@
         private System.Windows.Forms.Label label1;
         private RoundTextbox txtmk2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private RoundTextbox txtemail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labwan2;
