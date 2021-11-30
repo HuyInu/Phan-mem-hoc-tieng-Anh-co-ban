@@ -16,6 +16,7 @@ namespace Đồ_án
         public Nhapbaihoc()
         {
             InitializeComponent();
+            
         }
         bool clickTV, clickNP;
         //int demTV,demNP;
@@ -32,9 +33,11 @@ namespace Đồ_án
             db.datatintocombox(comloaiTV, "select MaLOAI,Tenloai from LOAITV", "Tenloai", "MaLOAI");
 
             MaLOAI = comloaiTV.SelectedValue.ToString();
-            
 
-            //txttenBH.Texts = commaBH.SelectedValue.ToString();
+
+            txttenBH.Texts = "";
+            cleartexboxTV();
+            cleartextboxNP();
 
             disablebutton(butcapnhat, butthem, butxoa);
 
@@ -43,6 +46,8 @@ namespace Đồ_án
             db.xuatdata("select * from BAIHOC", dtaddBH);
             disablebutton(butaddsua, butaddthem, butaddxoa);
             labaddBH.Text = "Sl bài học: " + (dtaddBH.Rows.Count - 1).ToString();
+
+
         }
         /* Hàm tái sử dụng */
         public void cleartexboxTV()
@@ -56,8 +61,7 @@ namespace Đồ_án
         public void cleartextboxNP()
         {
             txtmaNP.Texts = "";
-            txtnoidung.Texts = "";
-            txtchuthich.Texts = "";
+            txtnoidung.Text = "";
         }
         public void doimaudisable(Button capnhat, Button them, Button xoa)
         {
@@ -86,6 +90,17 @@ namespace Đồ_án
             them.Enabled = true;
             xoa.Enabled = true;
         }
+        public void reloadNPform()
+        {
+            try
+            {
+                DataTable dt = db.Execute("select MaNP,TenNP from NGUPHAP");
+                NhapBTNP.btnp.bx.DataSource = dt;
+                NhapBTNP.btnp.bx.DisplayMember = "MaNP";
+                NhapBTNP.btnp.bx.ValueMember = "TenNP";
+            }
+            catch { }
+        }
         /*------------------------------------------------------------------------*/
         private void butthemTV_Click(object sender, EventArgs e)
         {
@@ -101,21 +116,31 @@ namespace Đồ_án
             pnelNP.Enabled = true;
             pnelTV.Enabled = false;
         }
+        public void xuatdataTV()
+        {
+            db.xuatdata("select MaTV as'Mã TV',MaLOAI as'Loại',Angu as 'Tiếng Anh',Vngu as 'Tiếng Việt',Phienam as 'Phiên âm' from TUVUNG where MaBH='" + MaBH + "'", dtTV);
+        }
+        public void xuatdataNP()
+        {
+            db.xuatdata("select MaNP as 'Mã NP',TenNP as'Tên NP', Noidung as'Nội dung',Chuthich as 'Chú thích' from NGUPHAP where MaBH='" + MaBH + "'", dtNP);
+        }
         /*load dl len textbox*/
         private void dtTV_SelectionChanged(object sender, EventArgs e)
         {
-            try { 
-            string maloai;
-            int i= dtTV.CurrentRow.Index;
-
+            
+            string maloai;           
+            try
+            {
+                int i= dtTV.CurrentRow.Index;
                 txtmaTV.Texts = dtTV.Rows[i].Cells[0].Value.ToString();
-                maloai = dtTV.Rows[i].Cells[2].Value.ToString();
-                comloaiTV.Text = db.dem("select Tenloai from LOAITV where MaLOAI='" + maloai + "'");
-                txtAN.Texts = dtTV.Rows[i].Cells[3].Value.ToString();
-                txtV.Texts = dtTV.Rows[i].Cells[4].Value.ToString();
-                txtpam.Texts= dtTV.Rows[i].Cells[5].Value.ToString();
+                maloai = dtTV.Rows[i].Cells[1].Value.ToString();
+                comloaiTV.Text = db.dem("select Tenloai from LOAITV where MaLOAI='" + dtTV.Rows[i].Cells[1].Value.ToString() + "'");
+                txtAN.Texts = dtTV.Rows[i].Cells[2].Value.ToString();
+                txtV.Texts = dtTV.Rows[i].Cells[3].Value.ToString();
+                txtpam.Texts = dtTV.Rows[i].Cells[4].Value.ToString();
             }
-            catch { db.huyketnoi(); }
+            catch { }
+            
             
         }
         private void dtNP_SelectionChanged(object sender, EventArgs e)
@@ -124,13 +149,11 @@ namespace Đồ_án
             {
                 int i = dtNP.CurrentRow.Index;
                 txtmaNP.Texts = dtNP.Rows[i].Cells[0].Value.ToString();
-                txtnoidung.Texts = dtNP.Rows[i].Cells[2].Value.ToString();
-                txtchuthich.Texts = dtNP.Rows[i].Cells[3].Value.ToString();
+                txttenNP.Texts = dtNP.Rows[i].Cells[1].Value.ToString();
+                txtnoidung.Text = dtNP.Rows[i].Cells[2].Value.ToString();
+                txtchuthich.Text = dtNP.Rows[i].Cells[3].Value.ToString();
             }
-            catch
-            {
-
-            }
+            catch { }
         }
         /*------------------------------------------------------------------------*/
         /* Even combobox */
@@ -142,10 +165,10 @@ namespace Đồ_án
 
             DataTable dt = db.Execute("select * from TUVUNG where MaBH='" + MaBH + "'");
             dtTV.DataSource = dt;
-            db.xuatdata("select * from TUVUNG where MaBH='" + MaBH + "'", dtTV);
+            xuatdataTV();
             labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
             cleartexboxTV();
-            db.xuatdata("select * from NGUPHAP where MaBH='" + MaBH + "'", dtNP);
+            xuatdataNP();
             labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
             cleartextboxNP();
         }
@@ -246,37 +269,35 @@ namespace Đồ_án
                 }
                 else
                 {
-                        string insert = "insert into TUVUNG values('" + matv + "','" + MaBH + "','"+MaLOAI+"','" + txtAN.Texts + "',N'" + txtV.Texts + "',N'"+txtpam.Texts+"')";
-                        db.ExecuteNonQuery(insert);
-                        db.xuatdata("select * from TUVUNG where MaBH='" + MaBH + "'", dtTV);
-                        labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
-                        cleartexboxTV();
-                        disablebutton(butcapnhat, butthem, butxoa);
+                    string insert = "insert into TUVUNG values('" + matv + "','" + MaBH + "','"+MaLOAI+"','" + txtAN.Texts + "',N'" + txtV.Texts + "',N'"+txtpam.Texts+"')";
+                    db.ExecuteNonQuery(insert);
+
+                    //db.ExecuteNonQuery("update HOC set FTV='" + 0 + "'");
+
+                    xuatdataTV();
+                    labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
+                    cleartexboxTV();
+                    disablebutton(butcapnhat, butthem, butxoa);
                    
                 }
             }
             if (clickNP)
             {
                 string manp = getma();
-                if (txtnoidung.Texts == "" || txtchuthich.Texts == "")
+                if (txtnoidung.Text == "" || txttenNP.Texts=="")
                 {
                     MessageBox.Show("Dữ liệu không được bỏ trống.");
                 }
                 else
-                {
-                    try
-                    {
-                        string insert = "insert into NGUPHAP values ('" + manp + "','" + MaBH + "',N'" + txtnoidung.Texts + "',N'" + txtchuthich.Texts + "')";
+                {                                    
+                        string insert = "insert into NGUPHAP values ('" + manp + "','" + MaBH + "',N'" + txtnoidung.Text + "',N'" + txttenNP.Texts + "',N'"+txtchuthich.Text+"')";
                         db.ExecuteNonQuery(insert);
-                        db.xuatdata("select * from NGUPHAP where MaBH='" + MaBH + "'", dtNP);
-                        labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
+                    xuatdataNP();
+                    labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
                         cleartextboxNP();
                         disablebutton(butcapnhat, butthem, butxoa);
-                    }
-                    catch
-                    {
-                        db.huyketnoi();
-                    }
+                    reloadNPform();
+                    
                 }
             }
         }
@@ -300,7 +321,7 @@ namespace Đồ_án
                     {
                         string sua = "update TUVUNG set MaLOAI='" + MaLOAI + "',Angu='" + txtAN.Texts + "',Vngu=N'" + txtV.Texts + "',Phienam=N'"+txtpam.Texts+"' where MaTV='" + txtmaTV.Texts + "'";
                         db.ExecuteNonQuery(sua);
-                        db.xuatdata("select * from TUVUNG where MaBH='" + MaBH + "'", dtTV);
+                        xuatdataTV();
                         cleartexboxTV();
                         disablebutton(butcapnhat, butthem, butxoa);
                     }
@@ -314,11 +335,12 @@ namespace Đồ_án
             {
                 try
                 {
-                    string sua = "update NGUPHAP set Noidung=N'" + txtnoidung.Texts + "',Chuthich=N'" + txtchuthich.Texts + "' where MaNP='" + txtmaNP.Texts + "'";
+                    string sua = "update NGUPHAP set Noidung=N'" + txtnoidung.Text + "',TenNP=N'"+txttenNP.Texts+"',Chuthich=N'"+txtchuthich.Text+"' where MaNP='" + txtmaNP.Texts + "'";
                     db.ExecuteNonQuery(sua);
-                    db.xuatdata("select * from NGUPHAP where MaBH='" + MaBH + "'", dtNP);
+                    xuatdataNP();
                     cleartextboxNP();
                     disablebutton(butcapnhat, butthem, butxoa);
+                    reloadNPform();
                 }
                 catch
                 {
@@ -334,7 +356,16 @@ namespace Đồ_án
                 {
                     string xoa = "delete from TUVUNG where MaTV='" + txtmaTV.Texts + "'";
                     db.ExecuteNonQuery(xoa);
-                    db.xuatdata("select * from TUVUNG where MaBH='" + MaBH + "'", dtTV);
+
+                    DataTable dt = db.Execute("select TiendoTV from HOC");
+                    int dem= dt.Rows.Count;
+                    for (int i = 0; i < dem; i++)
+                    {
+                        int tiendo = int.Parse(dt.Rows[i][0].ToString()) - 1;
+                        db.ExecuteNonQuery("update HOC set TiendoTV='" +tiendo+"' where MaNH='"+(i+1)+"'");
+                    }
+
+                    xuatdataTV();
                     labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
                     cleartextboxNP();
                     disablebutton(butcapnhat, butthem, butxoa);
@@ -350,16 +381,24 @@ namespace Đồ_án
                 {
                     string xoa = "delete from NGUPHAP where MaNP='" + txtmaNP.Texts + "'";
                     db.ExecuteNonQuery(xoa);
-                    db.xuatdata("select * from NGUPHAP where MaBH='" + MaBH + "'", dtNP);
+                    xuatdataNP();
                     labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
                     cleartextboxNP();
                     disablebutton(butcapnhat, butthem, butxoa);
+                    reloadNPform();
                 }
                 catch
                 {
                     db.huyketnoi();
                 }
             }
+        }
+        private void butthemBT_Click(object sender, EventArgs e)
+        {
+            NhapBTNP nBT = new NhapBTNP();
+            nBT.Owner = this;
+            nBT.Show();
+            nBT.StartPosition = FormStartPosition.WindowsDefaultLocation;
         }
         /*------------------------------------------------------------------------*/
         /* Thao tac - Huy */
@@ -372,17 +411,17 @@ namespace Đồ_án
             disablebutton(butcapnhat, butthem, butxoa);
         }
 
-
-
         /*------------------------------------------------------------------------*/
         /*                  Add bài học             */
         private void butthemBH_Click_1(object sender, EventArgs e)
         {
             pneladdBH.Visible = true;
+            butthemBH.Enabled = false;
         }
         private void butaddclose_Click(object sender, EventArgs e)
         {
             pneladdBH.Visible = false;
+            butthemBH.Enabled = true;
             GC.Collect();
         }
         private void butaddthaotac_Click(object sender, EventArgs e)
@@ -476,8 +515,6 @@ namespace Đồ_án
                 }
             }
         }
-
-
         private void butaddxoa_Click(object sender, EventArgs e)
         {
             try

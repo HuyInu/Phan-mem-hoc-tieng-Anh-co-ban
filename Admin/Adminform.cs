@@ -58,8 +58,9 @@ namespace Đồ_án
             dnh.StartPosition = FormStartPosition.Manual;
             dnh.Location = this.Location;
             dnh.ShowDialog();
+            GC.Collect();
             this.Close();
-            Dispose(true);
+            
         }
     }
 }

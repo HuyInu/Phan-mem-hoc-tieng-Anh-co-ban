@@ -83,32 +83,44 @@
     <Compile Include="Dangnhap.Designer.cs">
       <DependentUpon>Dangnhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formnguoihoc\Nguoidungform.cs">
+    <Compile Include="Admin\Nhapbaihoc\NhapBTNP\NhapBTNP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formnguoihoc\Nguoidungform.Designer.cs">
+    <Compile Include="Admin\Nhapbaihoc\NhapBTNP\NhapBTNP.Designer.cs">
+      <DependentUpon>NhapBTNP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\Nguoidungselect\Hocnguphap\Hocnguphap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\Nguoidungselect\Hocnguphap\Hocnguphap.Designer.cs">
+      <DependentUpon>Hocnguphap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\Nguoidungform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\Nguoidungform.Designer.cs">
       <DependentUpon>Nguoidungform.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formnguoihoc\Thongtincanhan\formcanhan.cs">
+    <Compile Include="User\Thongtincanhan\formcanhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formnguoihoc\Thongtincanhan\formcanhan.Designer.cs">
+    <Compile Include="User\Thongtincanhan\formcanhan.Designer.cs">
       <DependentUpon>formcanhan.cs</DependentUpon>
     </Compile>
     <Compile Include="Effect\gradian.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Hieuung.cs" />
-    <Compile Include="Hoctuvung.cs">
+    <Compile Include="User\Nguoidungselect\Hoctuvung\Hoctuvung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hoctuvung.Designer.cs">
+    <Compile Include="User\Nguoidungselect\Hoctuvung\Hoctuvung.Designer.cs">
       <DependentUpon>Hoctuvung.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nguoidungselect.cs">
+    <Compile Include="User\Nguoidungselect\Nguoidungselect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nguoidungselect.Designer.cs">
+    <Compile Include="User\Nguoidungselect\Nguoidungselect.Designer.cs">
       <DependentUpon>Nguoidungselect.cs</DependentUpon>
     </Compile>
     <Compile Include="NGUOIHOC.cs" />
@@ -147,16 +159,22 @@
     <EmbeddedResource Include="Dangnhap.resx">
       <DependentUpon>Dangnhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formnguoihoc\Nguoidungform.resx">
+    <EmbeddedResource Include="Admin\Nhapbaihoc\NhapBTNP\NhapBTNP.resx">
+      <DependentUpon>NhapBTNP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\Nguoidungselect\Hocnguphap\Hocnguphap.resx">
+      <DependentUpon>Hocnguphap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\Nguoidungform.resx">
       <DependentUpon>Nguoidungform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formnguoihoc\Thongtincanhan\formcanhan.resx">
+    <EmbeddedResource Include="User\Thongtincanhan\formcanhan.resx">
       <DependentUpon>formcanhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Hoctuvung.resx">
+    <EmbeddedResource Include="User\Nguoidungselect\Hoctuvung\Hoctuvung.resx">
       <DependentUpon>Hoctuvung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nguoidungselect.resx">
+    <EmbeddedResource Include="User\Nguoidungselect\Nguoidungselect.resx">
       <DependentUpon>Nguoidungselect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nhapkiemtra.resx">

@@ -11,6 +11,7 @@ namespace Đồ_án
         public static string id;
 
         public static string idbaihoc;
+        public static string tenbaihoc;
 
     }
 }

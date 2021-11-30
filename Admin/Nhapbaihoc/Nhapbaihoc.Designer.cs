@@ -32,13 +32,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnelNP = new System.Windows.Forms.Panel();
-            this.txtchuthich = new Đồ_án.RoundTextbox();
+            this.butthemBT = new Đồ_án.CustomButton();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtchuthich = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txttenNP = new Đồ_án.RoundTextbox();
+            this.txtnoidung = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtnoidung = new Đồ_án.RoundTextbox();
-            this.butchuthich = new System.Windows.Forms.Label();
             this.txtmaNP = new Đồ_án.RoundTextbox();
             this.pnelTV = new System.Windows.Forms.Panel();
+            this.txtpam = new Đồ_án.RoundTextbox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtAN = new Đồ_án.RoundTextbox();
             this.txtmaTV = new Đồ_án.RoundTextbox();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,8 +87,6 @@
             this.butxoa = new Đồ_án.CustomButton();
             this.butthaotac = new Đồ_án.CustomButton();
             this.butthem = new Đồ_án.CustomButton();
-            this.txtpam = new Đồ_án.RoundTextbox();
-            this.label13 = new System.Windows.Forms.Label();
             this.pnelNP.SuspendLayout();
             this.pnelTV.SuspendLayout();
             this.pnelbai.SuspendLayout();
@@ -95,47 +98,158 @@
             // 
             // pnelNP
             // 
+            this.pnelNP.AutoScroll = true;
             this.pnelNP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.pnelNP.Controls.Add(this.butthemBT);
+            this.pnelNP.Controls.Add(this.label18);
             this.pnelNP.Controls.Add(this.txtchuthich);
+            this.pnelNP.Controls.Add(this.label14);
+            this.pnelNP.Controls.Add(this.txttenNP);
+            this.pnelNP.Controls.Add(this.txtnoidung);
             this.pnelNP.Controls.Add(this.label6);
             this.pnelNP.Controls.Add(this.label7);
-            this.pnelNP.Controls.Add(this.txtnoidung);
-            this.pnelNP.Controls.Add(this.butchuthich);
             this.pnelNP.Controls.Add(this.txtmaNP);
             this.pnelNP.Enabled = false;
-            this.pnelNP.Location = new System.Drawing.Point(502, 121);
+            this.pnelNP.Location = new System.Drawing.Point(485, 102);
             this.pnelNP.Name = "pnelNP";
-            this.pnelNP.Size = new System.Drawing.Size(485, 255);
+            this.pnelNP.Size = new System.Drawing.Size(503, 325);
             this.pnelNP.TabIndex = 68;
+            // 
+            // butthemBT
+            // 
+            this.butthemBT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(255)))), ((int)(((byte)(99)))));
+            this.butthemBT.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(255)))), ((int)(((byte)(99)))));
+            this.butthemBT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(194)))), ((int)(((byte)(0)))));
+            this.butthemBT.BorderRadius = 15;
+            this.butthemBT.BorderSize = 2;
+            this.butthemBT.FlatAppearance.BorderSize = 0;
+            this.butthemBT.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(199)))), ((int)(((byte)(30)))));
+            this.butthemBT.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(255)))), ((int)(((byte)(163)))));
+            this.butthemBT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butthemBT.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butthemBT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butthemBT.Location = new System.Drawing.Point(15, 252);
+            this.butthemBT.Margin = new System.Windows.Forms.Padding(4);
+            this.butthemBT.Name = "butthemBT";
+            this.butthemBT.Size = new System.Drawing.Size(68, 61);
+            this.butthemBT.TabIndex = 71;
+            this.butthemBT.Text = "Thêm BT";
+            this.butthemBT.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butthemBT.UseVisualStyleBackColor = false;
+            this.butthemBT.Click += new System.EventHandler(this.butthemBT_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.label18.Location = new System.Drawing.Point(4, 202);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(92, 26);
+            this.label18.TabIndex = 68;
+            this.label18.Text = "Chú thích";
             // 
             // txtchuthich
             // 
-            this.txtchuthich.BackColor = System.Drawing.Color.White;
+            this.txtchuthich.BackColor = System.Drawing.Color.Transparent;
             this.txtchuthich.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.txtchuthich.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtchuthich.BorderRadius = 15;
-            this.txtchuthich.BorderSize = 2;
+            this.txtchuthich.BorderRadius = 10;
+            this.txtchuthich.BorderThickness = 2;
+            this.txtchuthich.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtchuthich.DefaultText = "";
+            this.txtchuthich.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtchuthich.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtchuthich.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtchuthich.DisabledState.Parent = this.txtchuthich;
+            this.txtchuthich.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtchuthich.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtchuthich.FocusedState.Parent = this.txtchuthich;
             this.txtchuthich.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtchuthich.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txtchuthich.Location = new System.Drawing.Point(115, 147);
-            this.txtchuthich.Margin = new System.Windows.Forms.Padding(5);
+            this.txtchuthich.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtchuthich.HoverState.Parent = this.txtchuthich;
+            this.txtchuthich.Location = new System.Drawing.Point(102, 208);
             this.txtchuthich.Multiline = true;
             this.txtchuthich.Name = "txtchuthich";
-            this.txtchuthich.Padding = new System.Windows.Forms.Padding(12);
-            this.txtchuthich.PasswordChar = false;
-            this.txtchuthich.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtchuthich.PasswordChar = '\0';
             this.txtchuthich.PlaceholderText = "";
-            this.txtchuthich.Size = new System.Drawing.Size(357, 97);
-            this.txtchuthich.TabIndex = 52;
-            this.txtchuthich.Texts = "";
-            this.txtchuthich.UnderlinedStyle = false;
+            this.txtchuthich.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtchuthich.SelectedText = "";
+            this.txtchuthich.ShadowDecoration.Parent = this.txtchuthich;
+            this.txtchuthich.Size = new System.Drawing.Size(382, 117);
+            this.txtchuthich.TabIndex = 64;
+            this.txtchuthich.WordWrap = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.label14.Location = new System.Drawing.Point(13, 54);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(73, 26);
+            this.label14.TabIndex = 56;
+            this.label14.Text = "Tên NP";
+            // 
+            // txttenNP
+            // 
+            this.txttenNP.BackColor = System.Drawing.Color.White;
+            this.txttenNP.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.txttenNP.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txttenNP.BorderRadius = 20;
+            this.txttenNP.BorderSize = 2;
+            this.txttenNP.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttenNP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.txttenNP.Location = new System.Drawing.Point(94, 47);
+            this.txttenNP.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txttenNP.Multiline = false;
+            this.txttenNP.Name = "txttenNP";
+            this.txttenNP.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.txttenNP.PasswordChar = false;
+            this.txttenNP.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txttenNP.PlaceholderText = "";
+            this.txttenNP.Size = new System.Drawing.Size(308, 42);
+            this.txttenNP.TabIndex = 57;
+            this.txttenNP.Texts = "";
+            this.txttenNP.UnderlinedStyle = false;
+            // 
+            // txtnoidung
+            // 
+            this.txtnoidung.BackColor = System.Drawing.Color.Transparent;
+            this.txtnoidung.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.txtnoidung.BorderRadius = 10;
+            this.txtnoidung.BorderThickness = 2;
+            this.txtnoidung.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtnoidung.DefaultText = "";
+            this.txtnoidung.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtnoidung.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtnoidung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtnoidung.DisabledState.Parent = this.txtnoidung;
+            this.txtnoidung.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtnoidung.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtnoidung.FocusedState.Parent = this.txtnoidung;
+            this.txtnoidung.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnoidung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.txtnoidung.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtnoidung.HoverState.Parent = this.txtnoidung;
+            this.txtnoidung.Location = new System.Drawing.Point(102, 94);
+            this.txtnoidung.Multiline = true;
+            this.txtnoidung.Name = "txtnoidung";
+            this.txtnoidung.PasswordChar = '\0';
+            this.txtnoidung.PlaceholderText = "";
+            this.txtnoidung.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtnoidung.SelectedText = "";
+            this.txtnoidung.ShadowDecoration.Parent = this.txtnoidung;
+            this.txtnoidung.Size = new System.Drawing.Size(382, 108);
+            this.txtnoidung.TabIndex = 54;
+            this.txtnoidung.WordWrap = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label6.Location = new System.Drawing.Point(43, 9);
+            this.label6.Location = new System.Drawing.Point(17, 13);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 26);
             this.label6.TabIndex = 29;
@@ -146,44 +260,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label7.Location = new System.Drawing.Point(25, 54);
+            this.label7.Location = new System.Drawing.Point(13, 94);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 26);
             this.label7.TabIndex = 48;
             this.label7.Text = "Nội dung";
-            // 
-            // txtnoidung
-            // 
-            this.txtnoidung.BackColor = System.Drawing.Color.White;
-            this.txtnoidung.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.txtnoidung.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtnoidung.BorderRadius = 15;
-            this.txtnoidung.BorderSize = 2;
-            this.txtnoidung.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnoidung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txtnoidung.Location = new System.Drawing.Point(115, 54);
-            this.txtnoidung.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtnoidung.Multiline = true;
-            this.txtnoidung.Name = "txtnoidung";
-            this.txtnoidung.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
-            this.txtnoidung.PasswordChar = false;
-            this.txtnoidung.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtnoidung.PlaceholderText = "";
-            this.txtnoidung.Size = new System.Drawing.Size(357, 84);
-            this.txtnoidung.TabIndex = 49;
-            this.txtnoidung.Texts = "";
-            this.txtnoidung.UnderlinedStyle = false;
-            // 
-            // butchuthich
-            // 
-            this.butchuthich.AutoSize = true;
-            this.butchuthich.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butchuthich.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butchuthich.Location = new System.Drawing.Point(20, 147);
-            this.butchuthich.Name = "butchuthich";
-            this.butchuthich.Size = new System.Drawing.Size(92, 26);
-            this.butchuthich.TabIndex = 51;
-            this.butchuthich.Text = "Chú thích";
             // 
             // txtmaNP
             // 
@@ -194,7 +275,7 @@
             this.txtmaNP.BorderSize = 2;
             this.txtmaNP.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmaNP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txtmaNP.Location = new System.Drawing.Point(115, 2);
+            this.txtmaNP.Location = new System.Drawing.Point(94, 4);
             this.txtmaNP.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtmaNP.Multiline = false;
             this.txtmaNP.Name = "txtmaNP";
@@ -202,7 +283,7 @@
             this.txtmaNP.PasswordChar = false;
             this.txtmaNP.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtmaNP.PlaceholderText = "";
-            this.txtmaNP.Size = new System.Drawing.Size(297, 42);
+            this.txtmaNP.Size = new System.Drawing.Size(308, 42);
             this.txtmaNP.TabIndex = 50;
             this.txtmaNP.Texts = "";
             this.txtmaNP.UnderlinedStyle = false;
@@ -221,13 +302,49 @@
             this.pnelTV.Controls.Add(this.label5);
             this.pnelTV.Controls.Add(this.comloaiTV);
             this.pnelTV.Enabled = false;
-            this.pnelTV.Location = new System.Drawing.Point(18, 121);
+            this.pnelTV.Location = new System.Drawing.Point(18, 102);
             this.pnelTV.Name = "pnelTV";
-            this.pnelTV.Size = new System.Drawing.Size(478, 255);
+            this.pnelTV.Size = new System.Drawing.Size(460, 325);
             this.pnelTV.TabIndex = 67;
+            // 
+            // txtpam
+            // 
+            this.txtpam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtpam.BackColor = System.Drawing.Color.White;
+            this.txtpam.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.txtpam.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtpam.BorderRadius = 20;
+            this.txtpam.BorderSize = 2;
+            this.txtpam.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.txtpam.Location = new System.Drawing.Point(149, 255);
+            this.txtpam.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtpam.Multiline = false;
+            this.txtpam.Name = "txtpam";
+            this.txtpam.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.txtpam.PasswordChar = false;
+            this.txtpam.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtpam.PlaceholderText = "";
+            this.txtpam.Size = new System.Drawing.Size(274, 42);
+            this.txtpam.TabIndex = 48;
+            this.txtpam.Texts = "";
+            this.txtpam.UnderlinedStyle = false;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.label13.Location = new System.Drawing.Point(40, 271);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(91, 26);
+            this.label13.TabIndex = 49;
+            this.label13.Text = "Phiên âm";
             // 
             // txtAN
             // 
+            this.txtAN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAN.BackColor = System.Drawing.Color.White;
             this.txtAN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.txtAN.BorderFocusColor = System.Drawing.Color.HotPink;
@@ -235,7 +352,7 @@
             this.txtAN.BorderSize = 2;
             this.txtAN.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txtAN.Location = new System.Drawing.Point(158, 112);
+            this.txtAN.Location = new System.Drawing.Point(149, 128);
             this.txtAN.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtAN.Multiline = false;
             this.txtAN.Name = "txtAN";
@@ -243,13 +360,14 @@
             this.txtAN.PasswordChar = false;
             this.txtAN.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtAN.PlaceholderText = "";
-            this.txtAN.Size = new System.Drawing.Size(233, 42);
+            this.txtAN.Size = new System.Drawing.Size(274, 42);
             this.txtAN.TabIndex = 47;
             this.txtAN.Texts = "";
             this.txtAN.UnderlinedStyle = false;
             // 
             // txtmaTV
             // 
+            this.txtmaTV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtmaTV.BackColor = System.Drawing.Color.White;
             this.txtmaTV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.txtmaTV.BorderFocusColor = System.Drawing.Color.HotPink;
@@ -258,7 +376,7 @@
             this.txtmaTV.Enabled = false;
             this.txtmaTV.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmaTV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txtmaTV.Location = new System.Drawing.Point(158, 16);
+            this.txtmaTV.Location = new System.Drawing.Point(149, 26);
             this.txtmaTV.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtmaTV.Multiline = false;
             this.txtmaTV.Name = "txtmaTV";
@@ -266,17 +384,18 @@
             this.txtmaTV.PasswordChar = false;
             this.txtmaTV.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtmaTV.PlaceholderText = "";
-            this.txtmaTV.Size = new System.Drawing.Size(233, 42);
+            this.txtmaTV.Size = new System.Drawing.Size(274, 42);
             this.txtmaTV.TabIndex = 19;
             this.txtmaTV.Texts = "";
             this.txtmaTV.UnderlinedStyle = false;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label1.Location = new System.Drawing.Point(51, 15);
+            this.label1.Location = new System.Drawing.Point(21, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 26);
             this.label1.TabIndex = 22;
@@ -284,10 +403,11 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label2.Location = new System.Drawing.Point(67, 111);
+            this.label2.Location = new System.Drawing.Point(51, 143);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 26);
             this.label2.TabIndex = 23;
@@ -295,6 +415,7 @@
             // 
             // txtV
             // 
+            this.txtV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtV.BackColor = System.Drawing.Color.White;
             this.txtV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.txtV.BorderFocusColor = System.Drawing.Color.HotPink;
@@ -302,7 +423,7 @@
             this.txtV.BorderSize = 2;
             this.txtV.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txtV.Location = new System.Drawing.Point(158, 163);
+            this.txtV.Location = new System.Drawing.Point(149, 193);
             this.txtV.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtV.Multiline = false;
             this.txtV.Name = "txtV";
@@ -310,17 +431,18 @@
             this.txtV.PasswordChar = false;
             this.txtV.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtV.PlaceholderText = "";
-            this.txtV.Size = new System.Drawing.Size(233, 42);
+            this.txtV.Size = new System.Drawing.Size(274, 42);
             this.txtV.TabIndex = 26;
             this.txtV.Texts = "";
             this.txtV.UnderlinedStyle = false;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label4.Location = new System.Drawing.Point(67, 163);
+            this.label4.Location = new System.Drawing.Point(46, 205);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 26);
             this.label4.TabIndex = 27;
@@ -328,10 +450,11 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label5.Location = new System.Drawing.Point(105, 64);
+            this.label5.Location = new System.Drawing.Point(84, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 26);
             this.label5.TabIndex = 39;
@@ -339,6 +462,7 @@
             // 
             // comloaiTV
             // 
+            this.comloaiTV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comloaiTV.BackColor = System.Drawing.Color.Transparent;
             this.comloaiTV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.comloaiTV.BorderRadius = 15;
@@ -353,10 +477,10 @@
             this.comloaiTV.HoverState.Parent = this.comloaiTV;
             this.comloaiTV.ItemHeight = 30;
             this.comloaiTV.ItemsAppearance.Parent = this.comloaiTV;
-            this.comloaiTV.Location = new System.Drawing.Point(158, 67);
+            this.comloaiTV.Location = new System.Drawing.Point(149, 77);
             this.comloaiTV.Name = "comloaiTV";
             this.comloaiTV.ShadowDecoration.Parent = this.comloaiTV;
-            this.comloaiTV.Size = new System.Drawing.Size(233, 36);
+            this.comloaiTV.Size = new System.Drawing.Size(274, 36);
             this.comloaiTV.TabIndex = 46;
             this.comloaiTV.SelectedIndexChanged += new System.EventHandler(this.comloaiTV_SelectedIndexChanged);
             // 
@@ -368,9 +492,9 @@
             this.pnelbai.Controls.Add(this.commaBH);
             this.pnelbai.Controls.Add(this.label8);
             this.pnelbai.Controls.Add(this.label3);
-            this.pnelbai.Location = new System.Drawing.Point(18, 9);
+            this.pnelbai.Location = new System.Drawing.Point(18, 4);
             this.pnelbai.Name = "pnelbai";
-            this.pnelbai.Size = new System.Drawing.Size(968, 63);
+            this.pnelbai.Size = new System.Drawing.Size(968, 52);
             this.pnelbai.TabIndex = 64;
             // 
             // butthemBH
@@ -386,7 +510,7 @@
             this.butthemBH.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butthemBH.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butthemBH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butthemBH.Location = new System.Drawing.Point(733, 7);
+            this.butthemBH.Location = new System.Drawing.Point(760, 3);
             this.butthemBH.Margin = new System.Windows.Forms.Padding(4);
             this.butthemBH.Name = "butthemBH";
             this.butthemBH.Size = new System.Drawing.Size(204, 45);
@@ -406,7 +530,7 @@
             this.txttenBH.Enabled = false;
             this.txttenBH.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttenBH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txttenBH.Location = new System.Drawing.Point(349, 7);
+            this.txttenBH.Location = new System.Drawing.Point(357, 4);
             this.txttenBH.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txttenBH.Multiline = false;
             this.txttenBH.Name = "txttenBH";
@@ -435,7 +559,7 @@
             this.commaBH.HoverState.Parent = this.commaBH;
             this.commaBH.ItemHeight = 30;
             this.commaBH.ItemsAppearance.Parent = this.commaBH;
-            this.commaBH.Location = new System.Drawing.Point(120, 13);
+            this.commaBH.Location = new System.Drawing.Point(121, 8);
             this.commaBH.Name = "commaBH";
             this.commaBH.ShadowDecoration.Parent = this.commaBH;
             this.commaBH.Size = new System.Drawing.Size(112, 36);
@@ -447,7 +571,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label8.Location = new System.Drawing.Point(238, 16);
+            this.label8.Location = new System.Drawing.Point(245, 12);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 26);
             this.label8.TabIndex = 25;
@@ -458,7 +582,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label3.Location = new System.Drawing.Point(10, 16);
+            this.label3.Location = new System.Drawing.Point(9, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 26);
             this.label3.TabIndex = 24;
@@ -475,10 +599,10 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtNP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtNP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtNP.Location = new System.Drawing.Point(502, 457);
+            this.dtNP.Location = new System.Drawing.Point(484, 496);
             this.dtNP.Margin = new System.Windows.Forms.Padding(4);
             this.dtNP.Name = "dtNP";
-            this.dtNP.Size = new System.Drawing.Size(484, 197);
+            this.dtNP.Size = new System.Drawing.Size(506, 171);
             this.dtNP.TabIndex = 63;
             this.dtNP.SelectionChanged += new System.EventHandler(this.dtNP_SelectionChanged);
             // 
@@ -493,10 +617,10 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtTV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtTV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtTV.Location = new System.Drawing.Point(16, 457);
+            this.dtTV.Location = new System.Drawing.Point(20, 496);
             this.dtTV.Margin = new System.Windows.Forms.Padding(4);
             this.dtTV.Name = "dtTV";
-            this.dtTV.Size = new System.Drawing.Size(478, 197);
+            this.dtTV.Size = new System.Drawing.Size(458, 171);
             this.dtTV.TabIndex = 57;
             this.dtTV.SelectionChanged += new System.EventHandler(this.dtTV_SelectionChanged);
             // 
@@ -520,7 +644,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label9.Location = new System.Drawing.Point(13, 400);
+            this.label9.Location = new System.Drawing.Point(16, 437);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(106, 26);
             this.label9.TabIndex = 47;
@@ -531,7 +655,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label10.Location = new System.Drawing.Point(867, 400);
+            this.label10.Location = new System.Drawing.Point(870, 437);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(120, 26);
             this.label10.TabIndex = 69;
@@ -542,7 +666,7 @@
             this.labslTV.AutoSize = true;
             this.labslTV.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labslTV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.labslTV.Location = new System.Drawing.Point(13, 427);
+            this.labslTV.Location = new System.Drawing.Point(16, 464);
             this.labslTV.Name = "labslTV";
             this.labslTV.Size = new System.Drawing.Size(42, 26);
             this.labslTV.TabIndex = 47;
@@ -553,7 +677,7 @@
             this.labslNP.AutoSize = true;
             this.labslNP.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labslNP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.labslNP.Location = new System.Drawing.Point(924, 427);
+            this.labslNP.Location = new System.Drawing.Point(927, 464);
             this.labslNP.Name = "labslNP";
             this.labslNP.Size = new System.Drawing.Size(42, 26);
             this.labslNP.TabIndex = 70;
@@ -576,7 +700,7 @@
             this.pneladdBH.Controls.Add(this.txtaddtenBH);
             this.pneladdBH.Controls.Add(this.label11);
             this.pneladdBH.Controls.Add(this.label12);
-            this.pneladdBH.Location = new System.Drawing.Point(505, 65);
+            this.pneladdBH.Location = new System.Drawing.Point(521, 57);
             this.pneladdBH.Name = "pneladdBH";
             this.pneladdBH.ShadowDecoration.Parent = this.pneladdBH;
             this.pneladdBH.Size = new System.Drawing.Size(461, 385);
@@ -837,7 +961,7 @@
             this.butthemNP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butthemNP.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butthemNP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butthemNP.Location = new System.Drawing.Point(510, 79);
+            this.butthemNP.Location = new System.Drawing.Point(486, 60);
             this.butthemNP.Margin = new System.Windows.Forms.Padding(4);
             this.butthemNP.Name = "butthemNP";
             this.butthemNP.Size = new System.Drawing.Size(239, 35);
@@ -860,7 +984,7 @@
             this.butthemTV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butthemTV.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butthemTV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butthemTV.Location = new System.Drawing.Point(249, 79);
+            this.butthemTV.Location = new System.Drawing.Point(239, 60);
             this.butthemTV.Margin = new System.Windows.Forms.Padding(4);
             this.butthemTV.Name = "butthemTV";
             this.butthemTV.Size = new System.Drawing.Size(239, 35);
@@ -883,7 +1007,7 @@
             this.buthuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buthuy.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buthuy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.buthuy.Location = new System.Drawing.Point(367, 390);
+            this.buthuy.Location = new System.Drawing.Point(351, 437);
             this.buthuy.Margin = new System.Windows.Forms.Padding(4);
             this.buthuy.Name = "buthuy";
             this.buthuy.Size = new System.Drawing.Size(110, 45);
@@ -906,7 +1030,7 @@
             this.butcapnhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butcapnhat.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butcapnhat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butcapnhat.Location = new System.Drawing.Point(521, 390);
+            this.butcapnhat.Location = new System.Drawing.Point(615, 437);
             this.butcapnhat.Margin = new System.Windows.Forms.Padding(4);
             this.butcapnhat.Name = "butcapnhat";
             this.butcapnhat.Size = new System.Drawing.Size(110, 45);
@@ -929,7 +1053,7 @@
             this.butxoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butxoa.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butxoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(0)))), ((int)(((byte)(16)))));
-            this.butxoa.Location = new System.Drawing.Point(751, 390);
+            this.butxoa.Location = new System.Drawing.Point(735, 437);
             this.butxoa.Margin = new System.Windows.Forms.Padding(4);
             this.butxoa.Name = "butxoa";
             this.butxoa.Size = new System.Drawing.Size(110, 45);
@@ -952,7 +1076,7 @@
             this.butthaotac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butthaotac.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butthaotac.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butthaotac.Location = new System.Drawing.Point(252, 390);
+            this.butthaotac.Location = new System.Drawing.Point(236, 437);
             this.butthaotac.Margin = new System.Windows.Forms.Padding(4);
             this.butthaotac.Name = "butthaotac";
             this.butthaotac.Size = new System.Drawing.Size(110, 45);
@@ -975,7 +1099,7 @@
             this.butthem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butthem.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butthem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butthem.Location = new System.Drawing.Point(636, 390);
+            this.butthem.Location = new System.Drawing.Point(500, 437);
             this.butthem.Margin = new System.Windows.Forms.Padding(4);
             this.butthem.Name = "butthem";
             this.butthem.Size = new System.Drawing.Size(110, 45);
@@ -984,39 +1108,6 @@
             this.butthem.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.butthem.UseVisualStyleBackColor = false;
             this.butthem.Click += new System.EventHandler(this.butthem_Click);
-            // 
-            // txtpam
-            // 
-            this.txtpam.BackColor = System.Drawing.Color.White;
-            this.txtpam.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.txtpam.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtpam.BorderRadius = 20;
-            this.txtpam.BorderSize = 2;
-            this.txtpam.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txtpam.Location = new System.Drawing.Point(158, 209);
-            this.txtpam.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtpam.Multiline = false;
-            this.txtpam.Name = "txtpam";
-            this.txtpam.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
-            this.txtpam.PasswordChar = false;
-            this.txtpam.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtpam.PlaceholderText = "";
-            this.txtpam.Size = new System.Drawing.Size(233, 42);
-            this.txtpam.TabIndex = 48;
-            this.txtpam.Texts = "";
-            this.txtpam.UnderlinedStyle = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label13.Location = new System.Drawing.Point(67, 209);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 26);
-            this.label13.TabIndex = 49;
-            this.label13.Text = "Phiên âm";
             // 
             // Nhapbaihoc
             // 
@@ -1066,7 +1157,6 @@
         private System.Windows.Forms.Panel pnelNP;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label butchuthich;
         private System.Windows.Forms.Panel pnelTV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -1088,8 +1178,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
-        private RoundTextbox txtchuthich;
-        private RoundTextbox txtnoidung;
         private RoundTextbox txtmaNP;
         private RoundTextbox txtV;
         private RoundTextbox txtmaTV;
@@ -1116,5 +1204,11 @@
         private RoundTextbox txtAN;
         private RoundTextbox txtpam;
         private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2TextBox txtnoidung;
+        private System.Windows.Forms.Label label14;
+        private RoundTextbox txttenNP;
+        private Guna.UI2.WinForms.Guna2TextBox txtchuthich;
+        private System.Windows.Forms.Label label18;
+        private CustomButton butthemBT;
     }
 }
