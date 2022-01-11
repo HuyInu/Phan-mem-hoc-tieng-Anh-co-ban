@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace Đồ_án
 {
@@ -23,7 +24,6 @@ namespace Đồ_án
         int tiendo=0,dem;
         int dung=0, sai=0;
         string DA;
-        int dis = 1;
         int phantram;
         private void Hoctuvung_Load(object sender, EventArgs e)
         {
@@ -37,7 +37,10 @@ namespace Đồ_án
             dung= int.Parse(dt1.Rows[0][2].ToString());
             sai= int.Parse(dt1.Rows[0][3].ToString());
 
-            lbtenbh1.Text = NGUOIHOC.tenbaihoc;
+            lbtenbh1.Text = db.dem("select TenBH from BAIHOC where MaBH='" + NGUOIHOC.idbaihoc + "'");
+            lbtenbh.Text = lbtenbh1.Text;
+
+            loadTVvaoList();
 
             if(tiendo == 0 && int.Parse(dt1.Rows[0][1].ToString())!=100)
             {
@@ -52,7 +55,6 @@ namespace Đồ_án
             }
             else if(int.Parse(dt1.Rows[0][1].ToString())==100)
             {
-                loadTVvaoList();
 
                 pnbai.Hide();
                 pnQ.Hide();
@@ -66,7 +68,7 @@ namespace Đồ_án
                 pnKQ.Hide();
 
                 lbtenbh.Left = lbhead.Left + lbhead.Width;
-                lbtenbh.Text =NGUOIHOC.tenbaihoc;
+                //lbtenbh.Text = db.dem("select TenBH from BAIHOC where MaBH='" + NGUOIHOC.idbaihoc + "'");
                 lbtenbh1.Hide();
                 baihoc.Hide();
             }
@@ -106,27 +108,95 @@ namespace Đồ_án
                 lstTV.Items[i].SubItems.Add(dt.Rows[i][3].ToString());
             }
         }
+        public void updatethongke()
+        {
+            db.ExecuteNonQuery("update THONGKE set Tongdung=Tongdung+" + dung + ",Tongsai=Tongsai+" + sai + ",Solanhoc=Solanhoc+1 where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
+        }
+        public static int GetWeekOfYear(DateTime time)
+        {
+            DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+            {
+                time = time.AddDays(3);
+            }
+
+            return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+        }
+        public static DateTime FirstDateOfWeek(int year, int weekOfYear)
+        {
+            DateTime jan1 = new DateTime(year, 1, 1);
+            int daysOffset = DayOfWeek.Thursday - jan1.DayOfWeek;
+
+            DateTime firstThursday = jan1.AddDays(daysOffset);
+            var cal = CultureInfo.CurrentCulture.Calendar;
+            int firstWeek = cal.GetWeekOfYear(firstThursday, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+
+            var weekNum = weekOfYear;
+            if (firstWeek == 1)
+            {
+                weekNum -= 1;
+            }
+            var result = firstThursday.AddDays(weekNum * 7);
+
+            return result.AddDays(-3);
+        }
+        public void UpdateWeekMounthYear()
+        {
+            try
+            {
+                int week = GetWeekOfYear(DateTime.Now);
+                int month = DateTime.Now.Month;
+                int year = DateTime.Now.Year;
+                if (db.kiemtra("select * from TKEMONTH where MaNH='" + NGUOIHOC.id + "' and THANG='" + month + "' and NAM='" + year + "'") == false)
+                {
+                    db.ExecuteNonQuery("insert into TKEMONTH values ('" + NGUOIHOC.id + "','" + 1 + "','" + month + "','" + year + "')");
+                }
+                else
+                {
+                    db.ExecuteNonQuery("update TKEMONTH set SL=SL+1 where MaNH='"+NGUOIHOC.id+"' and THANG='"+month+"' and NAM='"+year+"'");
+                }
+                if (db.kiemtra("select * from TKEWEEK where MaNH='" + NGUOIHOC.id + "' and TUAN='" + week + "' and NAM='" + year + "'") == false)
+                {
+                    DateTime monday = FirstDateOfWeek(year, week);
+
+                    db.ExecuteNonQuery("insert into TKEWEEK values ('" + NGUOIHOC.id + "','" + 1 + "','" + week + "','" + monday + "','" + monday.AddDays(6) + "','" + year + "')");
+                }
+                else
+                {
+                    db.ExecuteNonQuery("update TKEWEEK set SL=SL+1 where MaNH='" + NGUOIHOC.id + "' and TUAN='" + week + "' and NAM='" + year + "'");
+                }
+                
+            }
+            catch { }
+        }
         public void finishlearn()
         {
             phantram = (dung * 100) / dem;
             MessageBox.Show("Bạn đã hoàn thành bài học");
             lbtenbh1.Hide();
             baihoc.Hide();
-            if (int.Parse(dt1.Rows[0][1].ToString()) != 100)
-                db.ExecuteNonQuery("update HOC set FTV='" + phantram + "' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
-            db.ExecuteNonQuery("update HOC set FTV='" + phantram + "',TiendoTV='" + 0 + "',DungTV='"+0+"',SaiTV='"+0+"' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
-            pnfinish.Visible = true;
+            if (int.Parse(db.dem("select FTV from HOC where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'")) != 100)
+                db.ExecuteNonQuery("update HOC set FTV='" + phantram + "',TiendoTV='" + 0 + "',DungTV='" + 0 + "',SaiTV='" + 0 + "' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
+            else
+                db.ExecuteNonQuery("update HOC set TiendoTV='" + 0 + "',DungTV='"+0+"',SaiTV='"+0+"' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
+            updatethongke();
+            UpdateWeekMounthYear();
+
+            pnfinish.Show();
             pnA.Hide();
-            loadTVvaoList();
             
             lbphantram.Text = "Hoàn thành "+phantram + "%"+" bài học.";
             centerlabel(lbphantram, pnKQ);
-            lbR.Text = "Đúng: " + dung + " từ.";
+            lbR.Text = "Đúng: " + dung + "/ "+ dem+" từ.";
             centerlabel(lbR, pnKQ);
-            lbF.Text = "Sai: " + sai + " từ.";
+            lbF.Text = "Sai: " + sai + "/ " + dem + " từ.";
             centerlabel(lbF, pnKQ);
             pnKQ.Show();
             pnKQ.BringToFront();
+
+            dung = 0;
+            sai = 0;
+            db.huyketnoi();
         }
         public void loadsound()
         {
@@ -146,19 +216,12 @@ namespace Đồ_án
         {
             loadsound();
         }
-        private void buttrove_Click(object sender, EventArgs e)
-        {
-            DialogResult kq = MessageBox.Show("Tiến độ của bạn sẽ được lưu, bạn có muốn trở về ?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(kq==DialogResult.Yes)
-            {
-                this.Close();                              
-            }
-        }
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             tiendo++;
             phantram = (dung * 100) / dem;
-            db.ExecuteNonQuery("update HOC set TiendoTV='" + tiendo + "',DungTV='" + dung + "',SaiTV='" + sai + "',FTV='" + phantram + "' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
+            db.ExecuteNonQuery("update HOC set TiendoTV='" + tiendo + "',DungTV='" + dung + "',SaiTV='" + sai + "' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
             loadTV();
             showbaihoc();
             loadsound();
@@ -192,7 +255,6 @@ namespace Đồ_án
                 hidetexbox();
 
                 txttrabai.Texts = "";
-                dis++;
                 if(tiendo == dem-1)
                 {
                     finishlearn();
@@ -209,7 +271,6 @@ namespace Đồ_án
                 centerlabel(lbAser, pnA);
                 hidetexbox();
 
-                dis++;
                 txttrabai.Texts = "";
                 if (tiendo == dem - 1)
                 {
@@ -235,6 +296,15 @@ namespace Đồ_án
         private void butok_Click(object sender, EventArgs e)
         {
             pnKQ.Hide();           
+        }
+        private void buttrove_Click(object sender, EventArgs e)
+        {
+            DialogResult kq = MessageBox.Show("Tiến độ của bạn sẽ được lưu, bạn có muốn trở về ?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (kq == DialogResult.Yes)
+            {
+                GC.Collect();
+                this.Close();
+            }
         }
     }
 }

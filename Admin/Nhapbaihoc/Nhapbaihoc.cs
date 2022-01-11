@@ -13,9 +13,13 @@ namespace Đồ_án
 {
     public partial class Nhapbaihoc : Form
     {
+        public static Nhapbaihoc nph;
+        public ComboBox combh;
         public Nhapbaihoc()
         {
             InitializeComponent();
+            nph = this;
+            combh = commaBH;
             
         }
         bool clickTV, clickNP;
@@ -253,51 +257,66 @@ namespace Đồ_án
             return ma;
         }
         private void butthem_Click(object sender, EventArgs e)
-        {
-            
+        {          
             if (clickTV)
             {
+                try {
                 string matv = getma();
-                
-                if (txtAN.Texts == "" || txtV.Texts == ""||txtpam.Texts=="")
-                {
-                    MessageBox.Show("Dữ liệu không được bỏ trống.");
-                }
-                else if (db.kiemtra("select * from TUVUNG where Angu='" + txtAN.Texts + "'"))
-                {
-                    MessageBox.Show("Từ này đã có trong bài học khác.");
-                }
-                else
-                {
-                    string insert = "insert into TUVUNG values('" + matv + "','" + MaBH + "','"+MaLOAI+"','" + txtAN.Texts + "',N'" + txtV.Texts + "',N'"+txtpam.Texts+"')";
-                    db.ExecuteNonQuery(insert);
 
-                    //db.ExecuteNonQuery("update HOC set FTV='" + 0 + "'");
+                    if (txtAN.Texts == "" || txtV.Texts == "" || txtpam.Texts == "")
+                    {
+                        MessageBox.Show("Dữ liệu không được bỏ trống.");
+                    }
+                    else if (db.kiemtra("select * from TUVUNG where Angu='" + txtAN.Texts + "'"))
+                    {
+                        MessageBox.Show("Từ này đã có trong bài học khác.");
+                    }
+                    else
+                    {
+                        string insert = "insert into TUVUNG values('" + matv + "','" + MaBH + "','" + MaLOAI + "','" + txtAN.Texts + "',N'" + txtV.Texts + "',N'" + txtpam.Texts + "')";
+                        db.ExecuteNonQuery(insert);
 
-                    xuatdataTV();
-                    labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
-                    cleartexboxTV();
+                        db.ExecuteNonQuery("update HOC set FTV='" + 0 + "' where MaBH='" + combh.Text + "'");
+
+                        xuatdataTV();
+                        labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
+                        cleartexboxTV();
+                        disablebutton(butcapnhat, butthem, butxoa);
+                    }
+                }
+               catch {
+                    MessageBox.Show("Thêm thất bại");
                     disablebutton(butcapnhat, butthem, butxoa);
-                   
+                    db.huyketnoi();
                 }
             }
             if (clickNP)
             {
-                string manp = getma();
-                if (txtnoidung.Text == "" || txttenNP.Texts=="")
+                try
                 {
-                    MessageBox.Show("Dữ liệu không được bỏ trống.");
-                }
-                else
-                {                                    
-                        string insert = "insert into NGUPHAP values ('" + manp + "','" + MaBH + "',N'" + txtnoidung.Text + "',N'" + txttenNP.Texts + "',N'"+txtchuthich.Text+"')";
-                        db.ExecuteNonQuery(insert);
-                    xuatdataNP();
-                    labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
+                    string manp = getma();
+                    if (txtnoidung.Text == "")
+                    {
+                        MessageBox.Show("Dữ liệu không được bỏ trống.");
+                    }
+                    else if(db.kiemtra("select * from NGUPHAP where Noidung='"+txtnoidung.Text+"'") || db.kiemtra("select * from NGUPHAP where TenNP='" + txttenNP.Text + "'"))
+                        MessageBox.Show("Dữ liệu đã tồn tại.");
+                    else
+                    {
+                        string insert = "insert into NGUPHAP values ('" + manp + "','" + MaBH + "',N'" + txtnoidung.Text + "',N'" + txttenNP.Texts + "',N'" + txtchuthich.Text + "')";
+                        db.ExecuteNonQuery(insert);      
+                        xuatdataNP();
+                        labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
                         cleartextboxNP();
                         disablebutton(butcapnhat, butthem, butxoa);
-                    reloadNPform();
-                    
+                        reloadNPform();
+
+                    }
+               }
+                catch {
+                    MessageBox.Show("Thêm thất bại");
+                    disablebutton(butcapnhat, butthem, butxoa);
+                    db.huyketnoi();
                 }
             }
         }
@@ -328,6 +347,8 @@ namespace Đồ_án
                 }
                 catch
                 {
+                    MessageBox.Show("Sửa thất bại");
+                    disablebutton(butcapnhat, butthem, butxoa);
                     db.huyketnoi();
                 }
             }
@@ -335,15 +356,23 @@ namespace Đồ_án
             {
                 try
                 {
-                    string sua = "update NGUPHAP set Noidung=N'" + txtnoidung.Text + "',TenNP=N'"+txttenNP.Texts+"',Chuthich=N'"+txtchuthich.Text+"' where MaNP='" + txtmaNP.Texts + "'";
-                    db.ExecuteNonQuery(sua);
-                    xuatdataNP();
-                    cleartextboxNP();
-                    disablebutton(butcapnhat, butthem, butxoa);
-                    reloadNPform();
+                    if (txtnoidung.Text == "")
+                        MessageBox.Show("Dữ liệu không được bỏ trống.");
+                    else if (db.kiemtra("select * from NGUPHAP where Noidung='" + txtnoidung.Text + "' except select * from NGUPHAP where MaNP='" + txtmaNP.Texts + "'") || db.kiemtra("select * from NGUPHAP where TenNP='" + txttenNP.Text + "' except select * from NGUPHAP where MaNP='" + txtmaNP.Texts + "'"))
+                        MessageBox.Show("Dữ liệu đã tồn tại.");
+                    else
+                    {
+                        string sua = "update NGUPHAP set Noidung=N'" + txtnoidung.Text + "',TenNP=N'" + txttenNP.Texts + "',Chuthich=N'" + txtchuthich.Text + "' where MaNP='" + txtmaNP.Texts + "'";
+                        db.ExecuteNonQuery(sua);
+                        xuatdataNP();
+                        cleartextboxNP();
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        reloadNPform();
+                    }
                 }
-                catch
-                {
+                catch{
+                    MessageBox.Show("Sửa thất bại");
+                    disablebutton(butcapnhat, butthem, butxoa);
                     db.huyketnoi();
                 }
             }
@@ -352,45 +381,51 @@ namespace Đồ_án
         {
             if (clickTV)
             {
-                try
+                DialogResult dl = MessageBox.Show("Bạn có chắc xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dl == DialogResult.Yes)
                 {
-                    string xoa = "delete from TUVUNG where MaTV='" + txtmaTV.Texts + "'";
-                    db.ExecuteNonQuery(xoa);
-
-                    DataTable dt = db.Execute("select TiendoTV from HOC");
-                    int dem= dt.Rows.Count;
-                    for (int i = 0; i < dem; i++)
+                    try
                     {
-                        int tiendo = int.Parse(dt.Rows[i][0].ToString()) - 1;
-                        db.ExecuteNonQuery("update HOC set TiendoTV='" +tiendo+"' where MaNH='"+(i+1)+"'");
+                        string xoa = "delete from TUVUNG where MaTV='" + txtmaTV.Texts + "'";
+                        db.ExecuteNonQuery(xoa);
+                        xuatdataTV();
+                        db.ExecuteNonQuery("update HOC set DungTV=0,SaiTV=0,TiendoTV=0,FTV=0 where MaBH='"+combh.Text+"'");
+                        labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
+                        cleartextboxNP();
+                        disablebutton(butcapnhat, butthem, butxoa);
                     }
-
-                    xuatdataTV();
-                    labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
-                    cleartextboxNP();
-                    disablebutton(butcapnhat, butthem, butxoa);
+                    catch
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        db.huyketnoi();
+                    }
                 }
-                catch
-                {
-                    db.huyketnoi();
-                }
+                else disablebutton(butcapnhat, butthem, butxoa);
             }
             if (clickNP)
             {
-                try
+                DialogResult dl = MessageBox.Show("Bạn có chắc xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dl == DialogResult.Yes)
                 {
-                    string xoa = "delete from NGUPHAP where MaNP='" + txtmaNP.Texts + "'";
-                    db.ExecuteNonQuery(xoa);
-                    xuatdataNP();
-                    labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
-                    cleartextboxNP();
-                    disablebutton(butcapnhat, butthem, butxoa);
-                    reloadNPform();
+                    try
+                    {
+                        string xoa = "delete from NGUPHAP where MaNP='" + txtmaNP.Texts + "'";
+                        db.ExecuteNonQuery(xoa);                 
+                        xuatdataNP();
+                        labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
+                        cleartextboxNP();
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        reloadNPform();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        db.huyketnoi();
+                    }
                 }
-                catch
-                {
-                    db.huyketnoi();
-                }
+                else disablebutton(butcapnhat, butthem, butxoa);
             }
         }
         private void butthemBT_Click(object sender, EventArgs e)
@@ -449,27 +484,29 @@ namespace Đồ_án
         }
         private void butaddthem_Click(object sender, EventArgs e)
         {
-            int dem;
-            DataTable dt = db.Execute("select top 1 MaBH from BAIHOC order by MaBH desc");
-            if(dt.Rows.Count==0)
+            try
             {
-                dem = 0;
-            }
-            else
-                dem = int.Parse(dt.Rows[0][0].ToString());
-            if (txtaddtenBH.Text == "")
-            {
-                MessageBox.Show("Thông tin không được bỏ trống.");
-            }
-            else
-            {
-                if (db.kiemtra("select TenBH from BAIHOC where TenBH='" + txtaddtenBH.Text + "'"))
+                int dem;
+                DataTable dt = db.Execute("select top 1 MaBH from BAIHOC order by MaBH desc");
+                if (dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("Bài học này đã có");
+                    dem = 0;
+                }
+                else
+                    dem = int.Parse(dt.Rows[0][0].ToString());
+                if (txtaddtenBH.Text == "")
+                {
+                    MessageBox.Show("Thông tin không được bỏ trống.");
                 }
                 else
                 {
-                    
+                    if (db.kiemtra("select TenBH from BAIHOC where TenBH='" + txtaddtenBH.Text + "'"))
+                    {
+                        MessageBox.Show("Bài học này đã có");
+                    }
+                    else
+                    {
+
                         string sql = "insert into BAIHOC values('" + (dem + 1).ToString("0000") + "',N'" + txtaddtenBH.Text + "')";
                         db.ExecuteNonQuery(sql);
                         db.xuatdata("select * from BAIHOC", dtaddBH);
@@ -478,9 +515,12 @@ namespace Đồ_án
                         txtaddmaBH.Text = "";
                         disablebutton(butaddsua, butaddthem, butaddxoa);
                         db.datatintocombox(commaBH, "select MaBH,TenBH from BAIHOC", "MaBH", "TenBH");
-                        GC.Collect();
-                    
+                    }
                 }
+            }
+            catch { MessageBox.Show("Thêm thất bại!");
+                disablebutton(butcapnhat, butthem, butxoa);
+                db.huyketnoi();
             }
         }
         private void butaddsua_Click(object sender, EventArgs e)
@@ -510,26 +550,47 @@ namespace Đồ_án
                     }
                     catch
                     {
+                        MessageBox.Show("Sửa thất bại!");
+                        disablebutton(butcapnhat, butthem, butxoa);
                         db.huyketnoi();
                     }
                 }
             }
         }
+
+        
+
         private void butaddxoa_Click(object sender, EventArgs e)
         {
             try
             {
-                string xoa = "delete from BAIHOC where MaBH='" + txtaddmaBH.Text + "'";
-                db.ExecuteNonQuery(xoa);
-                db.xuatdata("select * from BAIHOC ", dtaddBH);
-                labaddBH.Text = "Sl bài học: " + (dtaddBH.Rows.Count - 1).ToString();
-                txtaddtenBH.Text = "";
-                txtaddmaBH.Text = "";
-                disablebutton(butaddsua, butaddthem, butaddxoa);
-                db.datatintocombox(commaBH, "select MaBH,TenBH from BAIHOC", "MaBH", "TenBH");
-                GC.Collect();
+                DialogResult i = MessageBox.Show("Bạn có chắc xóa? Nội dung của bài học sẽ mất.", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (i == DialogResult.Yes)
+                {
+                    string xoa = "delete from BAIHOC where MaBH='" + txtaddmaBH.Text + "'";
+                    db.ExecuteNonQuery(xoa);
+                    db.xuatdata("select * from BAIHOC ", dtaddBH);
+                    labaddBH.Text = "Sl bài học: " + (dtaddBH.Rows.Count - 1).ToString();
+                    txtaddtenBH.Text = "";
+                    txtaddmaBH.Text = "";
+                    disablebutton(butaddsua, butaddthem, butaddxoa);
+                    db.datatintocombox(commaBH, "select MaBH,TenBH from BAIHOC", "MaBH", "TenBH");
+                    GC.Collect();
+                }
+                else
+                {
+                    disablebutton(butaddsua, butaddthem, butaddxoa);
+                }
             }
-            catch { }
+            catch { MessageBox.Show("Xóa thất bại!");
+                disablebutton(butcapnhat, butthem, butxoa);
+                db.huyketnoi();
+            }
+        }
+        private void picSear_Click(object sender, EventArgs e)
+        {
+            TimkiemBH_Admin tk = new TimkiemBH_Admin();
+            tk.Show();
         }
     }
 }

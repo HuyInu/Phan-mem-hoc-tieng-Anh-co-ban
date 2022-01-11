@@ -18,24 +18,24 @@ namespace Đồ_án
         {
             InitializeComponent();
             btnp = this;
-            bx = comNP;
+            bx = comBH;
         }
         Database db;
         private void NhapBTNP_Load(object sender, EventArgs e)
         {
             db = new Database("QLAV");
 
-            DataTable dt = db.Execute("select MaNP,TenNP from NGUPHAP");
-            comNP.DataSource = dt;
-            comNP.DisplayMember = "MaNP";
-            comNP.ValueMember = "TenNP";
+            DataTable dt = db.Execute("select MaBH,TenBH from BAIHOC");
+            comBH.DataSource = dt;
+            comBH.DisplayMember = "MaBH";
+            comBH.ValueMember = "TenBH";
 
-            lbtenNP.Text = "Tên ngữ pháp.";
+            lbtenBH.Text = "Tên bài học.";
         }
         private void comNP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbtenNP.Text = comNP.SelectedValue.ToString();
-            db.xuatdata("select MaBTNP as 'Mã câu hỏi', Cauhoi as 'Câu hỏi',A,B,C,Dapan as 'Dấp án' from BAITAPNP where MaNP='" + comNP.Text + "'", dtgCH);
+            lbtenBH.Text = comBH.SelectedValue.ToString();
+            xuatdatag();
             cleartextbox();
         }
 
@@ -62,6 +62,10 @@ namespace Đồ_án
                 mabt = (int.Parse(dt.Rows[0][0].ToString()) + 1).ToString("00000");
                 return mabt;
             }           
+        }
+        public void xuatdatag()
+        {
+            db.xuatdata("select MaBTNP as 'Mã câu hỏi', Cauhoi as 'Câu hỏi',A,B,C,Dapan as 'Dấp án' from BAITAPNP where MaBH='" + comBH.Text + "'", dtgCH);
         }
         public string DA()
         {
@@ -96,45 +100,74 @@ namespace Đồ_án
         /*-----------Thêm sửa xóa-----------*/
         private void butthem_Click(object sender, EventArgs e)
         {
-            string dapan = DA();
-            if (txtnoidung.Text == "" || txtA.Texts == "" || txtB.Texts == "" || txtC.Texts == "" || dapan == "D")
+            try
             {
-                MessageBox.Show("Dữ liệu không được để trống. ");
-            }
-            else if (db.kiemtra("select MaBTNP as 'Mã câu hỏi', Cauhoi as 'Câu hỏi',A,B,C,Dapan as 'Dấp án' from BAITAPNP where MaNP='" + comNP.Text + "' and Cauhoi='" + txtnoidung.Text + "' and A='" + txtA.Texts + "' and B='" + txtB.Texts + "' and C='" + txtC.Texts + "' and Dapan='" + dapan + "'"))
-                MessageBox.Show("Dữ liệu đã có trong CSDL.");
+                string dapan = DA();
+                if (txtnoidung.Text == "" || txtA.Texts == "" || txtB.Texts == "" || txtC.Texts == "" || dapan == "D")
+                {
+                    MessageBox.Show("Dữ liệu không được để trống. ");
+                }
+                else if (db.kiemtra("select MaBTNP as 'Mã câu hỏi', Cauhoi as 'Câu hỏi',A,B,C,Dapan as 'Dấp án' from BAITAPNP where MaBH='" + comBH.Text + "' and Cauhoi='" + txtnoidung.Text + "' and A='" + txtA.Texts + "' and B='" + txtB.Texts + "' and C='" + txtC.Texts + "' and Dapan='" + dapan + "'"))
+                    MessageBox.Show("Dữ liệu đã có trong CSDL.");
 
-            else
-            {
-                db.ExecuteNonQuery("insert into BAITAPNP values('" + getma() + "','" + comNP.Text + "',N'" + txtnoidung.Text + "',N'" + txtA.Texts + "',N'" + txtB.Texts + "',N'" + txtC.Texts + "',N'" + dapan + "')");
-                db.xuatdata("select MaBTNP as 'Mã câu hỏi', Cauhoi as 'Câu hỏi',A,B,C,Dapan as 'Dấp án' from BAITAPNP where MaNP='" + comNP.Text + "'", dtgCH);
-                cleartextbox();
+                else
+                {
+                    db.ExecuteNonQuery("insert into BAITAPNP values('" + getma() + "','" + comBH.Text + "',N'" + txtnoidung.Text + "',N'" + txtA.Texts + "',N'" + txtB.Texts + "',N'" + txtC.Texts + "',N'" + dapan + "')");
+                    xuatdatag();              
+                    cleartextbox();
+                }
             }
+            catch { MessageBox.Show("Thêm thất bại.");
+                db.huyketnoi();
+            }
+
+            try { db.ExecuteNonQuery("update HOC set FNP='" + 0 + "' where MaBH='" + comBH.Text + "'"); }
+            catch { }
 
         }
 
         private void butcapnhat_Click(object sender, EventArgs e)
         {
-            string dapan = DA();
-            if (txtnoidung.Text == "" || txtA.Texts == "" || txtB.Texts == "" || txtC.Texts == "" || dapan == "D")
+            try
             {
-                MessageBox.Show("Dữ liệu không được để trống. ");
-            }
-            else if (db.kiemtra("select MaBTNP as 'Mã câu hỏi', Cauhoi as 'Câu hỏi',A,B,C,Dapan as 'Dấp án' from BAITAPNP where MaNP='" + comNP.Text + "' and Cauhoi='" + txtnoidung.Text + "' and A='" + txtA.Texts + "' and B='" + txtB.Texts + "' and C='" + txtC.Texts + "' and Dapan='" + dapan + "'"))
-                MessageBox.Show("Dữ liệu đã có trong CSDL.");
+                string dapan = DA();
+                if (txtnoidung.Text == "" || txtA.Texts == "" || txtB.Texts == "" || txtC.Texts == "" || dapan == "D")
+                {
+                    MessageBox.Show("Dữ liệu không được để trống. ");
+                }
+                else if (db.kiemtra("select MaBTNP as 'Mã câu hỏi', Cauhoi as 'Câu hỏi',A,B,C,Dapan as 'Dấp án' from BAITAPNP where MaBH='" + comBH.Text + "' and Cauhoi='" + txtnoidung.Text + "' and A='" + txtA.Texts + "' and B='" + txtB.Texts + "' and C='" + txtC.Texts + "' and Dapan='" + dapan + "'"))
+                    MessageBox.Show("Dữ liệu đã có trong CSDL.");
 
-            else
-            {
-                db.ExecuteNonQuery("update BAITAPNP set Cauhoi='"+txtnoidung.Text+"',A='"+txtA.Texts+"',B='"+txtB.Texts+"',C='"+txtC.Texts+"',Dapan='"+dapan+"' where MaBTNP='"+txtmaBT.Texts+"'");
-                db.xuatdata("select MaBTNP as 'Mã câu hỏi', Cauhoi as 'Câu hỏi',A,B,C,Dapan as 'Dấp án' from BAITAPNP where MaNP='" + comNP.Text + "'", dtgCH);
-                cleartextbox();
+                else
+                {
+                    db.ExecuteNonQuery("update BAITAPNP set Cauhoi='" + txtnoidung.Text + "',A='" + txtA.Texts + "',B='" + txtB.Texts + "',C='" + txtC.Texts + "',Dapan='" + dapan + "' where MaBTNP='" + txtmaBT.Texts + "'");
+                    xuatdatag();
+                    cleartextbox();
+                }
+            }
+            catch { MessageBox.Show("Sửa thất bại.");
+                db.huyketnoi();
             }
         }
         private void butxoa_Click(object sender, EventArgs e)
         {
-            db.ExecuteNonQuery("delete from BAITAPNP where MaBTNP='" + txtmaBT.Texts + "'");
-            db.xuatdata("select MaBTNP as 'Mã câu hỏi', Cauhoi as 'Câu hỏi',A,B,C,Dapan as 'Dấp án' from BAITAPNP where MaNP='" + comNP.Text + "'", dtgCH);
-            cleartextbox();
+            DialogResult dl = MessageBox.Show("Bạn có chắc xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dl == DialogResult.Yes)
+            {
+                try
+                {
+                    db.ExecuteNonQuery("delete from BAITAPNP where MaBTNP='" + txtmaBT.Texts + "'");
+                    xuatdatag();                  
+                    cleartextbox();
+                }
+                catch
+                {
+                    MessageBox.Show("Xóa thất bại.");
+                    db.huyketnoi();
+                }
+            }
+            try { db.ExecuteNonQuery("update HOC set DungNP=0,SaiNP=0,TiendoNP=0,FNP=0 where MaBH='" + comBH.Text + "'"); }
+            catch { }
         }
 
         private void NhapBTNP_FormClosed(object sender, FormClosedEventArgs e)

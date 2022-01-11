@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hoctuvung));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnbai = new System.Windows.Forms.Panel();
             this.speaker = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,6 +59,7 @@
             this.pnfinish = new System.Windows.Forms.Panel();
             this.pnKQ = new Guna.UI2.WinForms.Guna2Panel();
             this.lbphantram = new System.Windows.Forms.Label();
+            this.butok = new Đồ_án.CustomButton();
             this.lbF = new System.Windows.Forms.Label();
             this.lbR = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -70,12 +71,11 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buthoclai = new Đồ_án.CustomButton();
             this.lbhead = new System.Windows.Forms.Label();
             this.elippnkq = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.buttrove = new Đồ_án.CustomButton();
-            this.butok = new Đồ_án.CustomButton();
-            this.buthoclai = new Đồ_án.CustomButton();
             this.butnopbai = new Đồ_án.CustomButton();
             this.txttrabai = new Đồ_án.RoundTextbox();
             this.butthuchanh = new Đồ_án.CustomButton();
@@ -111,6 +111,7 @@
             // 
             this.speaker.Image = ((System.Drawing.Image)(resources.GetObject("speaker.Image")));
             this.speaker.Location = new System.Drawing.Point(157, 20);
+            this.speaker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.speaker.Name = "speaker";
             this.speaker.Size = new System.Drawing.Size(36, 33);
             this.speaker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -211,7 +212,7 @@
             this.baihoc.AutoSize = true;
             this.baihoc.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.baihoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.baihoc.Location = new System.Drawing.Point(214, 32);
+            this.baihoc.Location = new System.Drawing.Point(213, 32);
             this.baihoc.Name = "baihoc";
             this.baihoc.Size = new System.Drawing.Size(98, 33);
             this.baihoc.TabIndex = 26;
@@ -246,7 +247,8 @@
             // speaker2
             // 
             this.speaker2.Image = ((System.Drawing.Image)(resources.GetObject("speaker2.Image")));
-            this.speaker2.Location = new System.Drawing.Point(598, 52);
+            this.speaker2.Location = new System.Drawing.Point(597, 52);
+            this.speaker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.speaker2.Name = "speaker2";
             this.speaker2.Size = new System.Drawing.Size(36, 33);
             this.speaker2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -338,8 +340,9 @@
             this.pnfinish.Controls.Add(this.buthoclai);
             this.pnfinish.Controls.Add(this.lbhead);
             this.pnfinish.Location = new System.Drawing.Point(71, 32);
+            this.pnfinish.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnfinish.Name = "pnfinish";
-            this.pnfinish.Size = new System.Drawing.Size(874, 634);
+            this.pnfinish.Size = new System.Drawing.Size(875, 634);
             this.pnfinish.TabIndex = 78;
             this.pnfinish.Visible = false;
             // 
@@ -355,7 +358,8 @@
             this.pnKQ.Controls.Add(this.lbR);
             this.pnKQ.Controls.Add(this.label8);
             this.pnKQ.Controls.Add(this.label9);
-            this.pnKQ.Location = new System.Drawing.Point(94, 17);
+            this.pnKQ.Location = new System.Drawing.Point(93, 17);
+            this.pnKQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnKQ.Name = "pnKQ";
             this.pnKQ.ShadowDecoration.Parent = this.pnKQ;
             this.pnKQ.Size = new System.Drawing.Size(673, 565);
@@ -366,11 +370,34 @@
             this.lbphantram.AutoSize = true;
             this.lbphantram.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbphantram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.lbphantram.Location = new System.Drawing.Point(302, 321);
+            this.lbphantram.Location = new System.Drawing.Point(301, 321);
             this.lbphantram.Name = "lbphantram";
             this.lbphantram.Size = new System.Drawing.Size(28, 33);
             this.lbphantram.TabIndex = 82;
             this.lbphantram.Text = "%";
+            // 
+            // butok
+            // 
+            this.butok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butok.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butok.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butok.BorderRadius = 15;
+            this.butok.BorderSize = 2;
+            this.butok.FlatAppearance.BorderSize = 0;
+            this.butok.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.butok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butok.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butok.Location = new System.Drawing.Point(261, 484);
+            this.butok.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butok.Name = "butok";
+            this.butok.Size = new System.Drawing.Size(145, 46);
+            this.butok.TabIndex = 81;
+            this.butok.Text = "Đồng ý";
+            this.butok.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butok.UseVisualStyleBackColor = false;
+            this.butok.Click += new System.EventHandler(this.butok_Click);
             // 
             // lbF
             // 
@@ -399,7 +426,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label8.Location = new System.Drawing.Point(214, 71);
+            this.label8.Location = new System.Drawing.Point(213, 71);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(228, 33);
             this.label8.TabIndex = 36;
@@ -410,7 +437,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(151)))), ((int)(((byte)(0)))));
-            this.label9.Location = new System.Drawing.Point(138, 16);
+            this.label9.Location = new System.Drawing.Point(139, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(383, 55);
             this.label9.TabIndex = 35;
@@ -430,39 +457,40 @@
             // 
             // guna2DataGridView1
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.guna2DataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.guna2DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guna2DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.guna2DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.guna2DataGridView1.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.EnableHeadersVisualStyles = false;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.Location = new System.Drawing.Point(335, 258);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowTemplate.Height = 24;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(8, 8);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(8, 7);
             this.guna2DataGridView1.TabIndex = 27;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -497,9 +525,10 @@
             this.columnHeader4});
             this.lstTV.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstTV.HideSelection = false;
-            this.lstTV.Location = new System.Drawing.Point(14, 123);
+            this.lstTV.Location = new System.Drawing.Point(13, 123);
+            this.lstTV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstTV.Name = "lstTV";
-            this.lstTV.Size = new System.Drawing.Size(852, 439);
+            this.lstTV.Size = new System.Drawing.Size(852, 438);
             this.lstTV.TabIndex = 26;
             this.lstTV.UseCompatibleStateImageBehavior = false;
             this.lstTV.View = System.Windows.Forms.View.Details;
@@ -526,6 +555,29 @@
             this.columnHeader4.Text = "Tiếng Việt";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 181;
+            // 
+            // buthoclai
+            // 
+            this.buthoclai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.buthoclai.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.buthoclai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.buthoclai.BorderRadius = 15;
+            this.buthoclai.BorderSize = 2;
+            this.buthoclai.FlatAppearance.BorderSize = 0;
+            this.buthoclai.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.buthoclai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.buthoclai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buthoclai.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buthoclai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.buthoclai.Location = new System.Drawing.Point(688, 570);
+            this.buthoclai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buthoclai.Name = "buthoclai";
+            this.buthoclai.Size = new System.Drawing.Size(145, 46);
+            this.buthoclai.TabIndex = 79;
+            this.buthoclai.Text = "Học lại";
+            this.buthoclai.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.buthoclai.UseVisualStyleBackColor = false;
+            this.buthoclai.Click += new System.EventHandler(this.buthoclai_Click);
             // 
             // lbhead
             // 
@@ -561,61 +613,15 @@
             this.buttrove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttrove.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttrove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.buttrove.Location = new System.Drawing.Point(14, 11);
-            this.buttrove.Margin = new System.Windows.Forms.Padding(4);
+            this.buttrove.Location = new System.Drawing.Point(13, 11);
+            this.buttrove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttrove.Name = "buttrove";
-            this.buttrove.Size = new System.Drawing.Size(145, 46);
+            this.buttrove.Size = new System.Drawing.Size(109, 46);
             this.buttrove.TabIndex = 80;
             this.buttrove.Text = "Trở về";
             this.buttrove.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.buttrove.UseVisualStyleBackColor = false;
             this.buttrove.Click += new System.EventHandler(this.buttrove_Click);
-            // 
-            // butok
-            // 
-            this.butok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.butok.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.butok.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.butok.BorderRadius = 15;
-            this.butok.BorderSize = 2;
-            this.butok.FlatAppearance.BorderSize = 0;
-            this.butok.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.butok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.butok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butok.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butok.Location = new System.Drawing.Point(262, 484);
-            this.butok.Margin = new System.Windows.Forms.Padding(4);
-            this.butok.Name = "butok";
-            this.butok.Size = new System.Drawing.Size(145, 46);
-            this.butok.TabIndex = 81;
-            this.butok.Text = "Đồng ý";
-            this.butok.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butok.UseVisualStyleBackColor = false;
-            this.butok.Click += new System.EventHandler(this.butok_Click);
-            // 
-            // buthoclai
-            // 
-            this.buthoclai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.buthoclai.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.buthoclai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.buthoclai.BorderRadius = 15;
-            this.buthoclai.BorderSize = 2;
-            this.buthoclai.FlatAppearance.BorderSize = 0;
-            this.buthoclai.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.buthoclai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.buthoclai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buthoclai.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buthoclai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.buthoclai.Location = new System.Drawing.Point(688, 570);
-            this.buthoclai.Margin = new System.Windows.Forms.Padding(4);
-            this.buthoclai.Name = "buthoclai";
-            this.buthoclai.Size = new System.Drawing.Size(145, 46);
-            this.buthoclai.TabIndex = 79;
-            this.buthoclai.Text = "Học lại";
-            this.buthoclai.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.buthoclai.UseVisualStyleBackColor = false;
-            this.buthoclai.Click += new System.EventHandler(this.buthoclai_Click);
             // 
             // butnopbai
             // 
@@ -631,7 +637,7 @@
             this.butnopbai.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butnopbai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.butnopbai.Location = new System.Drawing.Point(421, 446);
-            this.butnopbai.Margin = new System.Windows.Forms.Padding(4);
+            this.butnopbai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.butnopbai.Name = "butnopbai";
             this.butnopbai.Size = new System.Drawing.Size(145, 46);
             this.butnopbai.TabIndex = 77;
@@ -650,7 +656,7 @@
             this.txttrabai.BorderSize = 2;
             this.txttrabai.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttrabai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.txttrabai.Location = new System.Drawing.Point(362, 384);
+            this.txttrabai.Location = new System.Drawing.Point(363, 384);
             this.txttrabai.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txttrabai.Multiline = false;
             this.txttrabai.Name = "txttrabai";
@@ -658,7 +664,7 @@
             this.txttrabai.PasswordChar = false;
             this.txttrabai.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txttrabai.PlaceholderText = "";
-            this.txttrabai.Size = new System.Drawing.Size(270, 54);
+            this.txttrabai.Size = new System.Drawing.Size(269, 54);
             this.txttrabai.TabIndex = 48;
             this.txttrabai.Texts = "";
             this.txttrabai.UnderlinedStyle = false;
@@ -678,7 +684,7 @@
             this.butthuchanh.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butthuchanh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.butthuchanh.Location = new System.Drawing.Point(421, 446);
-            this.butthuchanh.Margin = new System.Windows.Forms.Padding(4);
+            this.butthuchanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.butthuchanh.Name = "butthuchanh";
             this.butthuchanh.Size = new System.Drawing.Size(145, 46);
             this.butthuchanh.TabIndex = 59;
@@ -691,7 +697,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1011, 676);
             this.Controls.Add(this.buttrove);
             this.Controls.Add(this.lbtenbh1);
@@ -704,7 +710,7 @@
             this.Controls.Add(this.butthuchanh);
             this.Controls.Add(this.pnbai);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Hoctuvung";
             this.Text = "Hoctuvung";
             this.Load += new System.EventHandler(this.Hoctuvung_Load);

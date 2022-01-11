@@ -22,6 +22,7 @@ namespace Đồ_án
         string MANH = "";
         private void Dangky_Load(object sender, EventArgs e)
         {
+            
             try
             {
                 db = new Database("QLAV");
@@ -39,7 +40,7 @@ namespace Đồ_án
             else
             {
                 MANH = dt.Rows[0][0].ToString();               
-                MANH = (int.Parse(MANH) + 1).ToString();
+                MANH = (int.Parse(MANH) + 1).ToString("0000");
             }
 
         }
@@ -100,21 +101,32 @@ namespace Đồ_án
                     labwan6.Visible = false;
                 }
             }
+            else if(txtname.Texts.Length>10|| txtname.Texts.Length<5)
+                MessageBox.Show("Tên tối thiểu 5 ký tự, tối đa 10 ký tự");
+            else if(txttk.Texts.Length>10 || txttk.Texts.Length<5)
+                MessageBox.Show("Tài khoản tối thiểu 5 ký tự, tối đa 10 ký tự");
+            else if(txtmk.Texts.Length>10|| txtmk.Texts.Length <5)
+                MessageBox.Show("Mật khẩu tối thiểu 5 ký tự, tối đa 10 ký tự");
             else
             {
                 if (db.kiemtra("select * from NGUOIHOC where TK='" + txttk.Texts + "'"))
                     MessageBox.Show("Tài khoản hoặc mật khẩu đã có người dùng.");
-                else if(db.kiemtra("select * from NGUOIHOC where MK='" + txtmk.Texts + "'"))
+                else if(db.kiemtra("select * from NGUOIHOC where MK='" + txtmk.Texts + "'")||txttk.Texts=="admin"||txtmk.Texts=="admin")
                 {
                     MessageBox.Show("Tài khoản hoặc mật khẩu đã có người dùng.");
+                }
+                else if (db.kiemtra("select Email from NGUOIHOC where Email='" + txtemail.Texts + "'"))
+                {
+                    MessageBox.Show("Email đã có người dùng.");
                 }
                 else  
                 {
                     try
                     {
-                        string sql = "insert into NGUOIHOC values('" + MANH + "','" + txtname.Texts + "','" + txtemail.Texts + "','" + txttk.Texts + "','" + txtmk.Texts + "',0,0)";
+                        DataTable dt = db.Execute("select Anh from DEFAULTAVATAR");
+                        string sql = "insert into NGUOIHOC values('" + MANH + "','" + txtname.Texts + "','" + txtemail.Texts + "','" + txttk.Texts + "','" + txtmk.Texts + "',(select Anh from DEFAULTAVATAR))";
                         db.ExecuteNonQuery(sql);
-                        MessageBox.Show("Dk thành công");
+                        MessageBox.Show("Đăng ký thành công");
                         this.Close();
                         Dispose();
                     }
@@ -135,6 +147,11 @@ namespace Đồ_án
         private void Dangky_FormClosing(object sender, FormClosingEventArgs e)
         {
             Dispose();
+        }
+
+        private void gradian1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
    

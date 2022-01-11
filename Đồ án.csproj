@@ -33,11 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI2, Version=2.0.2.3, Culture=neutral, PublicKeyToken=e4b9cdd7b4cde4b4, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.2.3\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +69,12 @@
     <Compile Include="Admin\Nguoihocinfo\Nhapnguoidung.Designer.cs">
       <DependentUpon>Nhapnguoidung.cs</DependentUpon>
     </Compile>
+    <Compile Include="CRP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRP.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Dangky\Dangky.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +82,17 @@
       <DependentUpon>Dangky.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DoiMatKhau\DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoiMatKhau\DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Effect\CustomTextbox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,6 +113,30 @@
     </Compile>
     <Compile Include="Admin\Nhapbaihoc\NhapBTNP\NhapBTNP.Designer.cs">
       <DependentUpon>NhapBTNP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLSLHoc\QLhoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\QLSLHoc\QLhoc.Designer.cs">
+      <DependentUpon>QLhoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QLSLHoc\ReportFull\ReportFull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\QLSLHoc\ReportFull\ReportFull.Designer.cs">
+      <DependentUpon>ReportFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thoat\Exit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thoat\Exit.Designer.cs">
+      <DependentUpon>Exit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Nhapbaihoc\TimkiemBH\TimkiemBH_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Nhapbaihoc\TimkiemBH\TimkiemBH_Admin.Designer.cs">
+      <DependentUpon>TimkiemBH_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="User\Nguoidungselect\Hocnguphap\Hocnguphap.cs">
       <SubType>Form</SubType>
@@ -124,12 +173,6 @@
       <DependentUpon>Nguoidungselect.cs</DependentUpon>
     </Compile>
     <Compile Include="NGUOIHOC.cs" />
-    <Compile Include="Nhapkiemtra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Nhapkiemtra.Designer.cs">
-      <DependentUpon>Nhapkiemtra.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Effect\RoundTextbox.cs">
@@ -150,8 +193,15 @@
     <EmbeddedResource Include="Admin\Nguoihocinfo\Nhapnguoidung.resx">
       <DependentUpon>Nhapnguoidung.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRP.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dangky\Dangky.resx">
       <DependentUpon>Dangky.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoiMatKhau\DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Effect\CustomTextbox.resx">
       <DependentUpon>CustomTextbox.cs</DependentUpon>
@@ -161,6 +211,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Nhapbaihoc\NhapBTNP\NhapBTNP.resx">
       <DependentUpon>NhapBTNP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\QLSLHoc\QLhoc.resx">
+      <DependentUpon>QLhoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\QLSLHoc\ReportFull\ReportFull.resx">
+      <DependentUpon>ReportFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thoat\Exit.resx">
+      <DependentUpon>Exit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Nhapbaihoc\TimkiemBH\TimkiemBH_Admin.resx">
+      <DependentUpon>TimkiemBH_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\Nguoidungselect\Hocnguphap\Hocnguphap.resx">
       <DependentUpon>Hocnguphap.cs</DependentUpon>
@@ -176,9 +238,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\Nguoidungselect\Nguoidungselect.resx">
       <DependentUpon>Nguoidungselect.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nhapkiemtra.resx">
-      <DependentUpon>Nhapkiemtra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -196,6 +255,17 @@
     <EmbeddedResource Include="Admin\Nhapbaihoc\Nhapbaihoc.resx">
       <DependentUpon>Nhapbaihoc.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -209,6 +279,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

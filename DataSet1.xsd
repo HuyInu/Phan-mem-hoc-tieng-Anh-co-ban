@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ChiTiet" msprop:Generator_TableClassName="ChiTietDataTable" msprop:Generator_TableVarName="tableChiTiet" msprop:Generator_TablePropName="ChiTiet" msprop:Generator_RowDeletingName="ChiTietRowDeleting" msprop:Generator_RowChangingName="ChiTietRowChanging" msprop:Generator_RowEvHandlerName="ChiTietRowChangeEventHandler" msprop:Generator_RowDeletedName="ChiTietRowDeleted" msprop:Generator_UserTableName="ChiTiet" msprop:Generator_RowChangedName="ChiTietRowChanged" msprop:Generator_RowEvArgName="ChiTietRowChangeEvent" msprop:Generator_RowClassName="ChiTietRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaNH" msprop:Generator_ColumnVarNameInTable="columnMaNH" msprop:Generator_ColumnPropNameInRow="MaNH" msprop:Generator_ColumnPropNameInTable="MaNHColumn" msprop:Generator_UserColumnName="MaNH" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="SW" msprop:Generator_ColumnVarNameInTable="columnSW" msprop:Generator_ColumnPropNameInRow="SW" msprop:Generator_ColumnPropNameInTable="SWColumn" msprop:Generator_UserColumnName="SW" type="xs:int" minOccurs="0" />
+              <xs:element name="SM" msprop:Generator_ColumnVarNameInTable="columnSM" msprop:Generator_ColumnPropNameInRow="SM" msprop:Generator_ColumnPropNameInTable="SMColumn" msprop:Generator_UserColumnName="SM" type="xs:string" minOccurs="0" />
+              <xs:element name="SY" msprop:Generator_ColumnVarNameInTable="columnSY" msprop:Generator_ColumnPropNameInRow="SY" msprop:Generator_ColumnPropNameInTable="SYColumn" msprop:Generator_UserColumnName="SY" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TongW" msprop:Generator_TableClassName="TongWDataTable" msprop:Generator_TableVarName="tableTongW" msprop:Generator_TablePropName="TongW" msprop:Generator_RowDeletingName="TongWRowDeleting" msprop:Generator_RowChangingName="TongWRowChanging" msprop:Generator_RowEvHandlerName="TongWRowChangeEventHandler" msprop:Generator_RowDeletedName="TongWRowDeleted" msprop:Generator_UserTableName="TongW" msprop:Generator_RowChangedName="TongWRowChanged" msprop:Generator_RowEvArgName="TongWRowChangeEvent" msprop:Generator_RowClassName="TongWRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TUAN" msprop:Generator_ColumnVarNameInTable="columnTUAN" msprop:Generator_ColumnPropNameInRow="TUAN" msprop:Generator_ColumnPropNameInTable="TUANColumn" msprop:Generator_UserColumnName="TUAN" type="xs:int" minOccurs="0" />
+              <xs:element name="NAM" msprop:Generator_ColumnVarNameInTable="columnNAM" msprop:Generator_ColumnPropNameInRow="NAM" msprop:Generator_ColumnPropNameInTable="NAMColumn" msprop:Generator_UserColumnName="NAM" type="xs:int" minOccurs="0" />
+              <xs:element name="StartW" msprop:Generator_ColumnVarNameInTable="columnStartW" msprop:Generator_ColumnPropNameInRow="StartW" msprop:Generator_ColumnPropNameInTable="StartWColumn" msprop:Generator_UserColumnName="StartW" type="xs:string" minOccurs="0" />
+              <xs:element name="EndW" msprop:Generator_ColumnVarNameInTable="columnEndW" msprop:Generator_ColumnPropNameInRow="EndW" msprop:Generator_ColumnPropNameInTable="EndWColumn" msprop:Generator_UserColumnName="EndW" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TongM" msprop:Generator_TableClassName="TongMDataTable" msprop:Generator_TableVarName="tableTongM" msprop:Generator_TablePropName="TongM" msprop:Generator_RowDeletingName="TongMRowDeleting" msprop:Generator_RowChangingName="TongMRowChanging" msprop:Generator_RowEvHandlerName="TongMRowChangeEventHandler" msprop:Generator_RowDeletedName="TongMRowDeleted" msprop:Generator_UserTableName="TongM" msprop:Generator_RowChangedName="TongMRowChanged" msprop:Generator_RowEvArgName="TongMRowChangeEvent" msprop:Generator_RowClassName="TongMRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="THANG" msprop:Generator_ColumnVarNameInTable="columnTHANG" msprop:Generator_ColumnPropNameInRow="THANG" msprop:Generator_ColumnPropNameInTable="THANGColumn" msprop:Generator_UserColumnName="THANG" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

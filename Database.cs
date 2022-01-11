@@ -34,7 +34,7 @@ namespace Đồ_án
             SqlCommand sqlcm = new SqlCommand(ss, cn);
             cn.Open();
             sqlcm.ExecuteNonQuery();
-            cn.Close();
+            cn.Close();           
         }
         public bool kiemtra(string ss)
         {
@@ -49,7 +49,7 @@ namespace Đồ_án
             }
             else
             {
-                cn.Close();
+                cn.Close();               
                 return false;
             }
         }

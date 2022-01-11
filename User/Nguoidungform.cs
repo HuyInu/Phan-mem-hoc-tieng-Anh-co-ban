@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.IO;
 
 namespace Đồ_án
 {
@@ -16,11 +18,15 @@ namespace Đồ_án
     {
         public static Nguoidungfrom ndf;
         public Panel pn;
+        public PictureBox pic;
+        public Label ten;
         public Nguoidungfrom()
         {
             InitializeComponent();
             ndf = this;
             pn = maincrn;
+            pic = picava;
+            ten = labhoten;
         }
         Database db;
         private void Form1_Load(object sender, EventArgs e)
@@ -34,38 +40,55 @@ namespace Đồ_án
             {
                 MessageBox.Show("Lỗi kết nối");
             }
-            DataTable dt = db.Execute("select Name from NGUOIHOC where MaNH='" + NGUOIHOC.id + "'");
+            DataTable dt = db.Execute("select Name,Ava from NGUOIHOC where MaNH='" + NGUOIHOC.id + "'");
             labhoten.Text = dt.Rows[0][0].ToString();
+            labhoten.Left = (pnelava.Width - labhoten.Width) / 2;
+            picava.Image = convertbytetoimage((byte[])dt.Rows[0][1]);
 
             Nguoidungselect nd = new Nguoidungselect();
             nd.Show();
             nd.TopLevel = false;
             maincrn.Controls.Add(nd);
             nd.Dock = DockStyle.Fill;
-        }     
 
-        private void picedit_Click_1(object sender, EventArgs e)
+            GC.Collect();
+        }
+        public Image convertbytetoimage(byte[] data)
         {
-            this.Hide();
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
             formcanhan fcn = new formcanhan();
-            fcn.StartPosition = FormStartPosition.Manual;
-            fcn.Location = this.Location;
-            fcn.ShowDialog();
-            this.Close();
-            GC.Collect();
-        }
-        private void picedit_MouseEnter(object sender, EventArgs e)
-        {
-
-            picedit.Load("picture/edithover.png");
-            GC.Collect();
+            fcn.Show();
+            fcn.TopLevel = false;
+            maincrn.Controls.Add(fcn);
+            fcn.Dock = DockStyle.Fill;
+            fcn.BringToFront();
         }
 
-        private void picedit_MouseLeave(object sender, EventArgs e)
+        private void butdangxuat_Click(object sender, EventArgs e)
         {
-            picedit.Load("picture/edit.png");
-            GC.Collect();
+            DialogResult i = MessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(i==DialogResult.Yes)
+            {
+                Dangnhap.dn.Show();
+                this.FormClosing -= Nguoidungfrom_FormClosing;
+                this.Close();
+            }
+        }
+
+        private void Nguoidungfrom_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Exit ex = new Exit();
+            ex.StartPosition = FormStartPosition.CenterParent;
+            ex.Location = this.Location;
+            ex.ShowDialog();
+            if (ex.Thoat) Environment.Exit(0);
+            else e.Cancel = true;
         }
     }
-
 }

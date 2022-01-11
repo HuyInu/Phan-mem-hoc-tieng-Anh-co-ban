@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comNP = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.comBH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.A = new System.Windows.Forms.RadioButton();
             this.B = new System.Windows.Forms.RadioButton();
             this.C = new System.Windows.Forms.RadioButton();
@@ -42,7 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbtenNP = new System.Windows.Forms.Label();
+            this.lbtenBH = new System.Windows.Forms.Label();
             this.txtC = new Đồ_án.RoundTextbox();
             this.txtB = new Đồ_án.RoundTextbox();
             this.txtA = new Đồ_án.RoundTextbox();
@@ -125,34 +125,34 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.label3.Location = new System.Drawing.Point(3, 13);
+            this.label3.Location = new System.Drawing.Point(19, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 28);
+            this.label3.Size = new System.Drawing.Size(118, 28);
             this.label3.TabIndex = 61;
-            this.label3.Text = "Mã ngữ pháp:";
+            this.label3.Text = "Mã bài học:";
             // 
-            // comNP
+            // comBH
             // 
-            this.comNP.BackColor = System.Drawing.Color.Transparent;
-            this.comNP.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.comNP.BorderRadius = 15;
-            this.comNP.BorderThickness = 2;
-            this.comNP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comNP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comNP.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comNP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.comNP.FocusedState.Parent = this.comNP;
-            this.comNP.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comNP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.comNP.HoverState.Parent = this.comNP;
-            this.comNP.ItemHeight = 30;
-            this.comNP.ItemsAppearance.Parent = this.comNP;
-            this.comNP.Location = new System.Drawing.Point(143, 10);
-            this.comNP.Name = "comNP";
-            this.comNP.ShadowDecoration.Parent = this.comNP;
-            this.comNP.Size = new System.Drawing.Size(169, 36);
-            this.comNP.TabIndex = 62;
-            this.comNP.SelectedIndexChanged += new System.EventHandler(this.comNP_SelectedIndexChanged);
+            this.comBH.BackColor = System.Drawing.Color.Transparent;
+            this.comBH.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.comBH.BorderRadius = 15;
+            this.comBH.BorderThickness = 2;
+            this.comBH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comBH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comBH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comBH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comBH.FocusedState.Parent = this.comBH;
+            this.comBH.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comBH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.comBH.HoverState.Parent = this.comBH;
+            this.comBH.ItemHeight = 30;
+            this.comBH.ItemsAppearance.Parent = this.comBH;
+            this.comBH.Location = new System.Drawing.Point(147, 13);
+            this.comBH.Name = "comBH";
+            this.comBH.ShadowDecoration.Parent = this.comBH;
+            this.comBH.Size = new System.Drawing.Size(169, 36);
+            this.comBH.TabIndex = 62;
+            this.comBH.SelectedIndexChanged += new System.EventHandler(this.comNP_SelectedIndexChanged);
             // 
             // A
             // 
@@ -161,7 +161,7 @@
             this.A.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.A.Location = new System.Drawing.Point(108, 240);
             this.A.Name = "A";
-            this.A.Size = new System.Drawing.Size(14, 13);
+            this.A.Size = new System.Drawing.Size(17, 16);
             this.A.TabIndex = 63;
             this.A.TabStop = true;
             this.A.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@
             this.B.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.B.Location = new System.Drawing.Point(108, 289);
             this.B.Name = "B";
-            this.B.Size = new System.Drawing.Size(14, 13);
+            this.B.Size = new System.Drawing.Size(17, 16);
             this.B.TabIndex = 64;
             this.B.TabStop = true;
             this.B.UseVisualStyleBackColor = true;
@@ -185,7 +185,7 @@
             this.C.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
             this.C.Location = new System.Drawing.Point(108, 334);
             this.C.Name = "C";
-            this.C.Size = new System.Drawing.Size(14, 13);
+            this.C.Size = new System.Drawing.Size(17, 16);
             this.C.TabIndex = 65;
             this.C.TabStop = true;
             this.C.UseVisualStyleBackColor = true;
@@ -234,16 +234,16 @@
             this.label6.TabIndex = 75;
             this.label6.Text = "C";
             // 
-            // lbtenNP
+            // lbtenBH
             // 
-            this.lbtenNP.AutoSize = true;
-            this.lbtenNP.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtenNP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(121)))), ((int)(((byte)(0)))));
-            this.lbtenNP.Location = new System.Drawing.Point(346, 13);
-            this.lbtenNP.Name = "lbtenNP";
-            this.lbtenNP.Size = new System.Drawing.Size(137, 28);
-            this.lbtenNP.TabIndex = 76;
-            this.lbtenNP.Text = "Tên ngữ pháp:";
+            this.lbtenBH.AutoSize = true;
+            this.lbtenBH.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtenBH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(121)))), ((int)(((byte)(0)))));
+            this.lbtenBH.Location = new System.Drawing.Point(346, 13);
+            this.lbtenBH.Name = "lbtenBH";
+            this.lbtenBH.Size = new System.Drawing.Size(137, 28);
+            this.lbtenBH.TabIndex = 76;
+            this.lbtenBH.Text = "Tên ngữ pháp:";
             // 
             // txtC
             // 
@@ -414,8 +414,8 @@
             this.pn.Controls.Add(this.txtA);
             this.pn.Controls.Add(this.label2);
             this.pn.Controls.Add(this.txtmaBT);
-            this.pn.Controls.Add(this.comNP);
-            this.pn.Controls.Add(this.lbtenNP);
+            this.pn.Controls.Add(this.comBH);
+            this.pn.Controls.Add(this.lbtenBH);
             this.pn.Controls.Add(this.A);
             this.pn.Controls.Add(this.label6);
             this.pn.Controls.Add(this.B);
@@ -436,7 +436,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(661, 679);
             this.Controls.Add(this.pn);
             this.Controls.Add(this.butcapnhat);
@@ -444,6 +444,8 @@
             this.Controls.Add(this.butthem);
             this.Controls.Add(this.dtgCH);
             this.Controls.Add(this.label9);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "NhapBTNP";
             this.Text = "NhapBTNP";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NhapBTNP_FormClosed);
@@ -463,7 +465,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        internal Guna.UI2.WinForms.Guna2ComboBox comNP;
+        internal Guna.UI2.WinForms.Guna2ComboBox comBH;
         private System.Windows.Forms.RadioButton A;
         private System.Windows.Forms.RadioButton B;
         private System.Windows.Forms.RadioButton C;
@@ -474,7 +476,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbtenNP;
+        private System.Windows.Forms.Label lbtenBH;
         private RoundTextbox txtmaBT;
         private RoundTextbox txtA;
         private RoundTextbox txtB;

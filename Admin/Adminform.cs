@@ -19,6 +19,7 @@ namespace Đồ_án
 
         Nhapbaihoc bh = new Nhapbaihoc();
         Nhapnguoidung nd = new Nhapnguoidung();
+        QLhoc qlh = new QLhoc();
 
         private void Adminform_Load(object sender, EventArgs e)
         {
@@ -34,6 +35,12 @@ namespace Đồ_án
             bh.Show();
             bh.Hide();
 
+            qlh.TopLevel = false;
+            maincrn.Controls.Add(qlh);
+            qlh.Dock = DockStyle.Fill;
+            qlh.Show();
+            qlh.Hide();
+
         }
 
         private void butnhapNH_Click_1(object sender, EventArgs e)
@@ -41,6 +48,7 @@ namespace Đồ_án
             
             GC.Collect();
             bh.Hide();
+            qlh.Hide();
             nd.Show();
         }
 
@@ -48,19 +56,41 @@ namespace Đồ_án
         {
 
             GC.Collect();
+            qlh.Hide();
             nd.Hide();
             bh.Show();
         }
+        private void butTK_Click(object sender, EventArgs e)
+        {
+            GC.Collect();
+            nd.Hide();
+            bh.Hide();
+            qlh.Show();
+        }
         private void butdangxuat_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Dangnhap dnh = new Dangnhap();
-            dnh.StartPosition = FormStartPosition.Manual;
-            dnh.Location = this.Location;
-            dnh.ShowDialog();
+            DialogResult i = MessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (i == DialogResult.Yes)
+            {                
+                Dangnhap.dn.Show();
+                this.FormClosing -= Adminform_FormClosing;
+                this.Close();
+            }
+        }
+
+        private void Adminform_FormClosed(object sender, FormClosedEventArgs e)
+        {
             GC.Collect();
-            this.Close();
-            
+        }
+
+        private void Adminform_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Exit ex = new Exit();
+            ex.StartPosition = FormStartPosition.CenterParent;
+            ex.Location = this.Location;
+            ex.ShowDialog();
+            if (ex.Thoat) Environment.Exit(0);
+            else e.Cancel = true;
         }
     }
 }

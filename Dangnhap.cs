@@ -12,9 +12,11 @@ namespace Đồ_án
 {
     public partial class Dangnhap : Form
     {
+        public static Dangnhap dn;
         public Dangnhap()
         {
             InitializeComponent();
+            dn = this;
         }
         Database db;
         private void Dangnhap_Load(object sender, EventArgs e)
@@ -94,23 +96,35 @@ namespace Đồ_án
                 DataTable dt = db.Execute("select MaNH from NGUOIHOC where TK='" + txttk.Texts + "' and MK='" + txtmk.Texts + "'");
                 NGUOIHOC.id= dt.Rows[0][0].ToString();
                 this.Hide();
+                txttk.Texts = "";
+                txtmk.Texts = "";
                 Nguoidungfrom ngd = new Nguoidungfrom();
                 ngd.StartPosition = FormStartPosition.CenterScreen;
                 ngd.ShowDialog();
-                this.Close();
             }else        
             if(txttk.Texts=="admin"&& txtmk.Texts=="admin")
             {
                 this.Hide();
+                txttk.Texts = "";
+                txtmk.Texts = "";
                 Adminform ad = new Adminform();
                 ad.StartPosition = FormStartPosition.CenterScreen;      
                 ad.ShowDialog();
-                this.Close();
             }
             else
             {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không tồn tài.");
+                MessageBox.Show("Tài khoản hoặc mật khẩu không tồn tại.");
             }
+        }
+
+        private void labmatkhau_Click(object sender, EventArgs e)
+        {
+            DoiMatKhau mk = new DoiMatKhau();
+            mk.StartPosition = FormStartPosition.Manual;
+            mk.Location = this.Location;
+            mk.Left = 380;
+            mk.Top = 100;
+            mk.ShowDialog();
         }
     }
 }
