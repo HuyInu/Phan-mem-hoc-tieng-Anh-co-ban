@@ -34,7 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbwanmk3 = new System.Windows.Forms.Label();
             this.butDoiMk = new Đồ_án.CustomButton();
             this.label2 = new System.Windows.Forms.Label();
             this.wan4 = new System.Windows.Forms.Label();
@@ -84,7 +83,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lbwanmk3);
             this.panel1.Controls.Add(this.butDoiMk);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.wan4);
@@ -116,20 +114,6 @@
             this.label1.Size = new System.Drawing.Size(100, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tài khoản";
-            // 
-            // lbwanmk3
-            // 
-            this.lbwanmk3.AutoSize = true;
-            this.lbwanmk3.BackColor = System.Drawing.Color.Transparent;
-            this.lbwanmk3.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbwanmk3.ForeColor = System.Drawing.Color.Red;
-            this.lbwanmk3.Location = new System.Drawing.Point(219, 259);
-            this.lbwanmk3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbwanmk3.Name = "lbwanmk3";
-            this.lbwanmk3.Size = new System.Drawing.Size(193, 19);
-            this.lbwanmk3.TabIndex = 37;
-            this.lbwanmk3.Text = "Mật khẩu không trùng nhau.";
-            this.lbwanmk3.Visible = false;
             // 
             // butDoiMk
             // 
@@ -408,7 +392,6 @@
         private RoundTextbox txttk;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbwanmk3;
         private System.Windows.Forms.Label wan4;
         private RoundTextbox txtmk3;
         private System.Windows.Forms.Label label7;

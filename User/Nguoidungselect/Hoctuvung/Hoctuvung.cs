@@ -50,12 +50,12 @@ namespace Đồ_án
             else if (tiendo > 0 && tiendo < dem)
             {
                 loadTV();
-                MessageBox.Show("Hoc tiep");
+                MessageBox.Show("Học tiếp.");
                 loadsound();
             }
             else if(int.Parse(dt1.Rows[0][1].ToString())==100)
             {
-
+                lbTienDo.Hide();
                 pnbai.Hide();
                 pnQ.Hide();
                 pnA.Hide();
@@ -79,7 +79,8 @@ namespace Đồ_án
             lb.Left = (pn.Width - lb.Width) / 2;
         }
         public void loadTV()
-        {           
+        {
+            showTiendo();
             av.Text = dt.Rows[tiendo][0].ToString();
             DA = dt.Rows[tiendo][0].ToString();
             loai.Text = dt.Rows[tiendo][2].ToString();
@@ -89,13 +90,16 @@ namespace Đồ_án
         public void hidetexbox()
         {
             butnopbai.Hide();
-            txttrabai.Hide();
         }
         public void showbaihoc()
         {
+
+            txttrabai.Hide();
+            pnQ.Hide();
             pnA.Hide();
-            pnbai.Visible = true;
-            butthuchanh.Visible = true;
+            butnopbai.Hide();
+            pnbai.Show();
+            butthuchanh.Show();
         }
         public void loadTVvaoList()
         {
@@ -202,7 +206,7 @@ namespace Đồ_án
         {
             try
             {
-                play.SoundLocation = "audio/" + NGUOIHOC.idbaihoc + "/" + av.Text + ".wav";
+                play.SoundLocation = "audio/TuVung/" + NGUOIHOC.idbaihoc + "/" + av.Text + ".wav";
                 play.Play();
             }
             catch { }
@@ -216,21 +220,11 @@ namespace Đồ_án
         {
             loadsound();
         }
-        
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            tiendo++;
-            phantram = (dung * 100) / dem;
-            db.ExecuteNonQuery("update HOC set TiendoTV='" + tiendo + "',DungTV='" + dung + "',SaiTV='" + sai + "' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
-            loadTV();
-            showbaihoc();
-            loadsound();
-            timer1.Stop();
-        }
-
+       
         private void butthuchanh_Click(object sender, EventArgs e)
         {        
             pnbai.Hide();
+            butthuchanh.Hide();
             txttrabai.Visible = true;
             TV1.Text = dt.Rows[tiendo][3].ToString();
             lbla.Left = TV1.Left + TV1.Width;
@@ -241,61 +235,92 @@ namespace Đồ_án
             loadsound();
             txttrabai.Focus();
         }
+        public void showTiendo()
+        {
+            lbTienDo.Text = (tiendo + 1) + "/" + dem;
+        }
+        public void TBaoDung()
+        {
+            dung++;
+
+            pnA.BackColor = System.Drawing.Color.FromArgb(127, 255, 105);
+            lbAser.ForeColor = System.Drawing.Color.FromArgb(33, 110, 19);
+
+            pnA.Show();
+            lbDapAn.Hide();
+            lbAser.Text = "Chính xác! (ノ^∇^)";
+
+        }
+        public void TBaoSai(string DapAn)
+        {
+            sai++;
+
+            lbDapAn.Text = DapAn;
+            pnA.BackColor = System.Drawing.Color.FromArgb(252, 188, 157);
+            lbAser.ForeColor = System.Drawing.Color.FromArgb(128, 49, 11);
+            lbDapAn.ForeColor = lbAser.ForeColor;
+
+            pnA.Show();
+            lbDapAn.Show();
+
+            lbAser.Text = "Không đúng rồi  (˘̩╭╮˘̩)";
+
+        }
         private void butnopbai_Click(object sender, EventArgs e)
-        {           
-            pnQ.Hide();
+        {          
             pnA.Visible = true;
             butthuchanh.Hide();
             if (txttrabai.Texts == dt.Rows[tiendo][0].ToString())
             {
-                dung++;
-                
-                lbAser.Text = "Chính xác! (ノ^∇^)";
-                centerlabel(lbAser, pnA);              
+                TBaoDung();
                 hidetexbox();
-
-                txttrabai.Texts = "";
-                if(tiendo == dem-1)
-                {
-                    finishlearn();
-                }
-                else
-                {
-                    timer1.Start();                   
-                }
             }
             else
-            {                
-                sai++;               
-                lbAser.Text = "Không đúng rồi  (˘̩╭╮˘̩)";
-                centerlabel(lbAser, pnA);
-                hidetexbox();
+            {
+                TBaoSai(dt.Rows[tiendo][0].ToString().ToString());
+                hidetexbox();                                   
+            }
+            GC.Collect();
+        }
 
-                txttrabai.Texts = "";
-                if (tiendo == dem - 1)
-                {
-                    finishlearn();
-                }
-                else
-                {
-                    timer1.Start();
-                }               
+        private void butNext_Click(object sender, EventArgs e)
+        {
+            txttrabai.Texts = "";
+            if (tiendo == dem - 1)
+            {
+                finishlearn();
+            }
+            else
+            {
+                tiendo++;
+                phantram = (dung * 100) / dem;
+                db.ExecuteNonQuery("update HOC set TiendoTV='" + tiendo + "',DungTV='" + dung + "',SaiTV='" + sai + "' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
+                loadTV();
+                showbaihoc();
+                loadsound();
             }
         }
+
         private void buthoclai_Click(object sender, EventArgs e)
         {
-            tiendo = 0;
-            pnfinish.Hide();
-            loadTV();
-            lbtenbh1.Show();
-            baihoc.Show();
-            showbaihoc();
-            loadsound();
+            DialogResult kq = MessageBox.Show("Học lại từ đầu ?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (kq == DialogResult.Yes)
+            {
+                tiendo = 0;
+                db.ExecuteNonQuery("update HOC set TiendoTV='0',FTV='0',DungTV='0',SaiTV='0' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
+                pnfinish.Hide();
+                loadTV();
+                lbtenbh1.Show();
+                baihoc.Show();
+                showbaihoc();
+                loadsound();
+            }
 
         }
         private void butok_Click(object sender, EventArgs e)
         {
-            pnKQ.Hide();           
+            pnKQ.Hide();
+            txttrabai.Hide();
         }
         private void buttrove_Click(object sender, EventArgs e)
         {

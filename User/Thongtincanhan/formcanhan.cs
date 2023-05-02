@@ -44,8 +44,8 @@ namespace Đồ_án
             DataTable dt = db.Execute("select Sum(Tongdung) as 'SR',Sum(Tongsai) as 'SF',Sum(Solanhoc) as 'SL' from THONGKE where MaNH='" + NGUOIHOC.id + "'");
             if (dt.Rows[0][0]!=DBNull.Value)
             {
-                chart1.Series["Salary"].Points.AddXY("Đúng", dt.Rows[0]["SF"].ToString());
-                chart1.Series["Salary"].Points.AddXY("Sai", dt.Rows[0]["SR"].ToString());
+                chart1.Series["Salary"].Points.AddXY("Sai", dt.Rows[0]["SF"].ToString());
+                chart1.Series["Salary"].Points.AddXY("Đúng", dt.Rows[0]["SR"].ToString());
 
                 lbsumhoc.Text = "Bạn đã học " + dt.Rows[0]["SL"].ToString() + " lần.";
                 lbdung.Text = "Bạn làm đúng " + dt.Rows[0]["SR"].ToString() + " lần.";
@@ -179,6 +179,7 @@ namespace Đồ_án
 
         private void buttrove_Click(object sender, EventArgs e)
         {
+            Nguoidungfrom.ndf.picInfo.Enabled = true;
             GC.Collect();
             this.Close();
         }

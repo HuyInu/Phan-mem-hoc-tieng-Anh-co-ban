@@ -14,12 +14,27 @@ namespace Đồ_án
     public partial class Nhapbaihoc : Form
     {
         public static Nhapbaihoc nph;
-        public ComboBox combh;
+        public ComboBox combh,comloai;
+        public RoundTextbox txtma,txtanh, txtviet, txtphienam;
+
+        public RoundTextbox txtmanp, txttennp;
+        public Guna.UI2.WinForms.Guna2TextBox txtND, txtCT;
         public Nhapbaihoc()
         {
             InitializeComponent();
             nph = this;
             combh = commaBH;
+            txtma = txtmaTV;
+            comloai = comloaiTV;
+            txtanh = txtAN;
+            txtviet = txtV;
+            txtphienam = txtpam;
+
+            txtmanp = txtmaNP;
+            txttennp = txttenNP;
+            txtND = txtnoidung;
+            txtCT = txtchuthich;
+
             
         }
         bool clickTV, clickNP;
@@ -51,6 +66,9 @@ namespace Đồ_án
             disablebutton(butaddsua, butaddthem, butaddxoa);
             labaddBH.Text = "Sl bài học: " + (dtaddBH.Rows.Count - 1).ToString();
 
+            hu.doimaubutton(194, 194, 194, butthaotac);
+            hu.doimaubutton(194, 194, 194, buthuy);
+            hu.doimaubutton(194, 194, 194, butaddhuy);
 
         }
         /* Hàm tái sử dụng */
@@ -86,13 +104,28 @@ namespace Đồ_án
             them.Enabled = false;
             xoa.Enabled = false;
         }
-
+        
         public void enablebutton(Button capnhat, Button them, Button xoa)
         {
             doimauenable(capnhat, them, xoa);
             capnhat.Enabled = true;
             them.Enabled = true;
             xoa.Enabled = true;
+        }
+        public void enableThaotac()
+        {
+            butthaotac.Enabled = true;
+            hu.doimaubutton(204, 228, 255, butthaotac);
+        }
+        public void disableThaotac()
+        {
+            hu.doimaubutton(194, 194, 194, butthaotac);
+            butthaotac.Enabled = false;
+        }
+        public void disableHuy()
+        {
+            hu.doimaubutton(194, 194, 194, buthuy);
+            buthuy.Enabled = false;
         }
         public void reloadNPform()
         {
@@ -112,6 +145,7 @@ namespace Đồ_án
             clickNP = false;
             pnelTV.Enabled = true;
             pnelNP.Enabled = false;
+            enableThaotac();
         }
         private void butthemNP_Click_1(object sender, EventArgs e)
         {
@@ -119,6 +153,7 @@ namespace Đồ_án
             clickNP = true;
             pnelNP.Enabled = true;
             pnelTV.Enabled = false;
+            enableThaotac();
         }
         public void xuatdataTV()
         {
@@ -266,10 +301,16 @@ namespace Đồ_án
                     if (txtAN.Texts == "" || txtV.Texts == "" || txtpam.Texts == "")
                     {
                         MessageBox.Show("Dữ liệu không được bỏ trống.");
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        disableHuy();
+                        enableThaotac();
                     }
                     else if (db.kiemtra("select * from TUVUNG where Angu='" + txtAN.Texts + "'"))
                     {
                         MessageBox.Show("Từ này đã có trong bài học khác.");
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        disableHuy();
+                        enableThaotac();
                     }
                     else
                     {
@@ -282,40 +323,60 @@ namespace Đồ_án
                         labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
                         cleartexboxTV();
                         disablebutton(butcapnhat, butthem, butxoa);
+                        enableThaotac();
+                        disableHuy();
                     }
                 }
                catch {
                     MessageBox.Show("Thêm thất bại");
                     disablebutton(butcapnhat, butthem, butxoa);
+                    enableThaotac();
+                    disableHuy();
                     db.huyketnoi();
                 }
             }
             if (clickNP)
             {
+                
                 try
                 {
                     string manp = getma();
                     if (txtnoidung.Text == "")
                     {
                         MessageBox.Show("Dữ liệu không được bỏ trống.");
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        disableHuy();
+                        enableThaotac();
                     }
-                    else if(db.kiemtra("select * from NGUPHAP where Noidung='"+txtnoidung.Text+"'") || db.kiemtra("select * from NGUPHAP where TenNP='" + txttenNP.Text + "'"))
-                        MessageBox.Show("Dữ liệu đã tồn tại.");
+                    else if (db.kiemtra("select * from NGUPHAP where Noidung=N'" + txtnoidung.Text + "'")) // || db.kiemtra("select * from NGUPHAP where TenNP='" + txttenNP.Text + "'"))
+                    {
+                        MessageBox.Show("Nội dung ngữ pháp đã tồn tại.");
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        disableHuy();
+                        enableThaotac();
+                    }
+                    else if (txttenNP.Texts != "" && db.kiemtra("select * from NGUPHAP where TenNP=N'" + txttenNP.Texts + "'"))
+                        {
+                                MessageBox.Show("Tên ngữ pháp đã tồn tại");
+                    }
                     else
                     {
                         string insert = "insert into NGUPHAP values ('" + manp + "','" + MaBH + "',N'" + txtnoidung.Text + "',N'" + txttenNP.Texts + "',N'" + txtchuthich.Text + "')";
-                        db.ExecuteNonQuery(insert);      
+                        db.ExecuteNonQuery(insert);
                         xuatdataNP();
                         labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
                         cleartextboxNP();
                         disablebutton(butcapnhat, butthem, butxoa);
+                        enableThaotac();
+                        disableHuy();
                         reloadNPform();
-
                     }
                }
                 catch {
                     MessageBox.Show("Thêm thất bại");
                     disablebutton(butcapnhat, butthem, butxoa);
+                    enableThaotac();
+                    disableHuy();
                     db.huyketnoi();
                 }
             }
@@ -330,11 +391,17 @@ namespace Đồ_án
                     if (txtAN.Texts == "" || txtV.Texts == "")
                     {
                         MessageBox.Show("Dữ liệu không được bỏ trống.");
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        disableHuy();
+                        enableThaotac();
                     }
                     else
                         if (db.kiemtra("select * from TUVUNG where Angu='"+txtAN.Texts+"' Except select * from TUVUNG where MaTV='"+txtmaTV.Texts+"'"))
                     {
                         MessageBox.Show("Từ này đã có trong bài học khác.");
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        disableHuy();
+                        enableThaotac();
                     }
                     else
                     {
@@ -343,12 +410,16 @@ namespace Đồ_án
                         xuatdataTV();
                         cleartexboxTV();
                         disablebutton(butcapnhat, butthem, butxoa);
+                        enableThaotac();
+                        disableHuy();
                     }
                 }
                 catch
                 {
                     MessageBox.Show("Sửa thất bại");
                     disablebutton(butcapnhat, butthem, butxoa);
+                    enableThaotac();
+                    disableHuy();
                     db.huyketnoi();
                 }
             }
@@ -357,9 +428,23 @@ namespace Đồ_án
                 try
                 {
                     if (txtnoidung.Text == "")
+                    {
                         MessageBox.Show("Dữ liệu không được bỏ trống.");
-                    else if (db.kiemtra("select * from NGUPHAP where Noidung='" + txtnoidung.Text + "' except select * from NGUPHAP where MaNP='" + txtmaNP.Texts + "'") || db.kiemtra("select * from NGUPHAP where TenNP='" + txttenNP.Text + "' except select * from NGUPHAP where MaNP='" + txtmaNP.Texts + "'"))
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        disableHuy();
+                        enableThaotac();
+                    }
+                    else if (db.kiemtra("select * from NGUPHAP where Noidung=N'" + txtnoidung.Text + "' except select * from NGUPHAP where MaNP='" + txtmaNP.Texts + "'"))
+                    {
                         MessageBox.Show("Dữ liệu đã tồn tại.");
+                        disablebutton(butcapnhat, butthem, butxoa);
+                        disableHuy();
+                        enableThaotac();
+                    }
+                    else if (txttenNP.Texts != "" && db.kiemtra("select * from NGUPHAP where TenNP=N'" + txttenNP.Texts + "' except select * from NGUPHAP where MaNP='" + txtmaNP.Texts + "'"))
+                    {
+                        MessageBox.Show("Tên ngữ pháp đã tồn tại");
+                    }
                     else
                     {
                         string sua = "update NGUPHAP set Noidung=N'" + txtnoidung.Text + "',TenNP=N'" + txttenNP.Texts + "',Chuthich=N'" + txtchuthich.Text + "' where MaNP='" + txtmaNP.Texts + "'";
@@ -367,12 +452,16 @@ namespace Đồ_án
                         xuatdataNP();
                         cleartextboxNP();
                         disablebutton(butcapnhat, butthem, butxoa);
+                        enableThaotac();
+                        disableHuy();
                         reloadNPform();
                     }
                 }
                 catch{
                     MessageBox.Show("Sửa thất bại");
                     disablebutton(butcapnhat, butthem, butxoa);
+                    enableThaotac();
+                    disableHuy();
                     db.huyketnoi();
                 }
             }
@@ -389,19 +478,28 @@ namespace Đồ_án
                         string xoa = "delete from TUVUNG where MaTV='" + txtmaTV.Texts + "'";
                         db.ExecuteNonQuery(xoa);
                         xuatdataTV();
-                        db.ExecuteNonQuery("update HOC set DungTV=0,SaiTV=0,TiendoTV=0,FTV=0 where MaBH='"+combh.Text+"'");
+                        db.ExecuteNonQuery("update HOC set DungTV=0,SaiTV=0,TiendoTV=0,FTV=0 where MaBH='" + combh.Text + "'");
                         labslTV.Text = "SL: " + (dtTV.Rows.Count - 1).ToString();
                         cleartextboxNP();
                         disablebutton(butcapnhat, butthem, butxoa);
+                        enableThaotac();
+                        disableHuy();
                     }
                     catch
                     {
                         MessageBox.Show("Xóa thất bại");
                         disablebutton(butcapnhat, butthem, butxoa);
+                        enableThaotac();
+                        disableHuy();
                         db.huyketnoi();
                     }
                 }
-                else disablebutton(butcapnhat, butthem, butxoa);
+                else
+                {
+                    disablebutton(butcapnhat, butthem, butxoa);
+                    enableThaotac();
+                    disableHuy();
+                }
             }
             if (clickNP)
             {
@@ -411,21 +509,30 @@ namespace Đồ_án
                     try
                     {
                         string xoa = "delete from NGUPHAP where MaNP='" + txtmaNP.Texts + "'";
-                        db.ExecuteNonQuery(xoa);                 
+                        db.ExecuteNonQuery(xoa);
                         xuatdataNP();
                         labslNP.Text = "SL: " + (dtNP.Rows.Count - 1).ToString();
                         cleartextboxNP();
                         disablebutton(butcapnhat, butthem, butxoa);
+                        disableHuy();
+                        enableThaotac();
                         reloadNPform();
                     }
                     catch
                     {
                         MessageBox.Show("Xóa thất bại");
                         disablebutton(butcapnhat, butthem, butxoa);
+                        enableThaotac();
+                        disableHuy();
                         db.huyketnoi();
                     }
                 }
-                else disablebutton(butcapnhat, butthem, butxoa);
+                else
+                {
+                    disablebutton(butcapnhat, butthem, butxoa);
+                    enableThaotac();
+                    disableHuy();
+                }
             }
         }
         private void butthemBT_Click(object sender, EventArgs e)
@@ -440,10 +547,16 @@ namespace Đồ_án
         private void butthaotac_Click(object sender, EventArgs e)
         {
             enablebutton(butcapnhat, butthem, butxoa);
+            hu.doimaubutton(204, 228, 255, buthuy);
+            buthuy.Enabled = true;
+            disableThaotac();
         }
         private void buthuy_Click(object sender, EventArgs e)
         {
             disablebutton(butcapnhat, butthem, butxoa);
+            disableHuy();
+            enableThaotac();
+
         }
 
         /*------------------------------------------------------------------------*/
@@ -453,19 +566,50 @@ namespace Đồ_án
             pneladdBH.Visible = true;
             butthemBH.Enabled = false;
         }
+
+        private void pneladdBH_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void butaddclose_Click(object sender, EventArgs e)
         {
             pneladdBH.Visible = false;
             butthemBH.Enabled = true;
+            disablebutton(butaddsua, butaddthem, butaddxoa);
+            hu.doimaubutton(194, 194, 194, butaddhuy);
+            butaddhuy.Enabled = false;
+            enableAddThaotac();
             GC.Collect();
+        }
+        public void enableAddThaotac()
+        {
+            hu.doimaubutton(204, 228, 255, butaddthaotac);
+            butaddthaotac.Enabled = true;
+        }
+        public void disableAddThaotac()
+        {
+            hu.doimaubutton(194, 194, 194, butaddthaotac);
+            butaddthaotac.Enabled = false;
+
+        }
+        public void disableAddHuy()
+        {
+            hu.doimaubutton(194, 194, 194, butaddhuy);
+            butaddhuy.Enabled = false;
         }
         private void butaddthaotac_Click(object sender, EventArgs e)
         {
             enablebutton(butaddsua, butaddthem, butaddxoa);
+            hu.doimaubutton(204, 228, 255, butaddhuy);
+            butaddhuy.Enabled = true;
+            disableAddThaotac();
         }
         private void butaddhuy_Click(object sender, EventArgs e)
         {
             disablebutton(butaddsua, butaddthem, butaddxoa);
+            disableAddHuy();
+            enableAddThaotac();
         }
 
         private void dtaddBH_SelectionChanged(object sender, EventArgs e)
@@ -497,12 +641,18 @@ namespace Đồ_án
                 if (txtaddtenBH.Text == "")
                 {
                     MessageBox.Show("Thông tin không được bỏ trống.");
+                    disablebutton(butaddsua, butaddthem, butaddxoa);
+                    enableAddThaotac();
+                    disableAddHuy();
                 }
                 else
                 {
                     if (db.kiemtra("select TenBH from BAIHOC where TenBH='" + txtaddtenBH.Text + "'"))
                     {
-                        MessageBox.Show("Bài học này đã có");
+                        MessageBox.Show("Bài học này đã tồn tại");
+                        disablebutton(butaddsua, butaddthem, butaddxoa);
+                        enableAddThaotac();
+                        disableAddHuy();
                     }
                     else
                     {
@@ -515,11 +665,20 @@ namespace Đồ_án
                         txtaddmaBH.Text = "";
                         disablebutton(butaddsua, butaddthem, butaddxoa);
                         db.datatintocombox(commaBH, "select MaBH,TenBH from BAIHOC", "MaBH", "TenBH");
+                        try
+                        {
+                            db.datatintocombox(NhapBTNP.btnp.bx, "select MaBH,TenBH from BAIHOC", "MaBH", "TenBH");
+                        }
+                        catch { }
+                        enableAddThaotac();
+                        disableAddHuy();
                     }
                 }
             }
             catch { MessageBox.Show("Thêm thất bại!");
                 disablebutton(butcapnhat, butthem, butxoa);
+                enableAddThaotac();
+                disableAddHuy();
                 db.huyketnoi();
             }
         }
@@ -529,12 +688,18 @@ namespace Đồ_án
             if (txtaddtenBH.Text == "")
             {
                 MessageBox.Show("Thông tin không được bỏ trống.");
+                disablebutton(butaddsua, butaddthem, butaddxoa);
+                enableAddThaotac();
+                disableAddHuy();
             }
             else
             {
                 if (db.kiemtra("select TenBH from BAIHOC where TenBH='" +txtaddtenBH.Text + "'"))
                 {
-                    MessageBox.Show("Bài học này đã có");
+                    MessageBox.Show("Bài học này đã tồn tại");
+                    disablebutton(butaddsua, butaddthem, butaddxoa);
+                    enableAddThaotac();
+                    disableAddHuy();
                 }
                 else
                 {
@@ -542,16 +707,26 @@ namespace Đồ_án
                     {
                         db.ExecuteNonQuery(sql);
                         db.xuatdata("select * from BAIHOC ", dtaddBH);
-                        txtaddtenBH.Text = "";
-                        txtaddmaBH.Text = "";
+
                         disablebutton(butaddsua, butaddthem, butaddxoa);
                         db.datatintocombox(commaBH, "select MaBH,TenBH from BAIHOC", "MaBH", "TenBH");
+                    try
+                    {
+                        db.datatintocombox(NhapBTNP.btnp.bx, "select MaBH,TenBH from BAIHOC", "MaBH", "TenBH");
+                    }
+                    catch { }
+                        enableAddThaotac();
+                        disableAddHuy();
+                        txtaddmaBH.Text = "";
+                        txtaddtenBH.Text = "";
                         GC.Collect();
                     }
                     catch
                     {
                         MessageBox.Show("Sửa thất bại!");
                         disablebutton(butcapnhat, butthem, butxoa);
+                        enableAddThaotac();
+                        disableAddHuy();
                         db.huyketnoi();
                     }
                 }
@@ -575,15 +750,26 @@ namespace Đồ_án
                     txtaddmaBH.Text = "";
                     disablebutton(butaddsua, butaddthem, butaddxoa);
                     db.datatintocombox(commaBH, "select MaBH,TenBH from BAIHOC", "MaBH", "TenBH");
+                    try
+                    {
+                        db.datatintocombox(NhapBTNP.btnp.bx, "select MaBH,TenBH from BAIHOC", "MaBH", "TenBH");
+                    }
+                    catch { }
+                    enableAddThaotac();
+                    disableAddHuy();
                     GC.Collect();
                 }
                 else
                 {
                     disablebutton(butaddsua, butaddthem, butaddxoa);
+                    enableAddThaotac();
+                    disableAddHuy();
                 }
             }
             catch { MessageBox.Show("Xóa thất bại!");
                 disablebutton(butcapnhat, butthem, butxoa);
+                enableAddThaotac();
+                disableAddHuy();
                 db.huyketnoi();
             }
         }

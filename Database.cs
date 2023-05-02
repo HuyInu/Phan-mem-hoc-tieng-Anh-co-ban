@@ -18,8 +18,8 @@ namespace Đồ_án
     
         public Database(string tendata)
         {
-            string svname = Environment.MachineName;
-            string con = @"Data Source=" + svname + ";Initial Catalog=" + tendata + ";Integrated Security=True";
+           // string svname = Environment.MachineName;
+            string con = @"Data Source=.;Initial Catalog=" + tendata + ";Integrated Security=True";
             cn = new SqlConnection(con);
         }
         public DataTable Execute(string sqlstr)

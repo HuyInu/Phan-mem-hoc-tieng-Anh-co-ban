@@ -19,6 +19,7 @@ namespace Đồ_án
         public static Nguoidungfrom ndf;
         public Panel pn;
         public PictureBox pic;
+        public PictureBox picInfo;
         public Label ten;
         public Nguoidungfrom()
         {
@@ -27,6 +28,7 @@ namespace Đồ_án
             pn = maincrn;
             pic = picava;
             ten = labhoten;
+            picInfo = pictureBox1;
         }
         Database db;
         private void Form1_Load(object sender, EventArgs e)
@@ -62,6 +64,7 @@ namespace Đồ_án
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            pictureBox1.Enabled = false;
             formcanhan fcn = new formcanhan();
             fcn.Show();
             fcn.TopLevel = false;

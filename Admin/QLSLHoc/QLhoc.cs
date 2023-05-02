@@ -74,19 +74,19 @@ namespace Đồ_án
             dtg.DataSource = dt1;
             try
             {
-                DataTable dt = db.Execute("select SUM(SL) from TKEWEEK where TUAN='" + weekyear + "' and NAM='" + date.Value.Year + "'");
+                DataTable dt = db.Execute("select isnull(SUM(SL),0) as 'TW' from TKEWEEK where TUAN='" + weekyear + "' and NAM='" + date.Value.Year + "'");
                 sumWeek.Text = dt.Rows[0][0].ToString();
             }
             catch { sumWeek.Text = "0"; }
             try
             {
-                DataTable dt = db.Execute("select SUM(SL),THANG from TKEMONTH where THANG='" + date.Value.Month + "' and NAM='" + date.Value.Year + "' group by THANG");
+                DataTable dt = db.Execute("select isnull(SUM(SL),0) as 'TM',THANG from TKEMONTH where THANG='" + date.Value.Month + "' and NAM='" + date.Value.Year + "' group by THANG");
                 sumMonth.Text = dt.Rows[0][0].ToString();
             }
             catch { sumMonth.Text = "0"; }
             try
             {
-                DataTable dt = db.Execute("select SUM(SL) from TKEMONTH where NAM='" + date.Value.Year + "'");
+                DataTable dt = db.Execute("select isnull(SUM(SL),0) as 'TY' from TKEMONTH where NAM='" + date.Value.Year + "'");
                 sumYear.Text = dt.Rows[0][0].ToString();
             }
             catch { sumYear.Text = "0"; }
@@ -98,16 +98,37 @@ namespace Đồ_án
         {
 
         }
-
-        private void butreport_Click(object sender, EventArgs e)
+        public void showReport(int choise,string id)
         {
-            ReportFull rp = new ReportFull();           
+            ReportFull rp = new ReportFull();
             rp.tuan = GetWeekOfYear(date.Value);
             rp.thang = date.Value.Month;
             rp.nam = date.Value.Year;
-            rp.sta= FirstDateOfWeek(date.Value.Year, rp.tuan);
+            rp.sta = FirstDateOfWeek(date.Value.Year, rp.tuan);
+            rp.choise = choise;
+            rp.maND = id; 
             rp.ShowDialog();
+        }
+        private void butreport_Click(object sender, EventArgs e)
+        {
+            showReport(0,null);
 
+        }
+
+        private void dtg_SelectionChanged(object sender, EventArgs e)
+        {
+            but1.Enabled = true;           
+        }
+
+        private void but1_Click(object sender, EventArgs e)
+        {
+            string listId=null;
+            /*showReport(1,dtg.SelectedCells[0].Value.ToString());*/
+            foreach (DataGridViewRow row in dtg.SelectedRows)
+                listId += "c.MaNH='" + dtg.Rows[row.Index].Cells[0].Value.ToString() + "' or ";
+            listId = listId.Substring(0,listId.Length-4);
+
+            showReport(1, listId);
         }
     }
 }

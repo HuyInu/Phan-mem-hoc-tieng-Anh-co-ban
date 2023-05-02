@@ -42,6 +42,7 @@
             this.avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.txttimkiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnloc = new Guna.UI2.WinForms.Guna2Panel();
+            this.raID = new System.Windows.Forms.RadioButton();
             this.ratk = new System.Windows.Forms.RadioButton();
             this.ramk = new System.Windows.Forms.RadioButton();
             this.raemail = new System.Windows.Forms.RadioButton();
@@ -207,6 +208,7 @@
             this.pnloc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(255)))), ((int)(((byte)(179)))));
             this.pnloc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(207)))), ((int)(((byte)(95)))));
             this.pnloc.BorderThickness = 3;
+            this.pnloc.Controls.Add(this.raID);
             this.pnloc.Controls.Add(this.ratk);
             this.pnloc.Controls.Add(this.ramk);
             this.pnloc.Controls.Add(this.raemail);
@@ -214,9 +216,22 @@
             this.pnloc.Location = new System.Drawing.Point(767, 48);
             this.pnloc.Name = "pnloc";
             this.pnloc.ShadowDecoration.Parent = this.pnloc;
-            this.pnloc.Size = new System.Drawing.Size(231, 77);
+            this.pnloc.Size = new System.Drawing.Size(231, 96);
             this.pnloc.TabIndex = 60;
             this.pnloc.Visible = false;
+            // 
+            // raID
+            // 
+            this.raID.AutoSize = true;
+            this.raID.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.raID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.raID.Location = new System.Drawing.Point(17, 13);
+            this.raID.Name = "raID";
+            this.raID.Size = new System.Drawing.Size(43, 23);
+            this.raID.TabIndex = 64;
+            this.raID.TabStop = true;
+            this.raID.Text = "ID";
+            this.raID.UseVisualStyleBackColor = true;
             // 
             // ratk
             // 
@@ -249,7 +264,7 @@
             this.raemail.AutoSize = true;
             this.raemail.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.raemail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.raemail.Location = new System.Drawing.Point(17, 40);
+            this.raemail.Location = new System.Drawing.Point(17, 69);
             this.raemail.Name = "raemail";
             this.raemail.Size = new System.Drawing.Size(64, 23);
             this.raemail.TabIndex = 61;
@@ -262,7 +277,7 @@
             this.raten.AutoSize = true;
             this.raten.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.raten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.raten.Location = new System.Drawing.Point(17, 13);
+            this.raten.Location = new System.Drawing.Point(17, 40);
             this.raten.Name = "raten";
             this.raten.Size = new System.Drawing.Size(54, 23);
             this.raten.TabIndex = 60;
@@ -422,6 +437,7 @@
             this.buthuy.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.buthuy.BorderRadius = 15;
             this.buthuy.BorderSize = 2;
+            this.buthuy.Enabled = false;
             this.buthuy.FlatAppearance.BorderSize = 0;
             this.buthuy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
             this.buthuy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
@@ -452,7 +468,7 @@
             this.butcapnhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butcapnhat.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butcapnhat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butcapnhat.Location = new System.Drawing.Point(498, 325);
+            this.butcapnhat.Location = new System.Drawing.Point(619, 325);
             this.butcapnhat.Margin = new System.Windows.Forms.Padding(4);
             this.butcapnhat.Name = "butcapnhat";
             this.butcapnhat.Size = new System.Drawing.Size(110, 45);
@@ -523,7 +539,7 @@
             this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customButton1.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.customButton1.Location = new System.Drawing.Point(619, 325);
+            this.customButton1.Location = new System.Drawing.Point(501, 325);
             this.customButton1.Margin = new System.Windows.Forms.Padding(4);
             this.customButton1.Name = "customButton1";
             this.customButton1.Size = new System.Drawing.Size(110, 45);
@@ -606,5 +622,6 @@
         private System.Windows.Forms.RadioButton raemail;
         private System.Windows.Forms.RadioButton raten;
         private System.Windows.Forms.PictureBox picloc;
+        private System.Windows.Forms.RadioButton raID;
     }
 }

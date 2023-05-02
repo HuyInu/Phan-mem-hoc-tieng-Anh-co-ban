@@ -47,7 +47,7 @@ namespace Đồ_án
 
         private void but_Click(object sender, EventArgs e)
         {
-            if (txtmk.Texts != txtmk2.Texts)
+            /*if (txtmk.Texts != txtmk2.Texts)
             {
                 labwan.Visible = true;
                 labwan5.Visible = true;
@@ -56,9 +56,19 @@ namespace Đồ_án
             {
                 labwan.Visible = false;
                 labwan5.Visible = false;
-            }
-            if (txtname.Texts == "" || txttk.Texts == "" || txtmk.Texts == "" || txtmk2.Texts == "" || txtemail.Texts == "")
+            }*/
+            if (txtname.Texts == "" || txttk.Texts == "" || txtmk.Texts == "" || txtmk2.Texts == "" || txtemail.Texts == ""|| txtmk.Texts != txtmk2.Texts)
             {
+                if (txtmk.Texts != txtmk2.Texts)
+                {
+                    labwan.Visible = true;
+                    labwan5.Visible = true;
+                }
+                else
+                {
+                    labwan.Visible = false;
+                    labwan5.Visible = false;
+                }
                 if (txtname.Texts == "")
                 {
                     labwanten.Visible = true;

@@ -44,6 +44,7 @@ namespace Đồ_án
             
              if(tiendo!=0)
             {
+                MessageBox.Show("Học tiếp.");
                 hidepnbai();
                 loadbaitap();
                 pnQ.Show();
@@ -60,10 +61,7 @@ namespace Đồ_án
         /*Hàm tái sử dụng*/
         public void hidetexbox()
         {
-            butnopbai.Hide();
-            raA.Hide();
-            raB.Hide();
-            raC.Hide();           
+            butnopbai.Hide();                       
         }
         public void FalseRadio()
         {
@@ -94,7 +92,9 @@ namespace Đồ_án
         }
         public void loadbaitap()
         {
-            txtQ.Text = dt1.Rows[tiendo][0].ToString();
+            lbTienDo.Show();
+            showTiendo();
+            txtCauHoi.Text = dt1.Rows[tiendo][0].ToString();
             raA.Text = dt1.Rows[tiendo][1].ToString();
             raB.Text = dt1.Rows[tiendo][2].ToString();
             raC.Text = dt1.Rows[tiendo][3].ToString();
@@ -208,7 +208,8 @@ namespace Đồ_án
         public void finish()
         {           
             tinhphantram();
-            MessageBox.Show("Ban da hoc xong");
+            MessageBox.Show("Bạn đã học xong");
+            butnopbai.Hide();
             pnA.Hide();
             if(int.Parse(db.dem("select FNP from HOC  where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'")) !=100)
                 db.ExecuteNonQuery("update HOC set TiendoNP='" + 0 + "',FNP='" + phantram + "',DungNP='" + 0 + "',SaiNP='" + 0 + "' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='"+NGUOIHOC.id+"'");
@@ -239,67 +240,113 @@ namespace Đồ_án
         /***************************************************************************************************************/
         private void timer1_Tick(object sender, EventArgs e)
         {
-            FalseRadio();
-            tiendo++;
-            tinhphantram();
-            db.ExecuteNonQuery("update HOC set TiendoNP='" + tiendo + "',DungNP='" + dung + "',SaiNP='" + sai + "' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");               
-            loadbaitap();
-            pnQ.Show();                
-            showtextbox();
+            
+            /*pnQ.Show();                
+            showtextbox();*/
             
             timer1.Stop();
         }
         private void butthuchanh_Click(object sender, EventArgs e)
         {
-            
+            buthoclai.Show();
             hidepnbai();
             loadbaitap();
             pnQ.Show();
             showtextbox();            
         }
+        public void TBaoDung()
+        {
+            dung++;
+
+            pnA.BackColor = System.Drawing.Color.FromArgb(127, 255, 105);
+            lbAser.ForeColor = System.Drawing.Color.FromArgb(33, 110, 19);
+
+            pnA.Show();
+            lbDapAn.Hide();
+            lbAser.Text = "Chính xác! (ノ^∇^)";
+
+        }
+        public void TBaoSai(string DapAn)
+        {
+            string NdDapAn = null ;
+            if (DapAn == "A")
+                NdDapAn = dt1.Rows[tiendo][1].ToString();
+            if (DapAn == "B")
+                NdDapAn = dt1.Rows[tiendo][2].ToString();
+            if (DapAn == "C")
+                NdDapAn = dt1.Rows[tiendo][3].ToString();
+            sai++;
+
+            lbDapAn.Text = NdDapAn;
+            pnA.BackColor = System.Drawing.Color.FromArgb(252, 188, 157);
+            lbAser.ForeColor = System.Drawing.Color.FromArgb(128, 49, 11);
+            lbDapAn.ForeColor = lbAser.ForeColor;
+
+            pnA.Show();
+            lbDapAn.Show();
+
+            lbAser.Text = "Không đúng rồi  (˘̩╭╮˘̩)";
+
+        }
+        public void showTiendo()
+        {
+            lbTienDo.Text = (tiendo + 1) + "/" + dembt;
+        }
+        private void buthoclai_Click_1(object sender, EventArgs e)
+        {
+            DialogResult kq = MessageBox.Show("Học lại từ đầu ?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (kq == DialogResult.Yes)
+            {
+                tiendo = 0;
+                db.ExecuteNonQuery("update HOC set TiendoNP='0',FNP='0',DungNP='0',SaiNP='0' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
+                hidepnbai();
+                loadbaitap();
+                pnF.Show();
+                butthuchanh.Show();
+                butnopbai.Hide();
+            }
+        }
+
         private void butnopbai_Click(object sender, EventArgs e)
         {
             string DA="";
-            pnA.Show();
-            pnQ.Hide();
+
             hidetexbox();
             if (raA.Checked) DA = "A";
             if (raB.Checked) DA = "B";
             if (raC.Checked) DA = "C";
             if(DA== dt1.Rows[tiendo][4].ToString())
             {
-                dung++;
-                lbAser.Text = "Chính xác! (ノ^∇^)";
-                centerlabel(lbAser, pnA);
-                hidetexbox();               
-                if(tiendo==dembt-1)
-                {
-                    finish();
-                }
-                else
-                {
-                    timer1.Start();
-                }
+
+                TBaoDung();                            
             }
             else
             {
-                sai++;
-                lbAser.Text = "Không đúng rồi  (˘̩╭╮˘̩)";
-                centerlabel(lbAser, pnA);
-                hidetexbox();
-                if(tiendo == dembt - 1)
-                {
-                    finish();
-                }
-                else
-                {
-                    timer1.Start();
-                }
+                TBaoSai(dt1.Rows[tiendo][4].ToString());              
+            }
+        }
+        private void butNext_Click(object sender, EventArgs e)
+        {
+            pnA.Hide();
+            butnopbai.Show();
+            if (tiendo == dembt - 1)
+            {
+                lbTienDo.Hide();       
+                finish();
+            }
+            else
+            {
+                FalseRadio();
+                tiendo++;
+                tinhphantram();
+                db.ExecuteNonQuery("update HOC set TiendoNP='" + tiendo + "',DungNP='" + dung + "',SaiNP='" + sai + "' where MaBH='" + NGUOIHOC.idbaihoc + "' and MaNH='" + NGUOIHOC.id + "'");
+                loadbaitap();
             }
         }
         private void butok_Click(object sender, EventArgs e)
         {
             pnKQ.Hide();
+            buthoclai.Hide();
         }
         /***********hoc lai,tro ve**************/
         private void buthoclai_Click(object sender, EventArgs e)

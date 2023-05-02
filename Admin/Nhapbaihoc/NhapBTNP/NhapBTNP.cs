@@ -32,10 +32,15 @@ namespace Đồ_án
 
             lbtenBH.Text = "Tên bài học.";
         }
+        public void demSL()
+        {
+            lbsl.Text = "SL: " + (dtgCH.Rows.Count - 1);
+        }
         private void comNP_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbtenBH.Text = comBH.SelectedValue.ToString();
             xuatdatag();
+            demSL();
             cleartextbox();
         }
 
@@ -115,6 +120,7 @@ namespace Đồ_án
                     db.ExecuteNonQuery("insert into BAITAPNP values('" + getma() + "','" + comBH.Text + "',N'" + txtnoidung.Text + "',N'" + txtA.Texts + "',N'" + txtB.Texts + "',N'" + txtC.Texts + "',N'" + dapan + "')");
                     xuatdatag();              
                     cleartextbox();
+                    demSL();
                 }
             }
             catch { MessageBox.Show("Thêm thất bại.");
@@ -159,6 +165,7 @@ namespace Đồ_án
                     db.ExecuteNonQuery("delete from BAITAPNP where MaBTNP='" + txtmaBT.Texts + "'");
                     xuatdatag();                  
                     cleartextbox();
+                    demSL();
                 }
                 catch
                 {

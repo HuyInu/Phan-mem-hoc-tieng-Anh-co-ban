@@ -31,7 +31,7 @@ namespace Đồ_án
             {
                 MessageBox.Show("Lỗi kết nối");
             }
-           
+            hu.doimaubutton(194, 194, 194, buthuy);
             xuatdl();
             demsl();
             
@@ -135,36 +135,50 @@ namespace Đồ_án
             {
                 MessageBox.Show("Thông tin không được bỏ trống!");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else if (txthoten.Texts.Length > 10 || txthoten.Texts.Length < 5)
             {
                 MessageBox.Show("Tên tối thiểu 5 ký tự, tối đa 10 ký tự");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else if (txttk.Texts.Length > 10 || txttk.Texts.Length < 5)
             {
                 MessageBox.Show("Tài khoản tối thiểu 5 ký tự, tối đa 10 ký tự");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else if (txtmk.Texts.Length > 10 || txtmk.Texts.Length < 5)
             {
                 MessageBox.Show("Mật khẩu tối thiểu 5 ký tự, tối đa 10 ký tự");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else if (db.kiemtra("select TK from NGUOIHOC where TK='" + txttk.Texts + "'"))
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu đã có người dùng.");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else if (db.kiemtra("select MK from NGUOIHOC where MK='" + txtmk.Texts + "'"))
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu đã có người dùng.");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else if (db.kiemtra("select Email from NGUOIHOC where Email='" + txtemail.Texts + "'"))
             {
                 MessageBox.Show("Email đã có người dùng.");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else
             {
@@ -176,6 +190,8 @@ namespace Đồ_án
                     demsl();
                     cleartextbox();
                     disablebutton();
+                    disableHuy();
+                    enableThaotac();
                     MessageBox.Show("Thêm thành công.");
                 }
                 catch
@@ -183,6 +199,8 @@ namespace Đồ_án
                     MessageBox.Show("Thêm thất bại!.");
                     db.huyketnoi();
                     disablebutton();
+                    disableHuy();
+                    enableThaotac();
                 }
             }
         }
@@ -193,36 +211,50 @@ namespace Đồ_án
             {
                 MessageBox.Show("Thông tin không được bỏ trống!");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
-            else if (txthoten.Texts.Length > 10)
+            else if (txthoten.Texts.Length > 10 || txthoten.Texts.Length < 5)
             {
-                MessageBox.Show("Tên tối đa 10 ký tự");
+                MessageBox.Show("Tên tối thiểu 5 ký tự, tối đa 10 ký tự");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
-            else if (txttk.Texts.Length > 10)
+            else if (txttk.Texts.Length > 10 || txttk.Texts.Length < 5)
             {
-                MessageBox.Show("Tài khoản tối đa 10 ký tự");
+                MessageBox.Show("Tài khoản tối thiểu 5 ký tự, tối đa 10 ký tự");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
-            else if (txtmk.Texts.Length > 10)
+            else if (txtmk.Texts.Length > 10 || txtmk.Texts.Length < 5)
             {
-                MessageBox.Show("Mật khẩu tối đa 10 ký tự");
+                MessageBox.Show("Mật khẩu tối thiểu 5 ký tự, tối đa 10 ký tự");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else if (db.kiemtra("select TK from NGUOIHOC where TK='" + txttk.Texts + "' Except select TK from NGUOIHOC where MaNH='" + txtmanh.Texts + "'"))
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu đã có người dùng.");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else if (db.kiemtra("select MK from NGUOIHOC where MK='" + txtmk.Texts + "'Except select MK from NGUOIHOC where MaNH='" + txtmanh.Texts + "'"))
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu đã có người dùng.");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else if (db.kiemtra("select Email from NGUOIHOC where Email='" + txtemail.Texts + "'Except select Email from NGUOIHOC where MaNH='" + txtmanh.Texts + "'"))
             {
                 MessageBox.Show("Email đã có người dùng.");
                 disablebutton();
+                disableHuy();
+                enableThaotac();
             }
             else
             {
@@ -232,6 +264,8 @@ namespace Đồ_án
                     db.ExecuteNonQuery(update);
                     xuatdl();
                     disablebutton();
+                    disableHuy();
+                    enableThaotac();
                     MessageBox.Show("Sửa thành công.");
                 }
                 catch
@@ -239,6 +273,8 @@ namespace Đồ_án
                     MessageBox.Show("Sửa thất bại!");
                     db.huyketnoi();
                     disablebutton();
+                    disableHuy();
+                    enableThaotac();
                 }
             }
         }
@@ -246,8 +282,8 @@ namespace Đồ_án
         private void butxoa_Click(object sender, EventArgs e)
         {
                 DialogResult dl = MessageBox.Show("Thông tin người dùng sẽ mất. Bạn có chắc xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dl == DialogResult.Yes)
-                {
+            if (dl == DialogResult.Yes)
+            {
                 try
                 {
                     string xoa = "delete from NGUOIHOC where MaNH='" + txtmanh.Texts + "'";
@@ -256,6 +292,8 @@ namespace Đồ_án
                     demsl();
                     cleartextbox();
                     disablebutton();
+                    disableHuy();
+                    enableThaotac();
                     MessageBox.Show("Xóa thành công.");
                 }
                 catch
@@ -263,19 +301,42 @@ namespace Đồ_án
                     MessageBox.Show("Xóa thất bại!.");
                     db.huyketnoi();
                     disablebutton();
-                }  
+                }
             }
-            else disablebutton();
+            else {
+                disablebutton();
+                disableHuy();
+                enableThaotac();
+            }
 
-        }        
+        }
+        public void enableThaotac()
+        {
+            butthaotac.Enabled = true;
+            hu.doimaubutton(204, 228, 255, butthaotac);
+        }
+        public void disableThaotac()
+        {
+            hu.doimaubutton(194, 194, 194, butthaotac);
+            butthaotac.Enabled = false;
+        }
+        public void disableHuy()
+        {
+            hu.doimaubutton(194, 194, 194, buthuy);
+            buthuy.Enabled = false;
+        }
         private void butthaotac_Click(object sender, EventArgs e)
         {           
             enablebutton();
+            disableThaotac();
+            hu.doimaubutton(204, 228, 255, buthuy);
+            buthuy.Enabled = true;
         }
-
         private void buthuy_Click(object sender, EventArgs e)
         {           
             disablebutton();
+            disableHuy();
+            enableThaotac();
         }
 
         private void butava_Click(object sender, EventArgs e)
@@ -308,6 +369,11 @@ namespace Đồ_án
             else if(ramk.Checked==true)
             {
                 DataTable dt = db.Execute("select MaNH as 'Mã NH',Name as Tên,Email,TK as 'Tài khoản',MK as 'Mật khẩu',Ava from NGUOIHOC where MK like '%" + txttimkiem.Text + "%'");
+                dtdrigNH.DataSource = dt;
+            }
+            else if (raID.Checked == true)
+            {
+                DataTable dt = db.Execute("select MaNH as 'Mã NH',Name as Tên,Email,TK as 'Tài khoản',MK as 'Mật khẩu',Ava from NGUOIHOC where MaNH like '%" + txttimkiem.Text + "%'");
                 dtdrigNH.DataSource = dt;
             }
             else

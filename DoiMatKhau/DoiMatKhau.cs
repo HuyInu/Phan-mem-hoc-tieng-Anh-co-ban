@@ -26,7 +26,7 @@ namespace Đồ_án
 
         private void butDoiMk_Click(object sender, EventArgs e)
         {
-            if (txttk.Texts == "" || txtmk.Texts == "" || txtmk2.Texts == "" || txtmk3.Texts == "")
+            if (txttk.Texts == "" || txtmk.Texts == "" || txtmk2.Texts == "" )
             {
                 if (txttk.Texts == "")
                 {
@@ -60,24 +60,14 @@ namespace Đồ_án
                     lbwanmk2.Hide();
                     wan3.Hide();
                 }
-
-                if (txtmk3.Texts == "")
-                {
-                    lbwanmk3.Show();
-                    wan4.Show();
-                }
-                else
-                {
-                    lbwanmk3.Hide();
-                    wan4.Hide();
-                }
             }
-            else if(txtmk2.Texts.Length>10 || txtmk2.Texts.Length > 5)
-                MessageBox.Show("Mật khẩu tối thiểu 5 ký tự và tối đa 10 ký tự");
+            
             else if (db.kiemtra("select * from NGUOIHOC where TK='" + txttk.Texts + "' and MK='" + txtmk.Texts + "'") == false)
                 MessageBox.Show("Tài khoản hoặc mật khẩu không tồn tại.");
             else if(db.kiemtra("select * from NGUOIHOC where MK='"+txtmk2.Texts+"'"))
                 MessageBox.Show("Mật khẩu đã tồn tại.");
+            else if (txtmk2.Texts.Length > 10 || txtmk2.Texts.Length < 5)
+                MessageBox.Show("Mật khẩu tối thiểu 5 ký tự và tối đa 10 ký tự");
             else if(txtmk2.Texts!=txtmk3.Texts)
                 MessageBox.Show("Mật khẩu không trùng nhau.");
             else

@@ -138,8 +138,41 @@ namespace Đồ_án
                 HNP.BringToFront();
             }
         }
+        public int checkNullTT()
+        {
+            
+            DataTable dt1 = db.Execute("select top 1 * from NOICAU where MaBH='"+NGUOIHOC.idbaihoc+"'");
+            if (dt1.Rows.Count != 0)
+                return 1;
+            else
+            {
+                dt1 = db.Execute("select top 1 * from CauHoiNghe where MaBH='" + NGUOIHOC.idbaihoc + "'");
+                if (dt1.Rows.Count != 0)
+                    return 1;
+                else
+                {
+                    dt1 = db.Execute("select top 1 * from CauHoiChonHinh where MaBH='" + NGUOIHOC.idbaihoc + "'");
+                    if (dt1.Rows.Count != 0)
+                        return 1;
+                }
+            }
+            return 0;
+        }
+        private void ChonTT_Click(object sender, EventArgs e)
+        {
+            if (checkNullTT() == 1)
+            {
+                ThuThach tt = new ThuThach();
+                tt.Show();
+                tt.TopLevel = false;
+                Nguoidungfrom.ndf.pn.Controls.Add(tt);
+                tt.Dock = DockStyle.Fill;
+                tt.BringToFront();
+            }
+            else
+                MessageBox.Show("Hiện không có gì để học.");
+        }
 
-       
 
 
         /***---Trở về---***/
@@ -326,5 +359,6 @@ namespace Đồ_án
 
             ClearSearch();
         }
+
     }
 }

@@ -71,27 +71,30 @@ namespace Đồ_án
 
         private void butdn_Click(object sender, EventArgs e)
         {
-            if(txttk.Texts == "")
+            if (txttk.Texts == "" || txtmk.Texts == "")
             {
-                labwantk.Visible = true;
-                labwan1.Visible = true;
+                if (txttk.Texts == "")
+                {
+                    labwantk.Visible = true;
+                    labwan1.Visible = true;
+                }
+                else
+                {
+                    labwantk.Visible = false;
+                    labwan1.Visible = false;
+                }
+                if (txtmk.Texts == "")
+                {
+                    labwanmk.Visible = true;
+                    labwan2.Visible = true;
+                }
+                else
+                {
+                    labwanmk.Visible = false;
+                    labwan2.Visible = false;
+                }
             }
-            else
-            {
-                labwantk.Visible = false;
-                labwan1.Visible = false;
-            }
-            if(txtmk.Texts == "")
-            {
-                labwanmk.Visible=true;
-                labwan2.Visible = true;
-            }
-            else
-            {
-                labwanmk.Visible = false;
-                labwan2.Visible = false;
-            }
-            if (db.kiemtra("select * from NGUOIHOC where TK='" + txttk.Texts + "' and MK='" + txtmk.Texts + "'"))
+            else if (db.kiemtra("select * from NGUOIHOC where TK='" + txttk.Texts + "' and MK='" + txtmk.Texts + "'"))
             {
                 DataTable dt = db.Execute("select MaNH from NGUOIHOC where TK='" + txttk.Texts + "' and MK='" + txtmk.Texts + "'");
                 NGUOIHOC.id= dt.Rows[0][0].ToString();
@@ -113,6 +116,10 @@ namespace Đồ_án
             }
             else
             {
+                labwantk.Visible = false;
+                labwan1.Visible = false;
+                labwanmk.Visible = false;
+                labwan2.Visible = false;
                 MessageBox.Show("Tài khoản hoặc mật khẩu không tồn tại.");
             }
         }

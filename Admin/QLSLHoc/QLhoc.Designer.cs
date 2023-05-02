@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.week = new System.Windows.Forms.Label();
             this.month = new System.Windows.Forms.Label();
             this.year = new System.Windows.Forms.Label();
@@ -45,7 +45,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.butreport = new Đồ_án.CustomButton();
+            this.butFull = new Đồ_án.CustomButton();
+            this.but1 = new Đồ_án.CustomButton();
             this.pn1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
             this.SuspendLayout();
@@ -186,20 +187,21 @@
             // 
             this.dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(161)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(161)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtg.Location = new System.Drawing.Point(34, 370);
             this.dtg.Name = "dtg";
             this.dtg.RowTemplate.Height = 24;
             this.dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg.Size = new System.Drawing.Size(941, 272);
             this.dtg.TabIndex = 29;
+            this.dtg.SelectionChanged += new System.EventHandler(this.dtg_SelectionChanged);
             // 
             // label2
             // 
@@ -237,28 +239,52 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Chọn thời điểm:";
             // 
-            // butreport
+            // butFull
             // 
-            this.butreport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.butreport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
-            this.butreport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.butreport.BorderRadius = 15;
-            this.butreport.BorderSize = 2;
-            this.butreport.FlatAppearance.BorderSize = 0;
-            this.butreport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
-            this.butreport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
-            this.butreport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butreport.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butreport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butreport.Location = new System.Drawing.Point(45, 98);
-            this.butreport.Margin = new System.Windows.Forms.Padding(4);
-            this.butreport.Name = "butreport";
-            this.butreport.Size = new System.Drawing.Size(110, 45);
-            this.butreport.TabIndex = 59;
-            this.butreport.Text = "In report";
-            this.butreport.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
-            this.butreport.UseVisualStyleBackColor = false;
-            this.butreport.Click += new System.EventHandler(this.butreport_Click);
+            this.butFull.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butFull.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.butFull.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butFull.BorderRadius = 15;
+            this.butFull.BorderSize = 2;
+            this.butFull.FlatAppearance.BorderSize = 0;
+            this.butFull.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.butFull.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.butFull.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butFull.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butFull.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butFull.Location = new System.Drawing.Point(45, 98);
+            this.butFull.Margin = new System.Windows.Forms.Padding(4);
+            this.butFull.Name = "butFull";
+            this.butFull.Size = new System.Drawing.Size(110, 45);
+            this.butFull.TabIndex = 59;
+            this.butFull.Text = "In tất cả";
+            this.butFull.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.butFull.UseVisualStyleBackColor = false;
+            this.butFull.Click += new System.EventHandler(this.butreport_Click);
+            // 
+            // but1
+            // 
+            this.but1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.but1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
+            this.but1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.but1.BorderRadius = 15;
+            this.but1.BorderSize = 2;
+            this.but1.Enabled = false;
+            this.but1.FlatAppearance.BorderSize = 0;
+            this.but1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.but1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.but1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but1.Font = new System.Drawing.Font("000 Chinacat [TeddyBear]", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.but1.Location = new System.Drawing.Point(163, 98);
+            this.but1.Margin = new System.Windows.Forms.Padding(4);
+            this.but1.Name = "but1";
+            this.but1.Size = new System.Drawing.Size(119, 45);
+            this.but1.TabIndex = 60;
+            this.but1.Text = "In tự chọn";
+            this.but1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(59)))), ((int)(((byte)(122)))));
+            this.but1.UseVisualStyleBackColor = false;
+            this.but1.Click += new System.EventHandler(this.but1_Click);
             // 
             // QLhoc
             // 
@@ -266,7 +292,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1010, 676);
-            this.Controls.Add(this.butreport);
+            this.Controls.Add(this.but1);
+            this.Controls.Add(this.butFull);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -306,6 +333,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private CustomButton butreport;
+        private CustomButton butFull;
+        private CustomButton but1;
     }
 }
